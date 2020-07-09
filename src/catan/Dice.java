@@ -16,7 +16,7 @@ public class Dice {
     private int throwDice(){
         return ((int)Math.random()*5)+1;
     }
-    
+     private void testemetodo(){}
     public int diceValue(){
         return throwDice() + throwDice();
     }
