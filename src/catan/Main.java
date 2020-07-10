@@ -18,9 +18,11 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
     
-    int chosenTile = 0;
+    static int chosenTile = 0;
     static boolean gameover;
-    List<Player> listPlayers = new ArrayList<Player>();
+    static Dice dice = new Dice();
+    static List<Player> listPlayers = new ArrayList<Player>();
+    static Board board = new Board();
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -40,9 +42,19 @@ public class Main extends Application {
         gameover = true;
         
         while(!gameover){
-            
+            for(int i = 0; i < listPlayers.size(); i++){
+                chosenTile = dice.throwDice(2);
+                
+                for(Hexagon hex : board.getTiles()){
+                    if(chosenTile == hex.getNum()){
+                        givePlayersResources(hex.getResource());
+                    }
+                }
+            }
         }
-        
+    }
+    
+    private static void givePlayersResources(String Resource){
     }
     
 }

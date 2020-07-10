@@ -10,6 +10,6 @@ package catan;
  * @author José Sampaio
  * Criaçao da Classe
  */
-public class HexDesert extends Hexagons{
+public class HexDesert extends Hexagon{
     
 }

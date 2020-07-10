@@ -10,6 +10,6 @@ package catan;
  * @author José Sampaio
  * Criaçao da Classe
  */
-public class HexResource extends Hexagons{
+public class HexResource extends Hexagon{
     
 }

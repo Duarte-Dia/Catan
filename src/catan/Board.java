@@ -5,11 +5,25 @@
  */
 package catan;
 
+import java.util.*;
+
 /**
  *
  * @author José Sampaio
  * Criaçao da Classe
  */
 public class Board {
+    
+    private List<Hexagon> tiles = new ArrayList<Hexagon>();
+    
+    public List<Hexagon> getTiles() {
+        return tiles;
+    }
+    public void setTiles(List<Hexagon> tiles) {
+        this.tiles = tiles;
+    }
+    
+    
+    
     
 }
