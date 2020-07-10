@@ -5,29 +5,40 @@
  */
 package catan;
 
+import java.util.*;
+
 /**
  *
- * @author José Sampaio
- * Criaçao da Classe
+ * @author Bruno Ribeiro Criaçao da Classe
  */
 public class Hexagon {
 
-    private int num;
-    private String Resource;
-    
-    public String getResource() {
-        return Resource;
+    private int num, resourceID;
+    private List<Vector3> vectors = new ArrayList<Vector3>();
+
+    public int getResourceID() {
+        return resourceID;
     }
-    public void setResource(String Resource) {
-        this.Resource = Resource;
+
+    public void setResourceID(int Resource) {
+        this.resourceID = resourceID;
     }
-    
+
     public int getNum() {
         return num;
     }
-    
+
     public void setNum(int num) {
         this.num = num;
     }
-    
+
+    public boolean containVector(Vector3 selectedVector) {
+        for (Vector3 v : vectors) {
+            if (selectedVector.x == v.x && selectedVector.y == v.y && selectedVector.z == v.z) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

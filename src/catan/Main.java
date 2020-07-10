@@ -47,14 +47,41 @@ public class Main extends Application {
                 
                 for(Hexagon hex : board.getTiles()){
                     if(chosenTile == hex.getNum()){
-                        givePlayersResources(hex.getResource());
+                        givePlayersResources(hex.getResourceID(), hex);
                     }
+                }
+                
+                if(isGameOver()){
+                    gameover = true;
                 }
             }
         }
     }
     
-    private static void givePlayersResources(String Resource){
+    private static void givePlayersResources(int resource, Hexagon hex){
+        
+        for(Player p : listPlayers){
+            for(City c : p.getListCities()){
+                hex.containVector(c.getPosition());
+            }
+        }        
+    }
+    
+    private static boolean isGameOver(){
+        
+        for(Player p : listPlayers){
+            p.getListCities().size();
+            
+            p.getListSettlements().size();
+            
+            p.getListRoads().size();
+            
+            if(p.getScore() >= 10){
+                return true;
+            }
+        }
+        
+        return false;
     }
     
 }
