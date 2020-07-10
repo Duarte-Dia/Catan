@@ -12,4 +12,5 @@ package catan;
  */
 public class Player {
     
+    public String nome;
 }
