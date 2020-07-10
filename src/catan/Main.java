@@ -17,19 +17,19 @@ import javafx.stage.Stage;
  * @author Bruno Ribeiro
  */
 public class Main extends Application {
-    
+
     static int chosenTile = 0;
-    static boolean gameover;
+    static boolean gameover, endPlay;
     static Dice dice = new Dice();
     static List<Player> listPlayers = new ArrayList<Player>();
     static Board board = new Board();
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.show();
     }
@@ -40,48 +40,89 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
         gameover = true;
-        
-        while(!gameover){
-            for(int i = 0; i < listPlayers.size(); i++){
+
+        while (!gameover) {
+            for (int i = 0; i < listPlayers.size(); i++) {
+                endPlay = false;
                 chosenTile = dice.throwDice(2);
-                
-                for(Hexagon hex : board.getTiles()){
-                    if(chosenTile == hex.getNum()){
+
+                for (Hexagon hex : board.getTiles()) {
+                    if (chosenTile == hex.getNum()) {
                         givePlayersResources(hex.getResourceID(), hex);
                     }
                 }
-                
-                if(isGameOver()){
+
+                do {
+
+                } while (!endPlay);
+
+                longestRoad();
+
+                if (isGameOver()) {
                     gameover = true;
                 }
             }
         }
     }
-    
-    private static void givePlayersResources(int resource, Hexagon hex){
-        
-        for(Player p : listPlayers){
-            for(City c : p.getListCities()){
-                hex.containVector(c.getPosition());
+
+    private static void givePlayersResources(int resource, Hexagon hex) {
+
+        for (Player p : listPlayers) {
+            for (City c : p.getListCities()) {
+                if (hex.containVector(c.getPosition())) {
+                    // PLAYER GETS RESOURCES !!!!!!!!!!!!!
+                }
             }
-        }        
+        }
     }
-    
-    private static boolean isGameOver(){
-        
-        for(Player p : listPlayers){
-            p.getListCities().size();
-            
-            p.getListSettlements().size();
-            
-            p.getListRoads().size();
-            
-            if(p.getScore() >= 10){
+
+    private static boolean isGameOver() {
+
+        for (Player p : listPlayers) {
+            p.addScore(p.getListSettlements().size());
+
+            p.addScore(p.getListCities().size() * 2);
+
+            if (p.isLongestRoad()) {
+                p.addScore(2);
+            }
+
+            if (p.isBiggestArmy()) {
+                p.addScore(2);
+            }
+
+            p.addScore(p.devCardsPoints());
+
+            if (p.getScore() >= 10) {
                 return true;
             }
         }
-        
+
         return false;
     }
-    
+
+    private static void longestRoad() {
+        List<Integer> listRoadSizes = new ArrayList<Integer>();
+        int size, playerSelected;
+
+        for (Player p : listPlayers) {
+            listRoadSizes.add(p.getListRoads().size());
+        }
+
+        size = Collections.max(listRoadSizes);
+
+        if (size > 5) {
+            if (Collections.frequency(listRoadSizes, size) == 1) {
+                playerSelected = listRoadSizes.indexOf(Collections.max(listRoadSizes));
+
+                for (Player p : listPlayers) {
+                    p.setLongestRoad(false);
+                }
+
+                listPlayers.get(playerSelected).setLongestRoad(true);
+            }
+        }
+    }
+
+}
 }

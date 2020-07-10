@@ -6,17 +6,25 @@
 package catan;
 
 import java.util.*;
+
 /**
  *
- * @author Bruno Ribeiro
- * Criaçao da Classe
+ * @author Bruno Ribeiro Criaçao da Classe
  */
 public class Player {
-    
-    private int score;
+
+    private int score, id;
+    private boolean longestRoad, biggestArmy;
     private List<City> listCities = new ArrayList<City>();
     private List<Settlement> listSettlements = new ArrayList<Settlement>();
     private List<Road> listRoads = new ArrayList<Road>();
+
+    public Player(int score, int id, boolean longestRoad, boolean biggestArmy) {
+        this.score = score;
+        this.id = id;
+        this.longestRoad = longestRoad;
+        this.biggestArmy = biggestArmy;
+    }
 
     public List<Settlement> getListSettlements() {
         return listSettlements;
@@ -41,11 +49,40 @@ public class Player {
     public void setListCities(List<City> listCities) {
         this.listCities = listCities;
     }
-    
+
     public int getScore() {
         return score;
     }
+
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public void addScore(int score) {
+        this.score += score;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isLongestRoad() {
+        return longestRoad;
+    }
+
+    public void setLongestRoad(boolean hasLongestRoad) {
+        this.longestRoad = hasLongestRoad;
+    }
+
+    public boolean isBiggestArmy() {
+        return biggestArmy;
+    }
+
+    public void setBiggestArmy(boolean hasBiggestArmy) {
+        this.biggestArmy = hasBiggestArmy;
     }
 }
