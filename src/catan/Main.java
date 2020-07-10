@@ -5,6 +5,7 @@
  */
 package catan;
 
+import java.util.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,9 +14,13 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author José Sampaio
+ * @author Bruno Ribeiro
  */
 public class Main extends Application {
+    
+    int chosenTile = 0;
+    static boolean gameover;
+    List<Player> listPlayers = new ArrayList<Player>();
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -32,6 +37,12 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        gameover = true;
+        
+        while(!gameover){
+            
+        }
+        
     }
     
 }
