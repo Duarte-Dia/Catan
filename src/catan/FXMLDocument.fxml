@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
@@ -19,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" centerShape="false" prefHeight="900.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catan.FXMLDocumentController">
+<AnchorPane id="AnchorPane" centerShape="false" prefHeight="900.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catan.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="127.0" layoutY="112.0" minHeight="16" minWidth="69" />
       <Rectangle fx:id="rchat" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="181.0" layoutX="14.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
@@ -76,38 +71,430 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Text layoutX="19.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:" />
-                        <Text layoutX="20.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:" />
-                        <Text layoutX="20.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:" />
+                        <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                        <Text layoutX="21.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:" />
-                        <Text layoutX="20.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:" />
-                        <Text layoutX="22.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos:" />
-                        <Text fx:id="numberBrickPlayer1" layoutX="77.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                        <Text fx:id="numberWoodPlayer1" layoutX="91.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                        <Text fx:id="numberMetalPlayer1" layoutX="79.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                        <Text fx:id="numberCottonPlayer1" layoutX="93.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                        <Text fx:id="numberWheatPlayer1" layoutX="79.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                        <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Text fx:id="numberBrickPlayer1" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text fx:id="numberWoodPlayer1" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text fx:id="numberMetalPlayer1" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text fx:id="numberCottonPlayer1" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text fx:id="numberWheatPlayer1" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberArmyPlayer1" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCardsPlayer1" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberVillagePlayer1" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberStreetPlayer1" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCityPlayer1" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
                      </children></AnchorPane>
                </content></Tab>
             <Tab fx:id="Player2Tab" text="Player2">
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Text layoutX="31.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recusos:" />
-                        <Text layoutX="31.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos" />
-                        <Text layoutX="30.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira" />
-                        <Text layoutX="29.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal" />
-                        <Text layoutX="29.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão" />
+                        <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberBrickPlayer2" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberWoodPlayer2" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberMetalPlayer2" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCottonPlayer2" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberWheatPlayer2" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberArmyPlayer2" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCardsPlayer2" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberVillagePlayer2" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberStreetPlayer2" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCityPlayer2" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
                      </children></AnchorPane>
                </content></Tab>
             <Tab fx:id="player3Tab" text="Player3">
                <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberBrickPlayer3" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberWoodPlayer3" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberMetalPlayer3" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCottonPlayer3" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberWheatPlayer3" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberArmyPlayer3" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCardsPlayer3" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberVillagePlayer3" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberStreetPlayer3" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCityPlayer3" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children></AnchorPane>
                </content></Tab>
-            <Tab fx:id="player4Tab" text="player4">
+            <Tab fx:id="player4Tab" text="Player4">
                <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberBrickPlayer4" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberWoodPlayer4" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberMetalPlayer4" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCottonPlayer4" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberWheatPlayer4" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberArmyPlayer4" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCardsPlayer4" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberVillagePlayer4" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberStreetPlayer4" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="numberCityPlayer4" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children></AnchorPane>
                </content></Tab>
         </tabs>
       </TabPane>
