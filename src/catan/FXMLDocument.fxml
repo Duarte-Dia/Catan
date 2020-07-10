@@ -37,7 +37,7 @@
           <MenuItem fx:id="harborOption2" mnemonicParsing="false" text="Porto2" />
         </items>
       </MenuButton>
-      <Polygon fill="DODGERBLUE" layoutX="1014.0" layoutY="464.0" rotate="-31.0" scaleX="10.5" scaleY="10.5" scaleZ="10.0" stroke="BLACK" strokeType="INSIDE" translateY="-11.0">
+      <Polygon fill="DODGERBLUE" layoutX="827.0" layoutY="462.0" rotate="90" scaleX="10.08" scaleY="10.08" scaleZ="10.0" stroke="BLACK" strokeType="INSIDE" translateY="-11.0">
             <points>
                 <Double fx:value="-35.0" /><!--multiplyer:-5.0 -->
                 <Double fx:value="21.0" /><!--multiplyer:3.0 -->
