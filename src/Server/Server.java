@@ -5,7 +5,9 @@
  */
 package Server;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import java.net.*;
@@ -29,11 +31,16 @@ public class Server {
         Socket client = server.accept();
         System.out.println("[Server]Ligado a client");
         PrintWriter out = new PrintWriter(client.getOutputStream(),true);
+         BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
         out.println( msg.toString() );
         
+        
+        
+        
     // fechar ligação
+        /*
         client.close();
         System.out.println("[Server]A desligar");
-        server.close();
+        server.close();*/ 
     }
 }
