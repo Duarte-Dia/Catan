@@ -89,10 +89,24 @@ public class Server {
             cmd= in.readUTF();
             System.out.println(cmd);
             
+            
+            StringTokenizer st = new StringTokenizer(cmd,"»");
+            String receivingClient = st.nextToken();
+            String msg = st.nextToken();
+            
+            for(ClientHandler client : Server.listaClientes){
+            if(client.name.equals(receivingClient) && client.logged){
+                client.out.writeUTF("Whisper from " + name + ":" + msg);
+            
+            }
+            
+            }
              
             
             
-            } catch(IOException e){}
+            } catch(IOException e){
+            e.printStackTrace();
+            }
         
         
         
