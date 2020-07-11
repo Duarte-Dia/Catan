@@ -22,13 +22,18 @@ public class Server {
     public static void main(String[] args) throws IOException{
     
         ServerSocket server = new ServerSocket(port);
+        String msg ="Ligas te te ao servidor like a boss";
         
         // Servidor fica a espera de um cliente
+        System.out.println("[Server]Esperando por ligação");
         Socket client = server.accept();
-        PrintWriter out = new PrintWriter(client.getOutputStream());
-        out.println( "Oi mano!" );
+        System.out.println("[Server]Ligado a client");
+        PrintWriter out = new PrintWriter(client.getOutputStream(),true);
+        out.println( msg.toString() );
         
     // fechar ligação
         client.close();
+        System.out.println("[Server]A desligar");
+        server.close();
     }
 }
