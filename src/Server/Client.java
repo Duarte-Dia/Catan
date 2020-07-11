@@ -18,6 +18,8 @@ import javax.swing.JOptionPane;
  */
 public class Client {
 
+    
+    // ATENÇÃO PODERA HAVER NECESSIDADE DE FUNDIR O CLIENTA HÁ CALSSE PLAYER PARA FACILITAR FUTURAS IMPLEMENTAÇOES
     private static String serverIP = "127.0.0.1";
     private static final int serverPort = 9090;
 
