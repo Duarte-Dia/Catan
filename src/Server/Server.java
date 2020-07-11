@@ -5,12 +5,11 @@
  */
 package Server;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 
+import java.io.*;
 import java.net.*;
+import java.util.*;
+
 
 /**
  *
@@ -18,21 +17,37 @@ import java.net.*;
  */
 public class Server {
     
-    private static int port = 9090;
+    private static int port = 9090, nClientes=0;
+    private static Vector<ClientHandler> listaClientes = new Vector<>();
     
     
     public static void main(String[] args) throws IOException{
     
         ServerSocket server = new ServerSocket(port);
-        String msg ="Ligas te te ao servidor like a boss";
+        String msg ="Ligas te ao servidor";
         
+        while(true){
         // Servidor fica a espera de um cliente
-        System.out.println("[Server]Esperando por ligação");
+        System.out.println("[SERVER]Esperando por ligação");
         Socket client = server.accept();
-        System.out.println("[Server]Ligado a client");
-        PrintWriter out = new PrintWriter(client.getOutputStream(),true);
-         BufferedReader input = new BufferedReader(new InputStreamReader(client.getInputStream()));
-        out.println( msg.toString() );
+        System.out.println("[SERVER]Estabelecido ligação a um cliente");
+        
+        DataInputStream in = new DataInputStream(client.getInputStream());
+        DataOutputStream out = new DataOutputStream(client.getOutputStream());
+        
+        ClientHandler ch = new ClientHandler("Cliente "+ nClientes,in,out,client);
+        Thread t= new Thread(ch);
+        
+        System.out.println("[SERVER] Cliente adicionado ");
+        listaClientes.add(ch);
+        t.start();
+        
+        nClientes++;
+        
+        
+        }
+         
+       
         
         
         
