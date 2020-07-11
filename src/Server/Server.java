@@ -58,4 +58,46 @@ public class Server {
         System.out.println("[Server]A desligar");
         server.close();*/ 
     }
+    
+    private static class ClientHandler implements Runnable {
+    
+    private String name;
+    final DataInputStream in;
+    final DataOutputStream out;
+    Socket socket;
+    boolean logged;
+    
+    
+    public ClientHandler (String name,DataInputStream in,DataOutputStream out,Socket s){
+        
+        this.name= name;
+        this.in=in;
+        this.out=out;
+        this.socket=s;
+        logged=true;
+    
+    
+    }
+
+    @Override
+    public void run() {
+        String cmd;
+        
+        while(true){
+        
+            try{
+            cmd= in.readUTF();
+            System.out.println(cmd);
+            
+             
+            
+            
+            } catch(IOException e){}
+        
+        
+        
+        }
+    }
+    
+}
 }
