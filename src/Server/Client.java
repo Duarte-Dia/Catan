@@ -6,6 +6,8 @@
 package Server;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -26,6 +28,9 @@ public class Client {
     public static void main(String[] args) throws IOException {
 
         Socket socket = new Socket(serverIP, serverPort);
+        
+        DataInputStream in = new DataInputStream(socket.getInputStream());
+        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
         BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         
@@ -35,7 +40,7 @@ public class Client {
 
         BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
 
-        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+        PrintWriter outp = new PrintWriter(socket.getOutputStream(), true);
         
         
         
@@ -47,7 +52,7 @@ public class Client {
         if(cmd.equals("")) break;
         
 
-        out.println(cmd);
+        outp.println(cmd);
 
         String serverResponse = input.readLine();
         System.out.println("Server : "+ serverResponse);
