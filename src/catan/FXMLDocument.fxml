@@ -26,7 +26,7 @@
       <Rectangle fx:id="rchat" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="181.0" layoutX="14.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="415.0" layoutX="14.0" layoutY="395.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
       <Rectangle fx:id="rtrades" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="201.0" layoutX="14.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-      <Rectangle fx:id="player1Label" arcHeight="5.0" arcWidth="5.0" fill="RED" height="436.0" layoutX="402.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="436.0" layoutX="402.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00eafa" height="436.0" layoutX="402.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4ff00" height="436.0" layoutX="826.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00ff37" height="436.0" layoutX="826.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
@@ -555,7 +555,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Label fx:id="player1Labe1" layoutX="524.0" layoutY="36.0" text="Name">
+      <Label fx:id="player1Label" layoutX="524.0" layoutY="36.0" text="Name">
          <font>
             <Font size="20.0" />
          </font>
