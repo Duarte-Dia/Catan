@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
@@ -14,17 +20,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" centerShape="false" prefHeight="900.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catan.FXMLDocumentController">
+<AnchorPane id="AnchorPane" centerShape="false" prefHeight="900.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catan.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="127.0" layoutY="112.0" minHeight="16" minWidth="69" />
       <Rectangle fx:id="rchat" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="181.0" layoutX="14.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="424.0" layoutX="14.0" layoutY="386.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-      <Rectangle fx:id="rtrades" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="192.0" layoutX="14.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-      <Rectangle fx:id="player1Label" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="436.0" layoutX="402.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="436.0" layoutX="402.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="436.0" layoutX="826.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="436.0" layoutX="826.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
-      <TabPane layoutX="15.0" layoutY="387.0" prefHeight="424.0" prefWidth="387.0" tabClosingPolicy="UNAVAILABLE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="415.0" layoutX="14.0" layoutY="395.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+      <Rectangle fx:id="rtrades" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="201.0" layoutX="14.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+      <Rectangle fx:id="player1Label" arcHeight="5.0" arcWidth="5.0" fill="RED" height="436.0" layoutX="402.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00eafa" height="436.0" layoutX="402.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4ff00" height="436.0" layoutX="826.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00ff37" height="436.0" layoutX="826.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
+      <TabPane layoutX="15.0" layoutY="396.0" prefHeight="415.0" prefWidth="387.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="InformationTab" text="informação">
                <content>
@@ -500,9 +506,9 @@
       </TabPane>
       <TextArea fx:id="outputChatText" layoutX="15.0" layoutY="52.0" prefHeight="108.0" prefWidth="387.0" />
       <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" prefHeight="35.0" prefWidth="387.0" promptText="Digite para falar no Chat" />
-      <Button fx:id="bankTradeButton" layoutX="309.0" layoutY="249.0" mnemonicParsing="false" text="Trocar" />
-      <Button fx:id="harborTradeButton" layoutX="308.0" layoutY="321.0" mnemonicParsing="false" text="Trocar" />
-      <MenuButton fx:id="harborMenu" layoutX="136.0" layoutY="321.0" mnemonicParsing="false" text="Selecionar Porto:">
+      <Button fx:id="bankTradeButton" layoutX="306.0" layoutY="245.0" mnemonicParsing="false" text="Trocar" />
+      <Button fx:id="harborTradeButton" layoutX="308.0" layoutY="354.0" mnemonicParsing="false" text="Trocar" />
+      <MenuButton fx:id="harborMenu" layoutX="126.0" layoutY="354.0" mnemonicParsing="false" text="Selecionar Porto:">
         <items>
           <MenuItem fx:id="harborOption1" mnemonicParsing="false" text="Porto1" />
           <MenuItem fx:id="harborOption2" mnemonicParsing="false" text="Porto2" />
@@ -519,12 +525,12 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fx:id="bankText" layoutX="39.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco">
+      <Text fx:id="bankText" layoutX="46.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="harborText" layoutX="41.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Porto">
+      <Text fx:id="harborText" layoutX="41.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Porto">
          <font>
             <Font size="15.0" />
          </font>
@@ -549,7 +555,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Label fx:id="player1Label" layoutX="524.0" layoutY="36.0" text="Name">
+      <Label fx:id="player1Labe1" layoutX="524.0" layoutY="36.0" text="Name">
          <font>
             <Font size="20.0" />
          </font>
@@ -615,5 +621,18 @@
             <Font size="20.0" />
          </font>
       </Button>
+      <Text fx:id="harborText1" layoutX="40.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jogador">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <MenuButton fx:id="playerMenu1" layoutX="114.0" layoutY="299.0" mnemonicParsing="false" text="Selecionar Jogador:">
+         <items>
+            <MenuItem fx:id="PlayerOption1" mnemonicParsing="false" text="Jogador1" />
+            <MenuItem fx:id="playerOption2" mnemonicParsing="false" text="Jogador2" />
+            <MenuItem fx:id="playerOption3" mnemonicParsing="false" text="Jogador3" />
+         </items>
+      </MenuButton>
+      <Button fx:id="harborTradeButton1" layoutX="307.0" layoutY="300.0" mnemonicParsing="false" text="Trocar" />
     </children>
 </AnchorPane>
