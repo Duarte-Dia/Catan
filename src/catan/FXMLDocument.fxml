@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -22,617 +23,967 @@
 
 <AnchorPane id="AnchorPane" centerShape="false" prefHeight="900.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catan.FXMLDocumentController">
     <children>
-        <Label fx:id="label" layoutX="127.0" layoutY="112.0" minHeight="16" minWidth="69" />
-      <Rectangle fx:id="rchat" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="181.0" layoutX="14.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="415.0" layoutX="14.0" layoutY="395.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-      <Rectangle fx:id="rtrades" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="201.0" layoutX="14.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="436.0" layoutX="402.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00eafa" height="436.0" layoutX="402.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4ff00" height="436.0" layoutX="826.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00ff37" height="436.0" layoutX="826.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
-      <TabPane layoutX="15.0" layoutY="396.0" prefHeight="415.0" prefWidth="387.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab fx:id="InformationTab" text="informação">
-               <content>
-                  <AnchorPane prefHeight="357.0" prefWidth="389.0">
+      <HBox layoutX="14.0" layoutY="15.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <VBox layoutX="14.0" layoutY="15.0">
+               <children>
+                  <Rectangle fx:id="rchat" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="181.0" layoutX="14.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+                  <Rectangle fx:id="rtrades" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="201.0" layoutX="14.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="415.0" layoutX="14.0" layoutY="395.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="14.0" layoutY="809.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="402.0" layoutY="15.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="436.0" layoutX="402.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00eafa" height="436.0" layoutX="402.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="826.0" layoutY="15.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4ff00" height="436.0" layoutX="826.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00ff37" height="436.0" layoutX="826.0" layoutY="450.0" stroke="BLACK" strokeType="INSIDE" width="426.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Polygon fill="DODGERBLUE" layoutX="828.0" layoutY="462.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" rotate="90" scaleX="6.825" scaleY="6.825" scaleZ="10.0" stroke="BLACK" strokeType="INSIDE" translateY="-11.0" AnchorPane.bottomAnchor="378.0" AnchorPane.leftAnchor="778.0" AnchorPane.rightAnchor="402.0" AnchorPane.topAnchor="402.0" />
+      <HBox layoutX="15.0" layoutY="20.0" spacing="30.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
+         <children>
+            <VBox layoutX="15.0" layoutY="20.0" spacing="12.0">
+               <children>
+                  <VBox layoutX="9.0" layoutY="20.41796875" spacing="2.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="20.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="70.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="76.0" layoutX="-1.0" layoutY="65.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="82.0" layoutX="-1.0" layoutY="140.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="82.0" layoutX="-1.0" layoutY="221.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="82.0" layoutX="-1.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
-                        <Text layoutX="69.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custo de Construções">
+                        <Text fx:id="chatTitle" layoutX="156.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat/Log">
                            <font>
-                              <Font name="System Bold" size="25.0" />
+                              <Font size="20.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets left="150.0" />
+                           </VBox.margin>
                         </Text>
-                        <Text layoutX="25.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estrada - 0PV">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="24.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Casa - 1PV">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="24.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade - 2PV">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="24.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carta de desenvolvimento - ?PV ">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Button layoutX="291.0" layoutY="328.0" mnemonicParsing="false" text="Construir" />
-                        <Button layoutX="291.0" layoutY="245.0" mnemonicParsing="false" text="Construir" />
-                        <Button layoutX="291.0" layoutY="166.0" mnemonicParsing="false" text="Construir" />
-                        <Button layoutX="291.0" layoutY="88.0" mnemonicParsing="false" text="Construir" />
+                        <VBox layoutX="9.0" layoutY="90.0">
+                           <children>
+                              <TextArea fx:id="outputChatText" layoutX="9.0" layoutY="90.0" prefHeight="108.0" prefWidth="332.0" />
+                              <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" prefHeight="35.0" prefWidth="384.0" promptText="Digite para falar no Chat" />
+                           </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                        </VBox>
                      </children>
-                  </AnchorPane>
-               </content></Tab>
-          <Tab fx:id="Player1Tab" text="Player1">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  </VBox>
+                  <VBox layoutX="40.0" layoutY="205.41796875" spacing="5.0">
                      <children>
-                        <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                        <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
-                           <font>
-                              <Font size="20.0" />
-                           </font></Text>
-                        <Text fx:id="numberBrickPlayer1" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text fx:id="numberWoodPlayer1" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text fx:id="numberMetalPlayer1" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text fx:id="numberCottonPlayer1" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text fx:id="numberWheatPlayer1" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberArmyPlayer1" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCardsPlayer1" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberVillagePlayer1" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberStreetPlayer1" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCityPlayer1" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                     </children></AnchorPane>
-               </content></Tab>
-            <Tab fx:id="Player2Tab" text="Player2">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
-                           <font>
-                              <Font size="20.0" />
-                           </font></Text>
-                        <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
-                           <font>
-                              <Font size="18.0" />
-                           </font></Text>
-                        <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberBrickPlayer2" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberWoodPlayer2" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberMetalPlayer2" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCottonPlayer2" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberWheatPlayer2" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberArmyPlayer2" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCardsPlayer2" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberVillagePlayer2" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberStreetPlayer2" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCityPlayer2" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                     </children></AnchorPane>
-               </content></Tab>
-            <Tab fx:id="player3Tab" text="Player3">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
+                        <Text fx:id="tradesTitle" layoutX="168.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trocas">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets left="160.0" top="10.0" />
+                           </VBox.margin>
                         </Text>
-                        <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberBrickPlayer3" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberWoodPlayer3" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberMetalPlayer3" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCottonPlayer3" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberWheatPlayer3" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberArmyPlayer3" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCardsPlayer3" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberVillagePlayer3" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberStreetPlayer3" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCityPlayer3" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                     </children></AnchorPane>
-               </content></Tab>
-            <Tab fx:id="player4Tab" text="Player4">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <HBox layoutX="40.0" layoutY="245.0" spacing="30.0">
+                           <children>
+                              <VBox layoutX="40.0" layoutY="249.0" spacing="35.0">
+                                 <children>
+                                    <Text fx:id="bankText" layoutX="46.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="harborText1" layoutX="40.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jogador">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="harborText" layoutX="41.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Porto">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox layoutX="114.0" layoutY="299.0" spacing="25.0">
+                                 <children>
+                                    <MenuButton fx:id="playerMenu1" layoutX="114.0" layoutY="299.0" mnemonicParsing="false" text="Selecionar Jogador:">
+                                       <items>
+                                          <MenuItem fx:id="PlayerOption1" mnemonicParsing="false" text="Jogador1" />
+                                          <MenuItem fx:id="playerOption2" mnemonicParsing="false" text="Jogador2" />
+                                          <MenuItem fx:id="playerOption3" mnemonicParsing="false" text="Jogador3" />
+                                       </items>
+                                    </MenuButton>
+                                    <MenuButton fx:id="harborMenu" layoutX="126.0" layoutY="354.0" mnemonicParsing="false" text="Selecionar Porto:">
+                                      <items>
+                                        <MenuItem fx:id="harborOption1" mnemonicParsing="false" text="Porto1" />
+                                        <MenuItem fx:id="harborOption2" mnemonicParsing="false" text="Porto2" />
+                                      </items>
+                                       <VBox.margin>
+                                          <Insets left="10.0" />
+                                       </VBox.margin>
+                                    </MenuButton>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="50.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox layoutX="306.0" layoutY="245.0" spacing="22.0">
+                                 <children>
+                                    <Button fx:id="bankTradeButton" layoutX="306.0" layoutY="245.0" mnemonicParsing="false" text="Trocar" />
+                                    <Button fx:id="harborTradeButton1" layoutX="307.0" layoutY="300.0" mnemonicParsing="false" text="Trocar" />
+                                    <Button fx:id="harborTradeButton" layoutX="308.0" layoutY="354.0" mnemonicParsing="false" text="Trocar" />
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <TabPane layoutX="15.0" layoutY="396.0" prefHeight="415.0" prefWidth="387.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab fx:id="InformationTab" text="informação">
+                           <content>
+                              <AnchorPane prefHeight="357.0" prefWidth="389.0">
+                                 <children>
+                                    <VBox layoutX="-2.0" layoutY="-4.0" AnchorPane.bottomAnchor="27.9775390625" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="70.0" layoutX="-2.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="76.0" layoutX="-1.0" layoutY="65.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="82.0" layoutX="-1.0" layoutY="140.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="82.0" layoutX="-1.0" layoutY="221.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="82.0" layoutX="-1.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="390.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="24.0" layoutY="14.0224609375" AnchorPane.bottomAnchor="27.9775390625" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Text layoutX="69.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custo de Construções">
+                                             <font>
+                                                <Font name="System Bold" size="25.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="40.0" left="60.0" top="20.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <HBox layoutX="25.0" layoutY="88.0" prefHeight="31.0" prefWidth="356.0">
+                                             <children>
+                                                <Text layoutX="25.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estrada - 0PV">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="165.0" />
+                                                   </HBox.margin>
+                                                </Text>
+                                                <Button layoutX="291.0" layoutY="88.0" mnemonicParsing="false" text="Construir" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="50.0" left="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox layoutX="24.0" layoutY="164.576171875">
+                                             <children>
+                                                <Text layoutX="24.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Casa - 1PV">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="185.0" />
+                                                   </HBox.margin>
+                                                </Text>
+                                                <Button layoutX="291.0" layoutY="166.0" mnemonicParsing="false" text="Construir" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="49.0" left="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox layoutX="24.0" layoutY="245.0">
+                                             <children>
+                                                <Text layoutX="24.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade - 2PV">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="168.0" />
+                                                   </HBox.margin>
+                                                </Text>
+                                                <Button layoutX="291.0" layoutY="245.0" mnemonicParsing="false" text="Construir" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="45.0" left="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox layoutX="24.0" layoutY="328.0">
+                                             <children>
+                                                <Text layoutX="24.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carta de desenvolvimento - ?PV ">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </HBox.margin>
+                                                </Text>
+                                                <Button layoutX="291.0" layoutY="328.0" mnemonicParsing="false" text="Construir" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                      <Tab fx:id="Player1Tab" text="Player1">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox layoutX="45.0" layoutY="18.41796875" spacing="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
+                                       <children>
+                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="100.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <HBox layoutX="45.0" layoutY="81.576171875" spacing="80.0">
+                                             <children>
+                                                <HBox layoutX="45.0" layoutY="81.576171875" spacing="20.0">
+                                                   <children>
+                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text fx:id="numberBrickPlayer1" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberMetalPlayer1" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberWheatPlayer1" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberWoodPlayer1" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCottonPlayer1" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="208.0" layoutY="81.576171875" spacing="20.0">
+                                                   <children>
+                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text fx:id="numberArmyPlayer1" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCardsPlayer1" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberVillagePlayer1" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberStreetPlayer1" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCityPlayer1" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="Player2Tab" text="Player2">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox spacing="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
+                                       <children>
+                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="100.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <HBox layoutX="45.0" layoutY="81.576171875" spacing="80.0">
+                                             <children>
+                                                <HBox layoutX="45.0" layoutY="81.576171875" spacing="20.0">
+                                                   <children>
+                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text fx:id="numberBrickPlayer11" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberMetalPlayer11" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberWheatPlayer11" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberWoodPlayer11" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCottonPlayer11" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="208.0" layoutY="81.576171875" spacing="20.0">
+                                                   <children>
+                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text fx:id="numberArmyPlayer11" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCardsPlayer11" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberVillagePlayer11" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberStreetPlayer11" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCityPlayer11" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="player3Tab" text="Player3">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox spacing="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
+                                       <children>
+                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="100.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <HBox layoutX="45.0" layoutY="81.576171875" spacing="80.0">
+                                             <children>
+                                                <HBox layoutX="45.0" layoutY="81.576171875" spacing="20.0">
+                                                   <children>
+                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text fx:id="numberBrickPlayer12" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberMetalPlayer12" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberWheatPlayer12" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberWoodPlayer12" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCottonPlayer12" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="208.0" layoutY="81.576171875" spacing="20.0">
+                                                   <children>
+                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text fx:id="numberArmyPlayer12" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCardsPlayer12" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberVillagePlayer12" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberStreetPlayer12" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCityPlayer12" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="player4Tab" text="Player4">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox spacing="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
+                                       <children>
+                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="100.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <HBox layoutX="45.0" layoutY="81.576171875" spacing="80.0">
+                                             <children>
+                                                <HBox layoutX="45.0" layoutY="81.576171875" spacing="20.0">
+                                                   <children>
+                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text fx:id="numberBrickPlayer13" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberMetalPlayer13" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberWheatPlayer13" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberWoodPlayer13" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCottonPlayer13" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="208.0" layoutY="81.576171875" spacing="20.0">
+                                                   <children>
+                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
+                                                         <children>
+                                                            <Text fx:id="numberArmyPlayer13" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCardsPlayer13" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberVillagePlayer13" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberStreetPlayer13" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <Text fx:id="numberCityPlayer13" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <Button fx:id="endTurnButton" layoutX="117.0" layoutY="827.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="163.0" text="Proximo turno">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="110.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox layoutX="426.0" layoutY="32.41796875" spacing="700.0">
+               <children>
+                  <HBox layoutX="426.0" layoutY="32.41796875" spacing="500.0">
                      <children>
-                        <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberBrickPlayer4" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberWoodPlayer4" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberMetalPlayer4" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCottonPlayer4" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberWheatPlayer4" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberArmyPlayer4" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCardsPlayer4" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberVillagePlayer4" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberStreetPlayer4" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="numberCityPlayer4" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Text>
-                     </children></AnchorPane>
-               </content></Tab>
-        </tabs>
-      </TabPane>
-      <TextArea fx:id="outputChatText" layoutX="15.0" layoutY="52.0" prefHeight="108.0" prefWidth="387.0" />
-      <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" prefHeight="35.0" prefWidth="387.0" promptText="Digite para falar no Chat" />
-      <Button fx:id="bankTradeButton" layoutX="306.0" layoutY="245.0" mnemonicParsing="false" text="Trocar" />
-      <Button fx:id="harborTradeButton" layoutX="308.0" layoutY="354.0" mnemonicParsing="false" text="Trocar" />
-      <MenuButton fx:id="harborMenu" layoutX="126.0" layoutY="354.0" mnemonicParsing="false" text="Selecionar Porto:">
-        <items>
-          <MenuItem fx:id="harborOption1" mnemonicParsing="false" text="Porto1" />
-          <MenuItem fx:id="harborOption2" mnemonicParsing="false" text="Porto2" />
-        </items>
-      </MenuButton>
-      <Polygon fill="DODGERBLUE" layoutX="828.0" layoutY="462.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" rotate="90" scaleX="6.825" scaleY="6.825" scaleZ="10.0" stroke="BLACK" strokeType="INSIDE" translateY="-11.0" />
-      <Text fx:id="chatTitle" layoutX="156.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat/Log">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="tradesTitle" layoutX="168.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trocas">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="bankText" layoutX="46.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text fx:id="harborText" layoutX="41.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Porto">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text fx:id="player1Text" layoutX="426.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1 - ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="player2Text" layoutX="1049.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2 - ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="player3Text" layoutX="1063.0" layoutY="862.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3 - ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="player4Text" layoutX="430.0" layoutY="858.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4 - ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Label fx:id="player1Label" layoutX="524.0" layoutY="36.0" text="Name">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="player2Label" layoutX="1149.0" layoutY="34.0" text="Name">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="player3Label" layoutX="1161.0" layoutY="841.0" text="Name">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="player4Label" layoutX="527.0" layoutY="837.0" text="Name">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Text fx:id="pvText_player1" layoutX="427.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PV - ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="pvText_player2" layoutX="1050.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PV - ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="pvText_player4" layoutX="431.0" layoutY="830.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PV - ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="pvText_player3" layoutX="1065.0" layoutY="835.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PV - ">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Label fx:id="pvLabel_player1" layoutX="479.0" layoutY="64.0" text="0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="pvLabel_player2" layoutX="1103.0" layoutY="62.0" text="0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="pvLabel_player4" layoutX="483.0" layoutY="809.0" text="0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="pvLabel_player3" layoutX="1119.0" layoutY="814.0" text="0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="14.0" layoutY="809.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-      <Button fx:id="endTurnButton" layoutX="117.0" layoutY="827.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="163.0" text="Proximo turno">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Text fx:id="harborText1" layoutX="40.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jogador">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <MenuButton fx:id="playerMenu1" layoutX="114.0" layoutY="299.0" mnemonicParsing="false" text="Selecionar Jogador:">
-         <items>
-            <MenuItem fx:id="PlayerOption1" mnemonicParsing="false" text="Jogador1" />
-            <MenuItem fx:id="playerOption2" mnemonicParsing="false" text="Jogador2" />
-            <MenuItem fx:id="playerOption3" mnemonicParsing="false" text="Jogador3" />
-         </items>
-      </MenuButton>
-      <Button fx:id="harborTradeButton1" layoutX="307.0" layoutY="300.0" mnemonicParsing="false" text="Trocar" />
+                        <VBox layoutX="426.0" layoutY="35.41796875">
+                           <children>
+                              <HBox layoutX="426.0" layoutY="35.41796875">
+                                 <children>
+                                    <Text fx:id="player1Text" layoutX="426.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1 - ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="player1Label" layoutX="524.0" layoutY="36.0" text="Name">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="427.0" layoutY="63.41796875">
+                                 <children>
+                                    <Text fx:id="pvText_player1" layoutX="427.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PV - ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="pvLabel_player1" layoutX="479.0" layoutY="64.0" text="0">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="1049.0" layoutY="32.41796875">
+                           <children>
+                              <HBox layoutX="1049.0" layoutY="32.41796875">
+                                 <children>
+                                    <Text fx:id="player2Text" layoutX="1049.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2 - ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="player2Label" layoutX="1149.0" layoutY="34.0" text="Name">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="1050.0" layoutY="61.41796875">
+                                 <children>
+                                    <Text fx:id="pvText_player2" layoutX="1050.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PV - ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="pvLabel_player2" layoutX="1103.0" layoutY="62.0" text="0">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="430.0" layoutY="808.41796875" spacing="500.0">
+                     <children>
+                        <VBox layoutX="430.0" layoutY="808.41796875">
+                           <children>
+                              <HBox layoutX="431.0" layoutY="808.41796875">
+                                 <children>
+                                    <Text fx:id="pvText_player4" layoutX="431.0" layoutY="830.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PV - ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="pvLabel_player4" layoutX="483.0" layoutY="809.0" text="0">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="430.0" layoutY="836.41796875">
+                                 <children>
+                                    <Text fx:id="player4Text" layoutX="430.0" layoutY="858.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4 - ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="player4Label" layoutX="527.0" layoutY="837.0" text="Name">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="1063.0" layoutY="813.41796875">
+                           <children>
+                              <HBox layoutX="1065.0" layoutY="813.41796875">
+                                 <children>
+                                    <Text fx:id="pvText_player3" layoutX="1065.0" layoutY="835.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PV - ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="pvLabel_player3" layoutX="1119.0" layoutY="814.0" text="0">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="1063.0" layoutY="840.41796875">
+                                 <children>
+                                    <Text fx:id="player3Text" layoutX="1063.0" layoutY="862.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3 - ">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Label fx:id="player3Label" layoutX="1161.0" layoutY="841.0" text="Name">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
     </children>
 </AnchorPane>
