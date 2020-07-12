@@ -46,10 +46,14 @@ public class Main extends Application {
                 endPlay = false;
                 chosenTile = dice.throwDice(2);
 
-                for (Hexagon hex : board.getTiles()) {
-                    if (chosenTile == hex.getNum()) {
-                        givePlayersResources(hex.getResourceID(), hex);
+                if (chosenTile != 7) {
+                    for (Hexagon hex : board.getTiles()) {
+                        if (chosenTile == hex.getNum()) {
+                            givePlayersResources(hex.getResourceID(), hex);
+                        }
                     }
+                } else {
+                    // LANÇOU 7
                 }
 
                 do {
@@ -57,6 +61,7 @@ public class Main extends Application {
                 } while (!endPlay);
 
                 longestRoad();
+                biggestArmy();
 
                 if (isGameOver()) {
                     gameover = true;
@@ -162,7 +167,7 @@ public class Main extends Application {
 
         size = Collections.max(listRoadSizes);
 
-        if (size > 5) {
+        if (size >= 5) {
             if (Collections.frequency(listRoadSizes, size) == 1) {
                 playerSelected = listRoadSizes.indexOf(Collections.max(listRoadSizes));
 
@@ -171,6 +176,29 @@ public class Main extends Application {
                 }
 
                 listPlayers.get(playerSelected).setLongestRoad(true);
+            }
+        }
+    }
+
+    private static void biggestArmy() {
+        List<Integer> listArmySizes = new ArrayList<Integer>();
+        int size, playerSelected;
+
+        for (Player p : listPlayers) {
+            listArmySizes.add(p.getArmy());
+        }
+
+        size = Collections.max(listArmySizes);
+
+        if (size >= 3) {
+            if (Collections.frequency(listArmySizes, size) == 1) {
+                playerSelected = listArmySizes.indexOf(Collections.max(listArmySizes));
+
+                for (Player p : listPlayers) {
+                    p.setBiggestArmy(false);
+                }
+
+                listPlayers.get(playerSelected).setBiggestArmy(true);
             }
         }
     }

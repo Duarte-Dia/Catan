@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class Player {
 
-    private int score, id, wool, timber, brick, wheat, metal;
+    private int score, id, wool, timber, brick, wheat, metal, army;
     private boolean longestRoad, biggestArmy;
     private List<City> listCities = new ArrayList<City>();
     private List<Settlement> listSettlements = new ArrayList<Settlement>();
@@ -129,5 +129,13 @@ public class Player {
 
     public void setMetal(int metal) {
         this.metal = metal;
+    }
+
+    public int getArmy() {
+        return army;
+    }
+
+    public void setArmy(int army) {
+        this.army = army;
     }
 }
