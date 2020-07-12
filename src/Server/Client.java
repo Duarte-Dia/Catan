@@ -22,6 +22,7 @@ public class Client {
 
     
     // ATENÇÃO PODERA HAVER NECESSIDADE DE FUNDIR O CLIENTA HÁ CALSSE PLAYER PARA FACILITAR FUTURAS IMPLEMENTAÇOES
+    //ATENÇAO QUE TEM DE SER CONFIGURADO O IP NA ALTURA DE LIGAR OS CLIENTES
     private static String serverIP = "127.0.0.1";
     private static final int serverPort = 9090;
 

@@ -15,7 +15,7 @@ import java.util.*;
  */
 public class Server {
 
-    private static int port = 9090, nClientes = 0;
+    private static int port = 6666, nClientes = 0;
     private static Vector<ClientHandler> listaClientes = new Vector<>();
 
     public static void main(String[] args) throws IOException {
@@ -35,7 +35,7 @@ public class Server {
             ClientHandler ch = new ClientHandler("Cliente " + nClientes, in, out, client);
             Thread t = new Thread(ch);
 
-            System.out.println("[SERVER] Cliente adicionado ");
+            System.out.println("[SERVER] Cliente" + nClientes + " adicionado ");
             listaClientes.add(ch);
             
             out.writeUTF("Sucesso a Conectar");
