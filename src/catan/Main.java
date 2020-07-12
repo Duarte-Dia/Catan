@@ -91,7 +91,7 @@ public class Main extends Application {
                 p.addScore(2);
             }
 
-            p.addScore(p.devCardsPoints());
+          //  p.addScore(p.devCardsPoints());
 
             if (p.getScore() >= 10) {
                 return true;
@@ -125,4 +125,4 @@ public class Main extends Application {
     }
 
 }
-}
+

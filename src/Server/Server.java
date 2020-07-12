@@ -35,18 +35,18 @@ public class Server {
             ClientHandler ch = new ClientHandler("Cliente " + nClientes, in, out, client);
             Thread t = new Thread(ch);
 
-            System.out.println("[SERVER] Cliente" + nClientes + " adicionado ");
+            System.out.println("[SERVER]Cliente " + nClientes + " adicionado ");
             listaClientes.add(ch);
-            
+
             out.writeUTF("Sucesso a Conectar");
-         
+
             t.start();
 
             nClientes++;
 
         }
 
-    // fechar ligação
+        // fechar ligação
         /*
          client.close();
          System.out.println("[Server]A desligar");
@@ -81,25 +81,32 @@ public class Server {
                     cmd = in.readUTF();
                     System.out.println(cmd);
 
-                    StringTokenizer st = new StringTokenizer(cmd, "»");
+                    StringTokenizer st = new StringTokenizer(cmd, "#");
                     String receivingClient = null;
-                    try {receivingClient = st.nextToken();} catch(Exception e){};
+                    try {
+                        receivingClient = st.nextToken();
+                    } catch (Exception e) {
+                    };
                     String msg = null;
-                    try {msg = st.nextToken();} catch(Exception e){};
+                    try {
+                        msg = st.nextToken();
+                    } catch (Exception e) {
+                    };
 
-                    if (receivingClient != null) {
+                    if (msg != null) {
 
                         for (ClientHandler client : Server.listaClientes) {
                             if (client.name.equals(receivingClient) && client.logged) {
-                                client.out.writeUTF("Whisper from " + name + ":" + msg);
+                                client.out.writeUTF("Whisper from " + name + ": " + msg);
                             }
 
                         }
                     } else {
 
                         for (ClientHandler client : Server.listaClientes) {
-
-                            client.out.writeUTF(name + ":" + msg);
+                            if (!client.name.equals(name) && client.logged) {
+                                client.out.writeUTF(name + ": " + receivingClient);
+                            }
 
                         }
                     }

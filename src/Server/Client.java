@@ -24,7 +24,7 @@ public class Client {
     // ATENÇÃO PODERA HAVER NECESSIDADE DE FUNDIR O CLIENTA HÁ CALSSE PLAYER PARA FACILITAR FUTURAS IMPLEMENTAÇOES
     //ATENÇAO QUE TEM DE SER CONFIGURADO O IP NA ALTURA DE LIGAR OS CLIENTES
     private static String serverIP = "127.0.0.1";
-    private static final int serverPort = 9090;
+    private static final int serverPort = 6666;
 
     public static void main(String[] args) throws UnknownHostException, IOException {
         Socket socket = new Socket(serverIP, serverPort);
@@ -60,7 +60,7 @@ public class Client {
            }
        });
         
-        lerMensagem.setDaemon(true);
+        //lerMensagem.setDaemon(true);
         enviarMensagem.start();
         lerMensagem.start();
         
