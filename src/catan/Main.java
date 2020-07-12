@@ -66,11 +66,63 @@ public class Main extends Application {
     }
 
     private static void givePlayersResources(int resource, Hexagon hex) {
-
+        int current;
         for (Player p : listPlayers) {
             for (City c : p.getListCities()) {
                 if (hex.containVector(c.getPosition())) {
-                    // PLAYER GETS RESOURCES !!!!!!!!!!!!!
+                    switch (resource) {
+                        case 1: // wool
+                            current = p.getWool();
+                            p.setWool(current + resource);
+                            break;
+                        case 2: // timber
+                            current = p.getTimber();
+                            p.setTimber(current + resource);
+                            break;
+                        case 3: // brick
+                            current = p.getBrick();
+                            p.setBrick(current + resource);
+                            break;
+                        case 4: // wheat
+                            current = p.getWheat();
+                            p.setWheat(current + resource);
+                            break;
+                        case 5: // metal
+                            current = p.getMetal();
+                            p.setMetal(current + resource);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+
+            for (Settlement s : p.getListSettlements()) {
+                if (hex.containVector(s.getPosition())) {
+                    switch (resource) {
+                        case 1: // wool
+                            current = p.getWool();
+                            p.setWool(current + resource);
+                            break;
+                        case 2: // timber
+                            current = p.getTimber();
+                            p.setTimber(current + resource);
+                            break;
+                        case 3: // brick
+                            current = p.getBrick();
+                            p.setBrick(current + resource);
+                            break;
+                        case 4: // wheat
+                            current = p.getWheat();
+                            p.setWheat(current + resource);
+                            break;
+                        case 5: // metal
+                            current = p.getMetal();
+                            p.setMetal(current + resource);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
@@ -91,8 +143,7 @@ public class Main extends Application {
                 p.addScore(2);
             }
 
-            p.addScore(p.devCardsPoints());
-
+            //p.addScore(p.devCardsPoints());
             if (p.getScore() >= 10) {
                 return true;
             }
@@ -124,5 +175,4 @@ public class Main extends Application {
         }
     }
 
-}
 }
