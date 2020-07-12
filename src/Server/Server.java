@@ -84,7 +84,8 @@ public class Server {
                     StringTokenizer st = new StringTokenizer(cmd, "»");
                     String receivingClient = null;
                     try {receivingClient = st.nextToken();} catch(Exception e){};
-                    String msg = st.nextToken();
+                    String msg = null;
+                    try {msg = st.nextToken();} catch(Exception e){};
 
                     if (receivingClient != null) {
 
