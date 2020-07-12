@@ -5,14 +5,14 @@
  */
 package Server;
 
-import java.io.BufferedReader;
+
+import common.Le;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.Socket;
-import javax.swing.JOptionPane;
+import java.net.UnknownHostException;
+
 
 /**
  *
@@ -25,43 +25,44 @@ public class Client {
     private static String serverIP = "127.0.0.1";
     private static final int serverPort = 9090;
 
-    public static void main(String[] args) throws IOException {
-
+    public static void main(String[] args) throws UnknownHostException, IOException {
         Socket socket = new Socket(serverIP, serverPort);
         
         DataInputStream in = new DataInputStream(socket.getInputStream());
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-        BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+       Thread enviarMensagem = new Thread(new Runnable(){
+           @Override
+           public void run(){
+               while(true){
+                   String msg = Le.umaString();
+                   try{
+                       out.writeUTF(msg);
+                   } catch(IOException e){
+                       
+                   }
+               }
+           }
+       });
         
-        String serverConnect = input.readLine();
-        //Abre uma janela com mensagem de sucesso de ligação 
-        JOptionPane.showMessageDialog(null, serverConnect);
-
-        BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
-
-        PrintWriter outp = new PrintWriter(socket.getOutputStream(), true);
+        Thread lerMensagem = new Thread(new Runnable(){
+           @Override
+           public void run(){
+               while(true){
+                   try{
+                      String msg = in.readUTF();
+                      System.out.println(msg);
+                   } catch(IOException e){
+                       
+                   }
+               }
+           }
+       });
         
+        lerMensagem.setDaemon(true);
+        enviarMensagem.start();
+        lerMensagem.start();
         
-        
-        while(true){
-
-        System.out.println("> ");
-        String cmd = key.readLine();
-        
-        if(cmd.equals("")) break;
-        
-
-        outp.println(cmd);
-
-        String serverResponse = input.readLine();
-        System.out.println("Server : "+ serverResponse);
-        }
-        
-
-        
-        socket.close();
-        System.exit(0);
 
     }
 
