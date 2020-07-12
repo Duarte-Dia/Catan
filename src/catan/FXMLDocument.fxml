@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
@@ -16,12 +10,14 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" centerShape="false" prefHeight="900.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catan.FXMLDocumentController">
+<AnchorPane id="AnchorPane" centerShape="false" prefHeight="900.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="catan.FXMLDocumentController">
     <children>
       <HBox layoutX="14.0" layoutY="15.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
          <children>
@@ -64,7 +60,7 @@
                         </Text>
                         <VBox layoutX="9.0" layoutY="90.0">
                            <children>
-                              <TextArea fx:id="outputChatText" layoutX="9.0" layoutY="90.0" prefHeight="108.0" prefWidth="332.0" />
+                              <TextArea fx:id="outputChatText" disable="true" layoutX="9.0" layoutY="90.0" prefHeight="108.0" prefWidth="332.0" />
                               <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" prefHeight="35.0" prefWidth="384.0" promptText="Digite para falar no Chat" />
                            </children>
                            <padding>
@@ -176,7 +172,7 @@
                                                       <Insets right="165.0" />
                                                    </HBox.margin>
                                                 </Text>
-                                                <Button layoutX="291.0" layoutY="88.0" mnemonicParsing="false" text="Construir" />
+                                                <Button fx:id="roadButton" layoutX="291.0" layoutY="88.0" mnemonicParsing="false" text="Construir" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets bottom="50.0" left="10.0" />
@@ -192,7 +188,7 @@
                                                       <Insets right="185.0" />
                                                    </HBox.margin>
                                                 </Text>
-                                                <Button layoutX="291.0" layoutY="166.0" mnemonicParsing="false" text="Construir" />
+                                                <Button fx:id="houseButton" layoutX="291.0" layoutY="166.0" mnemonicParsing="false" text="Construir" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets bottom="49.0" left="10.0" />
@@ -208,7 +204,7 @@
                                                       <Insets right="168.0" />
                                                    </HBox.margin>
                                                 </Text>
-                                                <Button layoutX="291.0" layoutY="245.0" mnemonicParsing="false" text="Construir" />
+                                                <Button fx:id="cityButton" layoutX="291.0" layoutY="245.0" mnemonicParsing="false" text="Construir" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets bottom="45.0" left="10.0" />
@@ -224,7 +220,7 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </HBox.margin>
                                                 </Text>
-                                                <Button layoutX="291.0" layoutY="328.0" mnemonicParsing="false" text="Construir" />
+                                                <Button fx:id="developmentCardButton" layoutX="291.0" layoutY="328.0" mnemonicParsing="false" text="Construir" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -430,27 +426,27 @@
                                                       </VBox>
                                                       <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text fx:id="numberBrickPlayer11" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberBrickPlayer2" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberMetalPlayer11" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberMetalPlayer2" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberWheatPlayer11" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberWheatPlayer2" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberWoodPlayer11" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberWoodPlayer2" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberCottonPlayer11" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberCottonPlayer2" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
@@ -492,27 +488,27 @@
                                                       </VBox>
                                                       <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text fx:id="numberArmyPlayer11" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberArmyPlayer2" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberCardsPlayer11" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberCardsPlayer2" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberVillagePlayer11" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberVillagePlayer2" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberStreetPlayer11" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberStreetPlayer2" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberCityPlayer11" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberCityPlayer2" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
@@ -578,27 +574,27 @@
                                                       </VBox>
                                                       <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text fx:id="numberBrickPlayer12" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberBrickPlayer3" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberMetalPlayer12" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberMetalPlayer3" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberWheatPlayer12" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberWheatPlayer3" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberWoodPlayer12" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberWoodPlayer3" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberCottonPlayer12" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberCottonPlayer3" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
@@ -640,27 +636,27 @@
                                                       </VBox>
                                                       <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text fx:id="numberArmyPlayer12" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberArmyPlayer3" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberCardsPlayer12" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberCardsPlayer3" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberVillagePlayer12" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberVillagePlayer3" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberStreetPlayer12" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberStreetPlayer3" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberCityPlayer12" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberCityPlayer3" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
@@ -726,27 +722,27 @@
                                                       </VBox>
                                                       <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text fx:id="numberBrickPlayer13" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberBrickPlayer4" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberMetalPlayer13" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberMetalPlayer4" layoutX="127.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberWheatPlayer13" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberWheatPlayer4" layoutX="127.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberWoodPlayer13" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberWoodPlayer4" layoutX="127.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberCottonPlayer13" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberCottonPlayer4" layoutX="127.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
@@ -788,27 +784,27 @@
                                                       </VBox>
                                                       <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text fx:id="numberArmyPlayer13" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberArmyPlayer4" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberCardsPlayer13" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberCardsPlayer4" layoutX="303.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberVillagePlayer13" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberVillagePlayer4" layoutX="303.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberStreetPlayer13" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberStreetPlayer4" layoutX="303.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text fx:id="numberCityPlayer13" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                                                            <Text fx:id="numberCityPlayer4" layoutX="303.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
