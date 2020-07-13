@@ -39,7 +39,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextArea outputChatText;
     @FXML
-    public static TextField inputChatText;
+    private TextField inputChatText;
     @FXML
     private Text tradesTitle;
     @FXML
@@ -202,13 +202,20 @@ public class FXMLDocumentController implements Initializable {
     private Label player3Label;
     
     public static TextArea chat;
+    public static TextField inputChat;
+    public static Tab tp1,tp2,tp3,tp4; 
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         chat=outputChatText;
-        inputChatText= new TextField();
+       inputChat= inputChatText;
+       tp1= Player1Tab;
+       tp2= Player2Tab;
+       tp3= player3Tab;
+       tp4 = player4Tab;
+       
         // all
         
     }    
@@ -219,23 +226,20 @@ public class FXMLDocumentController implements Initializable {
         
     }
 
-    public void appendChat(String msg){
-    chat.appendText(msg);
-    
-    }
     
     public String getText(){
-        
-        
+      
     return inputChatText.getText();
-    
-    
+  
     }
     
-   
+   @FXML
     public void submitText(KeyEvent event){
-    if(event.getCode() == KeyCode.ENTER)
-        outputChatText.appendText(inputChatText.getText());
+    if(event.getCode() == KeyCode.ENTER){
+        outputChatText.appendText(inputChatText.getText()+ "\n");
+        inputChatText.clear();
+    
+    }
     //return inputChatText.getText();
     
     

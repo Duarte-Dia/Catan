@@ -10,17 +10,19 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.net.URL;
 import java.net.UnknownHostException;
-import java.nio.file.Paths;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -28,7 +30,7 @@ import javafx.stage.Stage;
  * @author Bruno Ribeiro
  */
 public class Main extends Application {
-    
+
     private static String serverIP = "127.0.0.1";
     private static final int serverPort = 6666;
 
@@ -44,26 +46,20 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         chat = FXMLDocumentController.chat;
-        inputChat= FXMLDocumentController.inputChatText;
+        inputChat = FXMLDocumentController.inputChat;
         Scene scene = new Scene(root);
 
-            
         stage.setScene(scene);
         stage.show();
-        
+
         connectClient();
-        
-        
-        
+
     }
 
-
     public static void main(String[] args) throws UnknownHostException, IOException {
-        
-        
+
         launch(args);
-        
-        
+
         gameover = true;
 
         while (!gameover) {
@@ -204,51 +200,53 @@ public class Main extends Application {
             }
         }
     }
-    
-    
-    private void connectClient() throws IOException{
-    
-    
+
+    private void connectClient() throws IOException {
+
         Socket socket = new Socket(serverIP, serverPort);
-        
+
         DataInputStream in = new DataInputStream(socket.getInputStream());
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-        
-        
 
-       Thread enviarMensagem = new Thread(() -> {
-           while(true){
-               String msg = Le.umaString() + "\n";
-               
-               try{
-                   out.writeUTF(msg);
-                   
-                   chat.appendText(msg);
-               } catch(IOException e){
-                   
-               }
-           }
+        Thread enviarMensagem = new Thread(() -> {
+            while (true) {
+                
+                inputChat.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                    @Override
+                    public void handle(KeyEvent k) {
+                        if (k.getCode().equals(KeyCode.ENTER)) {
+                            try {
+                                out.writeUTF(inputChat.getText());
+                                chat.appendText(inputChat.getText() + "\n");
+                                inputChat.setText("");
+                            } catch (IOException ex) {
+                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                });
+                
+            }
         });
-        
+
         Thread lerMensagem;
         lerMensagem = new Thread(() -> {
-            while(true){
-                try{
+            while (true) {
+                try {
                     String msg = in.readUTF();
 
                     System.out.println(msg);
-                    chat.appendText(msg);
-                } catch(IOException e){
-                    
+                    chat.appendText(msg + "\n");
+                } catch (IOException e) {
+
                 }
             }
         });
-        
+
         //lerMensagem.setDaemon(true);
         enviarMensagem.start();
         lerMensagem.start();
-    
-    
+
     }
 
     private static void biggestArmy() {
