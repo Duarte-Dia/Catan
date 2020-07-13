@@ -63,10 +63,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button bankTradeButton;
     @FXML
-    private Button harborTradeButton1;
-    @FXML
-    private Button harborTradeButton;
-    @FXML
     private Tab InformationTab;
     @FXML
     private Button roadButton;
