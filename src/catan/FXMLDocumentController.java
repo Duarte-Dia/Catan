@@ -5,12 +5,10 @@
  */
 package catan;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,7 +19,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -30,6 +27,7 @@ import javafx.scene.text.Text;
  * @author José Sampaio
  */
 public class FXMLDocumentController implements Initializable {
+
     @FXML
     private Rectangle rchat;
     @FXML
@@ -39,7 +37,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextArea outputChatText;
     @FXML
-    public static TextField inputChatText;
+    private TextField inputChatText;
     @FXML
     private Text tradesTitle;
     @FXML
@@ -201,48 +199,16 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label player3Label;
     
-    public static TextArea chat;
-    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        chat=outputChatText;
-        inputChatText= new TextField();
         // all
-        
     }    
 
     @FXML
-    private void onClick(MouseEvent event) {
-        outputChatText.appendText("fdc");
-        
+    private void submitText(KeyEvent event) {
+        if(event.getCode() == KeyCode.ENTER)
+            outputChatText.appendText(inputChatText.getText());
     }
-
-    public void appendChat(String msg){
-    chat.appendText(msg);
-    
-    }
-    
-    public String getText(){
-        
-        
-    return inputChatText.getText();
-    
-    
-    }
-    
-   
-    public void submitText(KeyEvent event){
-    if(event.getCode() == KeyCode.ENTER)
-        outputChatText.appendText(inputChatText.getText());
-    //return inputChatText.getText();
-    
-    
-    
-    }
-   
-    
-    
     
 }
