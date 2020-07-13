@@ -108,14 +108,19 @@
                               </VBox>
                               <VBox layoutX="114.0" layoutY="299.0" spacing="25.0">
                                  <children>
-                                    <MenuButton fx:id="playerMenu1" layoutX="114.0" layoutY="299.0" mnemonicParsing="false" text="Selecionar Jogador:">
+                                    <Button fx:id="bankTradeButton" mnemonicParsing="false" text="Trocar">
+                                       <VBox.margin>
+                                          <Insets left="45.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <MenuButton fx:id="playerMenu1" layoutX="114.0" mnemonicParsing="false" text="Selecionar Jogador:">
                                        <items>
                                           <MenuItem fx:id="PlayerOption1" mnemonicParsing="false" text="Jogador1" />
                                           <MenuItem fx:id="playerOption2" mnemonicParsing="false" text="Jogador2" />
                                           <MenuItem fx:id="playerOption3" mnemonicParsing="false" text="Jogador3" />
                                        </items>
                                     </MenuButton>
-                                    <MenuButton fx:id="harborMenu" layoutX="126.0" layoutY="354.0" mnemonicParsing="false" text="Selecionar Porto:">
+                                    <MenuButton fx:id="harborMenu" layoutX="126.0" mnemonicParsing="false" text="Selecionar Porto:">
                                       <items>
                                         <MenuItem fx:id="harborOption1" mnemonicParsing="false" text="Porto1" />
                                         <MenuItem fx:id="harborOption2" mnemonicParsing="false" text="Porto2" />
@@ -126,15 +131,8 @@
                                     </MenuButton>
                                  </children>
                                  <HBox.margin>
-                                    <Insets top="50.0" />
+                                    <Insets left="50.0" />
                                  </HBox.margin>
-                              </VBox>
-                              <VBox layoutX="306.0" layoutY="245.0" spacing="22.0">
-                                 <children>
-                                    <Button fx:id="bankTradeButton" layoutX="306.0" layoutY="245.0" mnemonicParsing="false" text="Trocar" />
-                                    <Button fx:id="harborTradeButton1" layoutX="307.0" layoutY="300.0" mnemonicParsing="false" text="Trocar" />
-                                    <Button fx:id="harborTradeButton" layoutX="308.0" layoutY="354.0" mnemonicParsing="false" text="Trocar" />
-                                 </children>
                               </VBox>
                            </children>
                            <VBox.margin>
