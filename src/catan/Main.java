@@ -5,6 +5,12 @@
  */
 package catan;
 
+import common.Le;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +23,9 @@ import javafx.stage.Stage;
  * @author Bruno Ribeiro
  */
 public class Main extends Application {
+    
+    private static String serverIP = "127.0.0.1";
+    private static final int serverPort = 6666;
 
     static int chosenTile = 0;
     static boolean gameover, endPlay;
@@ -34,10 +43,46 @@ public class Main extends Application {
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws UnknownHostException, IOException {
+        Socket socket = new Socket(serverIP, serverPort);
+        
+        DataInputStream in = new DataInputStream(socket.getInputStream());
+        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+
+       Thread enviarMensagem = new Thread(new Runnable(){
+           @Override
+           public void run(){
+               while(true){
+                   String msg = Le.umaString();
+                   try{
+                       out.writeUTF(msg);
+                      // appendChat(msg);
+                   } catch(IOException e){
+                       
+                   }
+               }
+           }
+       });
+        
+        Thread lerMensagem = new Thread(new Runnable(){
+           @Override
+           public void run(){
+               while(true){
+                   try{
+                      String msg = in.readUTF();
+                      System.out.println(msg);
+                   } catch(IOException e){
+                       
+                   }
+               }
+           }
+       });
+        
+        //lerMensagem.setDaemon(true);
+        enviarMensagem.start();
+        lerMensagem.start();
+        
         launch(args);
         gameover = true;
 
@@ -91,7 +136,7 @@ public class Main extends Application {
                 p.addScore(2);
             }
 
-           p.addScore(p.devCardsPoints());
+         //  p.addScore(p.devCardsPoints());
 
             if (p.getScore() >= 10) {
                 return true;
