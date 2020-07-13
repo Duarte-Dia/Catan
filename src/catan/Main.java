@@ -10,12 +10,16 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.net.URL;
 import java.net.UnknownHostException;
+import java.nio.file.Paths;
 import java.util.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 /**
@@ -32,58 +36,67 @@ public class Main extends Application {
     static Dice dice = new Dice();
     static List<Player> listPlayers = new ArrayList<Player>();
     static Board board = new Board();
+    public static TextArea chat;
 
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-
+        chat = FXMLDocumentController.chat;
         Scene scene = new Scene(root);
 
+            
         stage.setScene(scene);
         stage.show();
-    }
-
-
-    public static void main(String[] args) throws UnknownHostException, IOException {
+        
+        
         Socket socket = new Socket(serverIP, serverPort);
         
         DataInputStream in = new DataInputStream(socket.getInputStream());
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-
-       Thread enviarMensagem = new Thread(new Runnable(){
-           @Override
-           public void run(){
-               while(true){
-                   String msg = Le.umaString();
-                   try{
-                       out.writeUTF(msg);
-                      // appendChat(msg);
-                   } catch(IOException e){
-                       
-                   }
-               }
-           }
-       });
         
-        Thread lerMensagem = new Thread(new Runnable(){
-           @Override
-           public void run(){
-               while(true){
-                   try{
-                      String msg = in.readUTF();
-                      System.out.println(msg);
-                   } catch(IOException e){
-                       
-                   }
+        
+
+       Thread enviarMensagem = new Thread(() -> {
+           while(true){
+               String msg = Le.umaString() + "\n";
+               try{
+                   out.writeUTF(msg);
+                   
+                   chat.appendText(msg);
+               } catch(IOException e){
+                   
                }
            }
-       });
+        });
+        
+        Thread lerMensagem;
+        lerMensagem = new Thread(() -> {
+            while(true){
+                try{
+                    String msg = in.readUTF();
+
+                    System.out.println(msg);
+                    chat.appendText(msg);
+                } catch(IOException e){
+                    
+                }
+            }
+        });
         
         //lerMensagem.setDaemon(true);
         enviarMensagem.start();
         lerMensagem.start();
         
+        
+    }
+
+
+    public static void main(String[] args) throws UnknownHostException, IOException {
+        
+        
         launch(args);
+        
+        
         gameover = true;
 
         while (!gameover) {

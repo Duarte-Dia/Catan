@@ -38,7 +38,7 @@ public class Server {
             System.out.println("[SERVER]Cliente " + nClientes + " adicionado ");
             listaClientes.add(ch);
 
-            out.writeUTF("Sucesso a Conectar");
+            out.writeUTF("Sucesso a Conectar \n");
 
             t.start();
 

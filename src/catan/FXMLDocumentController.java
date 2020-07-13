@@ -216,7 +216,7 @@ public class FXMLDocumentController implements Initializable {
         
     }
 
-    public void appenChat(String msg){
+    public void appendChat(String msg){
     chat.appendText(msg);
     
     }
