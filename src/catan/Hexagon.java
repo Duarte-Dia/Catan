@@ -16,6 +16,11 @@ public class Hexagon {
     private int num, resourceID;
     private List<Vector3> vectors = new ArrayList<Vector3>();
 
+    public Hexagon(int num, int resourceID) {
+        this.num = num;
+        this.resourceID = resourceID;
+    }
+
     public int getResourceID() {
         return resourceID;
     }
@@ -30,6 +35,10 @@ public class Hexagon {
 
     public void setNum(int num) {
         this.num = num;
+    }
+
+    public void addVectors(Vector3 v) {
+        vectors.add(v);
     }
 
     public boolean containVector(Vector3 selectedVector) {

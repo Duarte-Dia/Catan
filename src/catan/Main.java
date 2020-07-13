@@ -54,10 +54,10 @@ public class Main extends Application {
                     }
                 } else {
                     // LANÇOU 7
+                    // MOVE LADRAO
                 }
 
                 do {
-
                 } while (!endPlay);
 
                 longestRoad();
@@ -78,23 +78,23 @@ public class Main extends Application {
                     switch (resource) {
                         case 1: // wool
                             current = p.getWool();
-                            p.setWool(current + resource);
+                            p.setWool(current += 2);
                             break;
                         case 2: // timber
                             current = p.getTimber();
-                            p.setTimber(current + resource);
+                            p.setTimber(current += 2);
                             break;
                         case 3: // brick
                             current = p.getBrick();
-                            p.setBrick(current + resource);
+                            p.setBrick(current += 2);
                             break;
                         case 4: // wheat
                             current = p.getWheat();
-                            p.setWheat(current + resource);
+                            p.setWheat(current += 2);
                             break;
                         case 5: // metal
                             current = p.getMetal();
-                            p.setMetal(current + resource);
+                            p.setMetal(current += 2);
                             break;
                         default:
                             break;
@@ -107,23 +107,23 @@ public class Main extends Application {
                     switch (resource) {
                         case 1: // wool
                             current = p.getWool();
-                            p.setWool(current + resource);
+                            p.setWool(current++);
                             break;
                         case 2: // timber
                             current = p.getTimber();
-                            p.setTimber(current + resource);
+                            p.setTimber(current++);
                             break;
                         case 3: // brick
                             current = p.getBrick();
-                            p.setBrick(current + resource);
+                            p.setBrick(current++);
                             break;
                         case 4: // wheat
                             current = p.getWheat();
-                            p.setWheat(current + resource);
+                            p.setWheat(current++);
                             break;
                         case 5: // metal
                             current = p.getMetal();
-                            p.setMetal(current + resource);
+                            p.setMetal(current++);
                             break;
                         default:
                             break;
@@ -200,6 +200,79 @@ public class Main extends Application {
 
                 listPlayers.get(playerSelected).setBiggestArmy(true);
             }
+        }
+    }
+
+    private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
+        int currentP1, currentP2;
+        switch (resource1) {
+            case 1: // wool
+                currentP1 = p1.getWool();
+                currentP2 = p2.getWool();
+                p1.setWool(currentP1 + quantity1);
+                p2.setWool(currentP2 - quantity1);
+                break;
+            case 2: // timber
+                currentP1 = p1.getTimber();
+                currentP2 = p2.getTimber();
+                p1.setTimber(currentP1 + quantity1);
+                p2.setTimber(currentP2 - quantity1);
+                break;
+            case 3: // brick
+                currentP1 = p1.getBrick();
+                currentP2 = p2.getBrick();
+                p1.setBrick(currentP1 + quantity1);
+                p2.setBrick(currentP2 - quantity1);
+                break;
+            case 4: // wheat
+                currentP1 = p1.getWheat();
+                currentP2 = p2.getWheat();
+                p1.setWheat(currentP1 + quantity1);
+                p2.setWheat(currentP2 - quantity1);
+                break;
+            case 5: // metal
+                currentP1 = p1.getMetal();
+                currentP2 = p2.getMetal();
+                p1.setMetal(currentP1 + quantity1);
+                p2.setMetal(currentP2 - quantity1);
+                break;
+            default:
+                break;
+        }
+
+        switch (resource2) {
+            case 1: // wool
+                currentP1 = p1.getWool();
+                currentP2 = p2.getWool();
+                p1.setWool(currentP1 - quantity2);
+                p2.setWool(currentP2 + quantity2);
+                break;
+            case 2: // timber
+                currentP1 = p1.getTimber();
+                currentP2 = p2.getTimber();
+                p1.setTimber(currentP1 - quantity2);
+                p2.setTimber(currentP2 + quantity2);
+                break;
+            case 3: // brick
+                currentP1 = p1.getBrick();
+                currentP2 = p2.getBrick();
+                p1.setBrick(currentP1 - quantity2);
+                p2.setBrick(currentP2 + quantity2);
+                break;
+            case 4: // wheat
+                currentP1 = p1.getWheat();
+                currentP2 = p2.getWheat();
+                p1.setWheat(currentP1 - quantity2);
+                p2.setWheat(currentP2 + quantity2);
+                break;
+            case 5: // metal
+                currentP1 = p1.getMetal();
+                currentP2 = p2.getMetal();
+                p1.setMetal(currentP1 - quantity2);
+                p2.setMetal(currentP2 + quantity2);
+                break;
+            default:
+                break;
         }
     }
 
