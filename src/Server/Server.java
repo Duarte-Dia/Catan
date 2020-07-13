@@ -17,6 +17,8 @@ public class Server {
 
     private static int port = 6666, nClientes = 1;
     private static Vector<ClientHandler> listaClientes = new Vector<>();
+    private static Socket client;
+    
 
     public static void main(String[] args) throws IOException {
 
@@ -25,10 +27,11 @@ public class Server {
 
         while (true) {
             // Servidor fica a espera de um cliente
+            if(nClientes <=4 ){
             System.out.println("[SERVER]Esperando por ligação");
-            Socket client = server.accept();
+             client = server.accept();
             System.out.println("[SERVER]Estabelecido ligação a um cliente");
-
+            
             DataInputStream in = new DataInputStream(client.getInputStream());
             DataOutputStream out = new DataOutputStream(client.getOutputStream());
 
@@ -38,11 +41,11 @@ public class Server {
             System.out.println("[SERVER]Cliente " + nClientes + " adicionado ");
             listaClientes.add(ch);
 
-            out.writeUTF("Sucesso a Conectar \n");
-
+            out.writeUTF("Sucesso a Conectar o Cliente "+nClientes+" \n");
+            out.writeUTF("#SetPlayer"+nClientes);
             t.start();
 
-            nClientes++;
+            nClientes++;}
 
         }
 

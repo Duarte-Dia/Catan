@@ -5,10 +5,12 @@
  */
 package catan;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,6 +21,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -27,7 +30,6 @@ import javafx.scene.text.Text;
  * @author José Sampaio
  */
 public class FXMLDocumentController implements Initializable {
-
     @FXML
     private Rectangle rchat;
     @FXML
@@ -62,6 +64,10 @@ public class FXMLDocumentController implements Initializable {
     private MenuItem harborOption2;
     @FXML
     private Button bankTradeButton;
+    @FXML
+    private Button harborTradeButton1;
+    @FXML
+    private Button harborTradeButton;
     @FXML
     private Tab InformationTab;
     @FXML
@@ -195,16 +201,52 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label player3Label;
     
+    public static TextArea chat;
+    public static TextField inputChat;
+    public static Tab tp1,tp2,tp3,tp4; 
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        chat=outputChatText;
+       inputChat= inputChatText;
+       tp1= Player1Tab;
+       tp2= Player2Tab;
+       tp3= player3Tab;
+       tp4 = player4Tab;
+       
         // all
+        
     }    
 
     @FXML
-    private void submitText(KeyEvent event) {
-        if(event.getCode() == KeyCode.ENTER)
-            outputChatText.appendText(inputChatText.getText());
+    private void onClick(MouseEvent event) {
+        outputChatText.appendText("fdc");
+        
     }
+
+    
+    public String getText(){
+      
+    return inputChatText.getText();
+  
+    }
+    
+   @FXML
+    public void submitText(KeyEvent event){
+    if(event.getCode() == KeyCode.ENTER){
+        outputChatText.appendText(inputChatText.getText()+ "\n");
+        inputChatText.clear();
+    
+    }
+    //return inputChatText.getText();
+    
+    
+    
+    }
+   
+    
+    
     
 }
