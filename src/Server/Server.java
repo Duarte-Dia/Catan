@@ -18,6 +18,7 @@ public class Server {
     private static int port = 6666, nClientes = 1;
     private static Vector<ClientHandler> listaClientes = new Vector<>();
     private static Socket client;
+    
 
     public static void main(String[] args) throws IOException {
 
@@ -40,8 +41,8 @@ public class Server {
             System.out.println("[SERVER]Cliente " + nClientes + " adicionado ");
             listaClientes.add(ch);
 
-            out.writeUTF("Sucesso a Conectar \n");
-
+            out.writeUTF("Sucesso a Conectar o Cliente "+nClientes+" \n");
+            out.writeUTF("#SetPlayer"+nClientes);
             t.start();
 
             nClientes++;}

@@ -19,6 +19,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -41,12 +42,19 @@ public class Main extends Application {
     static Board board = new Board();
     public static TextArea chat;
     private static TextField inputChat;
+    public static Tab tp1, tp2, tp3, tp4;
 
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         chat = FXMLDocumentController.chat;
         inputChat = FXMLDocumentController.inputChat;
+
+        tp1 = FXMLDocumentController.tp1;
+        tp2 = FXMLDocumentController.tp2;
+        tp3 = FXMLDocumentController.tp3;
+        tp4 = FXMLDocumentController.tp4;
+
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
@@ -210,7 +218,7 @@ public class Main extends Application {
 
         Thread enviarMensagem = new Thread(() -> {
             while (true) {
-                
+
                 inputChat.setOnKeyPressed(new EventHandler<KeyEvent>() {
                     @Override
                     public void handle(KeyEvent k) {
@@ -225,7 +233,7 @@ public class Main extends Application {
                         }
                     }
                 });
-                
+
             }
         });
 
@@ -234,9 +242,30 @@ public class Main extends Application {
             while (true) {
                 try {
                     String msg = in.readUTF();
-
-                    System.out.println(msg);
-                    chat.appendText(msg + "\n");
+                    if (msg.compareTo( "#SetPlayer1")==0) {
+                        tp1.setDisable(false);
+                        tp2.setDisable(true);
+                        tp3.setDisable(true);
+                        tp4.setDisable(true);
+                    } else if (msg.compareTo("#SetPlayer2")==0) {
+                        tp1.setDisable(true);
+                        tp2.setDisable(false);
+                        tp3.setDisable(true);
+                        tp4.setDisable(true);
+                    } else if (msg.compareTo("#SetPlayer3")==0) {
+                        tp1.setDisable(true);
+                        tp2.setDisable(true);
+                        tp3.setDisable(false);
+                        tp4.setDisable(true);
+                    } else if (msg.compareTo("#SetPlayer4")==0) {
+                        tp1.setDisable(true);
+                        tp2.setDisable(true);
+                        tp3.setDisable(true);
+                        tp4.setDisable(false);
+                    } else {
+                        System.out.println(msg);
+                        chat.appendText(msg + "\n");
+                    }
                 } catch (IOException e) {
 
                 }
