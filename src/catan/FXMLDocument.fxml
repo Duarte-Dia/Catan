@@ -66,8 +66,8 @@
                         </Text>
                         <VBox layoutX="9.0" layoutY="90.0">
                            <children>
-                              <TextArea fx:id="outputChatText" disable="true" layoutX="9.0" layoutY="90.0" prefHeight="108.0" prefWidth="332.0" />
-                              <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" prefHeight="35.0" prefWidth="384.0" promptText="Digite para falar no Chat" />
+                              <TextArea fx:id="outputChatText" editable="false" layoutX="9.0" layoutY="90.0" prefHeight="108.0" prefWidth="332.0" />
+                              <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" onKeyPressed="#submitText" onKeyTyped="#submitText" prefHeight="35.0" prefWidth="384.0" promptText="Digite para falar no Chat" />
                            </children>
                            <padding>
                               <Insets top="5.0" />
@@ -829,7 +829,7 @@
                         </Tab>
                     </tabs>
                   </TabPane>
-                  <Button fx:id="endTurnButton" layoutX="117.0" layoutY="827.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="163.0" text="Proximo turno">
+                  <Button fx:id="endTurnButton" layoutX="117.0" layoutY="827.0" mnemonicParsing="false" onMouseClicked="#onClick" prefHeight="44.0" prefWidth="163.0" text="Proximo turno">
                      <font>
                         <Font size="20.0" />
                      </font>
