@@ -14,7 +14,7 @@ public class Dice {
     
     int total = 0;
     
-    private int throwDice(int n){
+    public int throwDice(int n){
         
         while(n > 0){
             total += ((int)Math.random()*5)+1;

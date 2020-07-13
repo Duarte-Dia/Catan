@@ -7,9 +7,18 @@ package catan;
 
 /**
  *
- * @author José Sampaio
- * Criaçao da Classe
+ * @author José Sampaio Criaçao da Classe
  */
 public class Settlement {
-    
+
+    private Vector3 position;
+
+    public Vector3 getPosition() {
+        return position;
+    }
+
+    public void setPosition(Vector3 position) {
+        this.position = position;
+    }
+
 }

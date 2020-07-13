@@ -11,5 +11,13 @@ package catan;
  * Criaçao da Classe
  */
 public class City {
-    
+    private Vector3 position;
+
+    public Vector3 getPosition() {
+        return position;
+    }
+
+    public void setPosition(Vector3 position) {
+        this.position = position;
+    }
 }

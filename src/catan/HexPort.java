@@ -10,6 +10,6 @@ package catan;
  * @author José Sampaio
  * Criaçao da Classe
  */
-public class HexPort extends Hexagons{
+public class HexPort extends Hexagon{
     
 }
