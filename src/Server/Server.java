@@ -21,7 +21,7 @@ public class Server {
     public static void main(String[] args) throws IOException {
 
         ServerSocket server = new ServerSocket(port);
-        String msg = "Ligas te ao servidor";
+        
 
         while (true) {
             // Servidor fica a espera de um cliente
