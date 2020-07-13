@@ -15,7 +15,7 @@ import java.util.*;
  */
 public class Server {
 
-    private static int port = 6666, nClientes = 0;
+    private static int port = 6666, nClientes = 1;
     private static Vector<ClientHandler> listaClientes = new Vector<>();
 
     public static void main(String[] args) throws IOException {

@@ -19,6 +19,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -37,7 +39,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextArea outputChatText;
     @FXML
-    private TextField inputChatText;
+    public static TextField inputChatText;
     @FXML
     private Text tradesTitle;
     @FXML
@@ -206,6 +208,7 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         chat=outputChatText;
+        inputChatText= new TextField();
         // all
         
     }    
@@ -218,6 +221,24 @@ public class FXMLDocumentController implements Initializable {
 
     public void appendChat(String msg){
     chat.appendText(msg);
+    
+    }
+    
+    public String getText(){
+        
+        
+    return inputChatText.getText();
+    
+    
+    }
+    
+   
+    public void submitText(KeyEvent event){
+    if(event.getCode() == KeyCode.ENTER)
+        outputChatText.appendText(inputChatText.getText());
+    //return inputChatText.getText();
+    
+    
     
     }
    

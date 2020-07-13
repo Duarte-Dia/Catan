@@ -20,6 +20,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -37,55 +38,21 @@ public class Main extends Application {
     static List<Player> listPlayers = new ArrayList<Player>();
     static Board board = new Board();
     public static TextArea chat;
+    private static TextField inputChat;
 
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         chat = FXMLDocumentController.chat;
+        inputChat= FXMLDocumentController.inputChatText;
         Scene scene = new Scene(root);
 
             
         stage.setScene(scene);
         stage.show();
         
+        connectClient();
         
-        Socket socket = new Socket(serverIP, serverPort);
-        
-        DataInputStream in = new DataInputStream(socket.getInputStream());
-        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-        
-        
-
-       Thread enviarMensagem = new Thread(() -> {
-           while(true){
-               String msg = Le.umaString() + "\n";
-               try{
-                   out.writeUTF(msg);
-                   
-                   chat.appendText(msg);
-               } catch(IOException e){
-                   
-               }
-           }
-        });
-        
-        Thread lerMensagem;
-        lerMensagem = new Thread(() -> {
-            while(true){
-                try{
-                    String msg = in.readUTF();
-
-                    System.out.println(msg);
-                    chat.appendText(msg);
-                } catch(IOException e){
-                    
-                }
-            }
-        });
-        
-        //lerMensagem.setDaemon(true);
-        enviarMensagem.start();
-        lerMensagem.start();
         
         
     }
@@ -180,6 +147,52 @@ public class Main extends Application {
                 listPlayers.get(playerSelected).setLongestRoad(true);
             }
         }
+    }
+    
+    
+    private void connectClient() throws IOException{
+    
+    
+        Socket socket = new Socket(serverIP, serverPort);
+        
+        DataInputStream in = new DataInputStream(socket.getInputStream());
+        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+        
+        
+
+       Thread enviarMensagem = new Thread(() -> {
+           while(true){
+               String msg = Le.umaString() + "\n";
+               
+               try{
+                   out.writeUTF(msg);
+                   
+                   chat.appendText(msg);
+               } catch(IOException e){
+                   
+               }
+           }
+        });
+        
+        Thread lerMensagem;
+        lerMensagem = new Thread(() -> {
+            while(true){
+                try{
+                    String msg = in.readUTF();
+
+                    System.out.println(msg);
+                    chat.appendText(msg);
+                } catch(IOException e){
+                    
+                }
+            }
+        });
+        
+        //lerMensagem.setDaemon(true);
+        enviarMensagem.start();
+        lerMensagem.start();
+    
+    
     }
 
 }
