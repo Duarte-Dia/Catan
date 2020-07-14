@@ -11,6 +11,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import javafx.application.Platform;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,6 +45,7 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static Button endTurn, roadButton;
+    public static MenuItem exitBtn;
         DataInputStream in ;
         DataOutputStream out;
 
@@ -59,6 +61,7 @@ public class Main extends Application {
         tp4 = FXMLDocumentController.tp4;
         endTurn = FXMLDocumentController.endTurn;
         roadButton = FXMLDocumentController.roadBtn;
+        exitBtn = FXMLDocumentController.exitBtn;
 
         Scene scene = new Scene(root);
 
@@ -313,6 +316,12 @@ public class Main extends Application {
                         }
                     }
                 });
+                
+                exitBtn.setOnAction(e ->{
+                    e.consume();
+                    Platform.exit();
+            });
+                
 
             }
         });

@@ -170,15 +170,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Text player1Text;
     @FXML
-    private Label player1Label;
-    @FXML
     private Text pvText_player1;
     @FXML
     private Label pvLabel_player1;
     @FXML
     private Text player2Text;
-    @FXML
-    private Label player2Label;
     @FXML
     private Text pvText_player2;
     @FXML
@@ -190,15 +186,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Text player4Text;
     @FXML
-    private Label player4Label;
-    @FXML
     private Text pvText_player3;
     @FXML
     private Label pvLabel_player3;
     @FXML
     private Text player3Text;
-    @FXML
-    private Label player3Label;
     @FXML
     private Group rc;
     @FXML
@@ -349,8 +341,11 @@ public class FXMLDocumentController implements Initializable {
     public static TextArea chat;
     public static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
-    public static Button endTurn, roadBtn;
+    public static Button endTurn, roadBtn ;
     public static Group linesGroup;
+    public static MenuItem exitBtn;
+    @FXML
+    private MenuItem exitButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -364,6 +359,7 @@ public class FXMLDocumentController implements Initializable {
         endTurn = endTurnButton;
         roadBtn = roadButton;
         linesGroup = rc;
+        exitBtn =exitButton;
 
         // all
     }
