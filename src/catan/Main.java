@@ -44,6 +44,8 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static Button endTurn, roadButton;
+        DataInputStream in ;
+        DataOutputStream out;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -77,6 +79,7 @@ public class Main extends Application {
 
                 for (i = 1; i <= listPlayers.size();) {
                     endPlay = false;
+                    // possivel problema
                     chosenTile = dice.throwDice(2);
 
                     if (chosenTile != 7) {
@@ -118,6 +121,11 @@ public class Main extends Application {
                             if (idJogadorLocal == i) {
                                 System.out.println("Next player");
                                 endPlay = true;
+                                try {
+                                    out.writeUTF("end Turn button pressed");
+                                } catch (IOException ex) {
+                                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                }
                             }
                         }
                     });
@@ -285,8 +293,8 @@ public class Main extends Application {
 
         Socket socket = new Socket(serverIP, serverPort);
 
-        DataInputStream in = new DataInputStream(socket.getInputStream());
-        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+        in = new DataInputStream(socket.getInputStream());
+        out = new DataOutputStream(socket.getOutputStream());
 
         Thread enviarMensagem = new Thread(() -> {
             while (true) {
