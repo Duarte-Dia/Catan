@@ -33,7 +33,6 @@ public class Server {
     private static Vector<ClientHandler> listaClientes = new Vector<>();
     private static Socket client;
     public static TextArea chat;
-    private static TextField inputChat;
     static int idJogadorLocal = 1, i;
     static boolean gameover, endPlay;
     static Dice dice = new Dice();
@@ -102,15 +101,10 @@ public class Server {
         
         servidor.start();
 
-        chat = FXMLDocumentController.chat;
-        inputChat = FXMLDocumentController.inputChat;
-
-        tp1 = FXMLDocumentController.tp1;
-        tp2 = FXMLDocumentController.tp2;
-        tp3 = FXMLDocumentController.tp3;
-        tp4 = FXMLDocumentController.tp4;
-        endTurn = FXMLDocumentController.endTurn;
-        roadButton = FXMLDocumentController.roadBtn;
+        
+        
+       
+        
 
         Player p1 = new Player(0, 1, 0, 0, 0, 0, 0, false, false);
         Player p2 = new Player(0, 2, 0, 0, 0, 0, 0, false, false);
@@ -149,60 +143,6 @@ public class Server {
                         // MOVE LADRAO
                     }
                     
-                    
-                    
-                    
-                    
-                    
-                    try{
-                        roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                            @Override
-                            public void handle(MouseEvent m) {
-                                for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
-                                    if (idJogadorLocal == i) {
-                                        System.out.println(n.getId() + "\n");
-                                        n.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                            @Override
-                                            public void handle(MouseEvent m) {
-                                                if (idJogadorLocal == i) {
-                                                    System.out.println(n.getId());
-                                                    // player tem recursos?
-                                                    // rua disponivel?
-                                                    // 
-                                                }
-                                            }
-                                        });
-                                    }
-                                }
-                            }
-                        });
-                    } catch(Exception e ){
-                   
-                    }
-                    
-                    
-                    
-                    
-                    try{
-                    endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent m) {
-                            if (idJogadorLocal == i) {
-                                System.out.println("Next player");
-                                endPlay = true;
-                                try {
-                                    out.writeUTF("end Turn button pressed");
-                                } catch (IOException ex) {
-                                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                            }
-                        }
-                    });
-                    } catch(Exception e ){
-                    
-                    e = new NullPointerException();
-                    }
-
                     if (endPlay) {
                         i++;
                     }

@@ -6,6 +6,8 @@
 package catan;
 
 import static Server.Server.chat;
+import static Server.Server.endTurn;
+import static Server.Server.roadButton;
 import static Server.Server.tp1;
 import static Server.Server.tp2;
 import static Server.Server.tp3;
@@ -38,6 +40,8 @@ public class Main extends Application {
 
     private static String serverIP = "127.0.0.1";
     private static final int serverPort = 6666;
+
+    static boolean gameover, endPlay;
     public static TextArea chat;
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
@@ -48,7 +52,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
+
         chat = FXMLDocumentController.chat;
         inputChat = FXMLDocumentController.inputChat;
 
@@ -56,7 +60,45 @@ public class Main extends Application {
         tp2 = FXMLDocumentController.tp2;
         tp3 = FXMLDocumentController.tp3;
         tp4 = FXMLDocumentController.tp4;
-        
+        endTurn = FXMLDocumentController.endTurn;
+        roadButton = FXMLDocumentController.roadBtn;
+
+        roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent m) {
+                for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+                    if (idJogadorLocal == i) {
+                        System.out.println(n.getId() + "\n");
+                        n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent m) {
+                                if (idJogadorLocal == i) {
+                                    System.out.println(n.getId());
+                                                    // player tem recursos?
+                                    // rua disponivel?
+                                    // 
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+
+        endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent m) {
+                if (idJogadorLocal == i) {
+                    System.out.println("Next player");
+                    endPlay = true;
+                    try {
+                        out.writeUTF("end Turn button pressed");
+                    } catch (IOException ex) {
+                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        });
 
         Scene scene = new Scene(root);
 
