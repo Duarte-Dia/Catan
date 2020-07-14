@@ -58,6 +58,7 @@ public class Main extends Application {
         tp3 = FXMLDocumentController.tp3;
         tp4 = FXMLDocumentController.tp4;
 <<<<<<< HEAD
+<<<<<<< HEAD
         endTurn = FXMLDocumentController.endTurn;
         roadButton = FXMLDocumentController.roadBtn;
 
@@ -203,6 +204,9 @@ public class Main extends Application {
             p.addScore(p.getListSettlements().size());
 
             p.addScore(p.getListCities().size() * 2);
+=======
+        
+>>>>>>> parent of 768a38e... tranferencia de butoes road e next para main
 =======
         
 >>>>>>> parent of 768a38e... tranferencia de butoes road e next para main
