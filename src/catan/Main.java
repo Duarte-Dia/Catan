@@ -45,7 +45,7 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static Button endTurn, roadButton;
-    public static MenuItem exitBtn;
+    public static MenuItem exitBtn, ruleBtn;
         DataInputStream in ;
         DataOutputStream out;
 
@@ -321,6 +321,7 @@ public class Main extends Application {
                     e.consume();
                     Platform.exit();
             });
+                
                 
 
             }
