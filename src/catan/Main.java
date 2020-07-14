@@ -35,6 +35,7 @@ public class Main extends Application {
     private static final int serverPort = 6666;
 
     static int chosenTile = 0;
+    int idJogadorLocal = 1, i;
     static boolean gameover, endPlay;
     static Dice dice = new Dice();
     static List<Player> listPlayers = new ArrayList<Player>();
@@ -70,81 +71,81 @@ public class Main extends Application {
         listPlayers.add(p2);
         listPlayers.add(p3);
 
-        
-        
-         
-        Thread butoes = new Thread(() -> {
-            
+        Thread jogo = new Thread(() -> {
 
-                roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent m) {
-                        for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
-                            chat.appendText(n.toString() + "\n");
+            while (!gameover) {
+
+                for (i = 1; i <= listPlayers.size();) {
+                    endPlay = false;
+                    chosenTile = dice.throwDice(2);
+
+                    if (chosenTile != 7) {
+                        for (Hexagon hex : board.getTiles()) {
+                            if (chosenTile == hex.getNum()) {
+                                givePlayersResources(hex.getResourceID(), hex);
+                            }
                         }
+                    } else {
+                        // LANÇOU 7
+                        // MOVE LADRAO
                     }
-                });
-                
-                
-                endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent m) {
-                        chat.appendText("Next player");
-                        endPlay = true;
-                    }
-                });
 
-            
+                    roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent m) {
+                            for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+                                if (idJogadorLocal == i) {
+                                    System.out.println(n.getId() + "\n");
+                                    n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                        @Override
+                                        public void handle(MouseEvent m) {
+                                            if (idJogadorLocal == i) {
+                                                System.out.println(n.getId());
+                                                // player tem recursos?
+                                                // rua disponivel?
+                                                // 
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    });
+
+                    endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent m) {
+                            if (idJogadorLocal == i) {
+                                System.out.println("Next player");
+                                endPlay = true;
+                            }
+                        }
+                    });
+
+                    if (endPlay) {
+                        i++;
+                    }
+
+                    longestRoad();
+                    biggestArmy();
+
+                    if (isGameOver()) {
+                        gameover = true;
+                    }
+                }
+            }
+
         });
 
-         butoes.start();
-        
-        
-        
+        jogo.start();
+
         gameover = false;
-        
 
     }
 
     public static void main(String[] args) throws UnknownHostException, IOException {
 
         launch(args);
-        
-        
-        while (!gameover) {
-
-            for (int i = 0; i < listPlayers.size(); i++) {
-                endPlay = false;
-                chosenTile = dice.throwDice(2);
-
-                if (chosenTile != 7) {
-                    for (Hexagon hex : board.getTiles()) {
-                        if (chosenTile == hex.getNum()) {
-                            givePlayersResources(hex.getResourceID(), hex);
-                        }
-                    }
-                } else {
-                    // LANÇOU 7
-                    // MOVE LADRAO
-                }
-
-                
-
-               /* do {
-
-                
-                } while (!endPlay);*/
-
-                longestRoad();
-                biggestArmy();
-
-                if (isGameOver()) {
-                    gameover = true;
-                }
-            }
-        }
-
-
     }
 
     private static void givePlayersResources(int resource, Hexagon hex) {
@@ -314,21 +315,25 @@ public class Main extends Application {
                 try {
                     String msg = in.readUTF();
                     if (msg.compareTo("#SetPlayer1") == 0) {
+                        idJogadorLocal = 1;
                         tp1.setDisable(false);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
                         tp4.setDisable(true);
                     } else if (msg.compareTo("#SetPlayer2") == 0) {
+                        idJogadorLocal = 2;
                         tp1.setDisable(true);
                         tp2.setDisable(false);
                         tp3.setDisable(true);
                         tp4.setDisable(true);
                     } else if (msg.compareTo("#SetPlayer3") == 0) {
+                        idJogadorLocal = 3;
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(false);
                         tp4.setDisable(true);
                     } else if (msg.compareTo("#SetPlayer4") == 0) {
+                        idJogadorLocal = 4;
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
@@ -342,13 +347,11 @@ public class Main extends Application {
                 }
             }
         });
-        
-        
-       
+
         //lerMensagem.setDaemon(true);
         enviarMensagem.start();
         lerMensagem.start();
-       
+
     }
 
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
