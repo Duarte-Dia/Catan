@@ -148,7 +148,7 @@ public class Main extends Application {
                         tj1.setText("Jogador 1");
                         tj2.setText("Jogador 2");
                         tj3.setText("Jogador 4");
-                    }  else if (msg.compareTo("#SetPlayer4") == 0) {
+                    } else if (msg.compareTo("#SetPlayer4") == 0) {
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
@@ -193,46 +193,48 @@ public class Main extends Application {
 
         Thread buttonListener = new Thread(() -> {
 
-            roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent m) {
-                    for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
-                        if (idJogadorLocal == i) {
-                            System.out.println(n.getId() + "\n");
-                            n.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                @Override
-                                public void handle(MouseEvent m) {
-                                    if (idJogadorLocal == i) {
-                                        System.out.println(n.getId());
-                                        // player tem recursos?
-                                        // rua disponivel?
-                                        // 
+            while (true) {
+
+                roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+                            if (idJogadorLocal == i) {
+                                System.out.println(n.getId() + "\n");
+                                n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                    @Override
+                                    public void handle(MouseEvent m) {
+                                        if (idJogadorLocal == i) {
+                                            System.out.println(n.getId());
+                                                // player tem recursos?
+                                            // rua disponivel?
+                                            // 
+                                        }
                                     }
-                                }
-                            });
-                                    
+                                });
+                            }
                         }
                     }
-                }
-            });
+                });
 
-            endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent m) {
-                    if (idJogadorLocal == i) {
-                        System.out.println("Next player");
-                        endPlay = true;
-                        try {
-                            out.writeUTF("end Turn button pressed");
-                        } catch (IOException ex) {
-                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        if (idJogadorLocal == i) {
+                            System.out.println("Next player");
+                            endPlay = true;
+                            try {
+                                out.writeUTF("end Turn button pressed");
+                            } catch (IOException ex) {
+                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                         }
                     }
-                }
-            });
+                });
 
+            }
         });
-        
+
         buttonListener.start();
 
     }
