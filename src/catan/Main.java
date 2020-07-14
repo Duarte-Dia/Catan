@@ -259,7 +259,7 @@ public class Main extends Application {
 
             }
         });
-
+// este thread serve para o cliente receber mensagends do servidor e de as filtrar
         Thread lerMensagem;
         lerMensagem = new Thread(() -> {
             while (true) {
