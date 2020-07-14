@@ -6,8 +6,6 @@
 package catan;
 
 import static Server.Server.chat;
-import static Server.Server.endTurn;
-import static Server.Server.roadButton;
 import static Server.Server.tp1;
 import static Server.Server.tp2;
 import static Server.Server.tp3;
@@ -33,15 +31,14 @@ import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 /**
- *
+ *  Classe onde o jogo é iniciado, e todas as acções realizadas
+ *  pelo utilizador estão definidas
  * @author Bruno Ribeiro
  */
 public class Main extends Application {
 
     private static String serverIP = "127.0.0.1";
     private static final int serverPort = 6666;
-
-    static boolean gameover, endPlay;
     public static TextArea chat;
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
@@ -52,7 +49,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-
+        
         chat = FXMLDocumentController.chat;
         inputChat = FXMLDocumentController.inputChat;
 
@@ -60,6 +57,7 @@ public class Main extends Application {
         tp2 = FXMLDocumentController.tp2;
         tp3 = FXMLDocumentController.tp3;
         tp4 = FXMLDocumentController.tp4;
+<<<<<<< HEAD
         endTurn = FXMLDocumentController.endTurn;
         roadButton = FXMLDocumentController.roadBtn;
 
@@ -80,6 +78,99 @@ public class Main extends Application {
                                 }
                             }
                         });
+    public static MenuItem tj1, tj2, tj3;
+
+    
+     /**
+      * Método que inicia todas as componententes necessárias para a interface gráfica
+      *
+      * @param stage  Parametro que representa o conteúdo da interface
+      * @throws Exception 
+      */
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        iniciarElementos();
+
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
+
+        connectClient();
+
+    }
+        /**
+         * Método Main, onde o jogo é jogado
+         * 
+         */
+    public static void main(String[] args) throws UnknownHostException, IOException {
+
+        launch(args);
+
+        gameover = true;
+
+        while (!gameover) {
+            for (int i = 0; i < listPlayers.size(); i++) {
+                endPlay = false;
+                chosenTile = dice.throwDice(2);
+
+                if (chosenTile != 7) {
+                    for (Hexagon hex : board.getTiles()) {
+                        if (chosenTile == hex.getNum()) {
+                            givePlayersResources(hex.getResourceID(), hex);
+                        }
+                    }
+                } else {
+                    // LANÇOU 7
+                    // MOVE LADRAO
+                }
+
+                do {
+                } while (!endPlay);
+
+                longestRoad();
+                biggestArmy();
+
+                if (isGameOver()) {
+                    gameover = true;
+                }
+            }
+        }
+    }
+            /**
+             *  Método que fornece os recursos ao jogador (cliente), que este ganha
+             * @param resource  Parametro que representa os recursos
+             * @param hex Parametro que representa uma casa de jogo
+             */
+    private static void givePlayersResources(int resource, Hexagon hex) {
+        int current;
+        for (Player p : listPlayers) {
+            for (City c : p.getListCities()) {
+                if (hex.containVector(c.getPosition())) {
+                    switch (resource) {
+                        case 1: // wool
+                            current = p.getWool();
+                            p.setWool(current += 2);
+                            break;
+                        case 2: // timber
+                            current = p.getTimber();
+                            p.setTimber(current += 2);
+                            break;
+                        case 3: // brick
+                            current = p.getBrick();
+                            p.setBrick(current += 2);
+                            break;
+                        case 4: // wheat
+                            current = p.getWheat();
+                            p.setWheat(current += 2);
+                            break;
+                        case 5: // metal
+                            current = p.getMetal();
+                            p.setMetal(current += 2);
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -99,6 +190,22 @@ public class Main extends Application {
                 }
             }
         });
+        }
+    }
+     /**
+      * Método que verifica se um jogo termina
+      * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha terminado, retorna falso.
+      *
+      */
+    private static boolean isGameOver() {
+
+        for (Player p : listPlayers) {
+            p.addScore(p.getListSettlements().size());
+
+            p.addScore(p.getListCities().size() * 2);
+=======
+        
+>>>>>>> parent of 768a38e... tranferencia de butoes road e next para main
 
         Scene scene = new Scene(root);
 
@@ -110,10 +217,39 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws UnknownHostException, IOException {
+     
+    /**
+     * Método que indica se alguém (e quem) atingiu a estrada mais longa
+     * Alguém só atinge a estrada mais longa, quem tem pelo menos 5 estradas,
+     * ou, no caso de haver mais que um jogador com 5 estradas, mostra qual o jogador
+     * com mais estradas
+     */
+    private static void longestRoad() {
+        List<Integer> listRoadSizes = new ArrayList<Integer>();
+        int size, playerSelected;
+
+        for (Player p : listPlayers) {
+            listRoadSizes.add(p.getListRoads().size());
+        }
+
+        size = Collections.max(listRoadSizes);
+
+        if (size >= 5) {
+            if (Collections.frequency(listRoadSizes, size) == 1) {
+                playerSelected = listRoadSizes.indexOf(Collections.max(listRoadSizes));
+
+                for (Player p : listPlayers) {
+                    p.setLongestRoad(false);
+                }
 
         launch(args);
     }
 
+    /**
+     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor
+     * para que o jogo seja iniciado
+     * @throws IOException 
+     */
     private void connectClient() throws IOException {
 
         Socket socket = new Socket(serverIP, serverPort);
@@ -141,7 +277,7 @@ public class Main extends Application {
 
             }
         });
-
+// este thread serve para o cliente receber mensagends do servidor e de as filtrar
         Thread lerMensagem;
         lerMensagem = new Thread(() -> {
             while (true) {
@@ -167,10 +303,17 @@ public class Main extends Application {
                         tp4.setDisable(true);
                     } else if (msg.compareTo("#SetPlayer4") == 0) {
                         idJogadorLocal = 4;
+                        tj1.setText("Jogador 1"); 
+                        tj2.setText("Jogador 2");
+                        tj3.setText("Jogador 4");
+                    } else if (msg.compareTo("#SetPlayer4") == 0) {
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
                         tp4.setDisable(false);
+                        tj1.setText("Jogador 1"); 
+                        tj2.setText("Jogador 2");
+                        tj3.setText("Jogador 3");
                     } else {
                         System.out.println(msg);
                         chat.appendText(msg + "\n");
@@ -186,7 +329,58 @@ public class Main extends Application {
         lerMensagem.start();
 
     }
+     /**
+      * Método que inicia os elementos da interface
+      */
+    private void iniciarElementos() {
+        chat = FXMLDocumentController.chat;
+        inputChat = FXMLDocumentController.inputChat;
 
+        tp1 = FXMLDocumentController.tp1;
+        tp2 = FXMLDocumentController.tp2;
+        tp3 = FXMLDocumentController.tp3;
+        tp4 = FXMLDocumentController.tp4;
+        
+        tj1 = FXMLDocumentController.tj1;
+        tj2 = FXMLDocumentController.tj2;
+        tj3 = FXMLDocumentController.tj3;
+
+    }
+      /**
+       * Método que define quem tem o maior exército.
+       */
+    private static void biggestArmy() {
+        List<Integer> listArmySizes = new ArrayList<Integer>();
+        int size, playerSelected;
+
+        for (Player p : listPlayers) {
+            listArmySizes.add(p.getArmy());
+        }
+
+        size = Collections.max(listArmySizes);
+
+        if (size >= 3) {
+            if (Collections.frequency(listArmySizes, size) == 1) {
+                playerSelected = listArmySizes.indexOf(Collections.max(listArmySizes));
+
+                for (Player p : listPlayers) {
+                    p.setBiggestArmy(false);
+                }
+
+                listPlayers.get(playerSelected).setBiggestArmy(true);
+            }
+        }
+    }
+     /**
+      * Método que permite haver troca de recursos entre jogadores/clientes
+      * @param p1 Parametro que representa o jogador que pretende efetuar a troca.
+      * @param p2 Parametro que representa o jogador que recebe o pedido de troca.
+      * @param resource1 Parametro que representa os recursos que o jogador pretende receber
+      * @param resource2 Parametro que representa os recursos , que o jogador oferece em troca
+      * @param quantity1 Parametro que representa as quantidades de cada recurso, que o jogador pretende receber
+      * @param quantity2  Parametro que representa as quantidades de cada recurso, que o jogador oferece em troca.
+      * 
+      */
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
         int currentP1, currentP2;
         switch (resource1) {
