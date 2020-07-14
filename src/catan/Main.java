@@ -17,13 +17,12 @@ import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.control.*;
+import javafx.scene.input.*;
+import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 /**
@@ -43,6 +42,7 @@ public class Main extends Application {
     public static TextArea chat;
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
+    public static Button endTurn, roadButton;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -54,6 +54,8 @@ public class Main extends Application {
         tp2 = FXMLDocumentController.tp2;
         tp3 = FXMLDocumentController.tp3;
         tp4 = FXMLDocumentController.tp4;
+        endTurn = FXMLDocumentController.endTurn;
+        roadButton = FXMLDocumentController.roadBtn;
 
         Scene scene = new Scene(root);
 
@@ -86,7 +88,25 @@ public class Main extends Application {
                     // MOVE LADRAO
                 }
 
+                roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+                            chat.appendText(n.toString());
+                        }
+                    }
+                });
+
+                endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        chat.appendText("Next player");
+                        endPlay = true;
+                    }
+                });
+
                 do {
+
                 } while (!endPlay);
 
                 longestRoad();
@@ -209,6 +229,29 @@ public class Main extends Application {
         }
     }
 
+    private static void biggestArmy() {
+        List<Integer> listArmySizes = new ArrayList<Integer>();
+        int size, playerSelected;
+
+        for (Player p : listPlayers) {
+            listArmySizes.add(p.getArmy());
+        }
+
+        size = Collections.max(listArmySizes);
+
+        if (size >= 3) {
+            if (Collections.frequency(listArmySizes, size) == 1) {
+                playerSelected = listArmySizes.indexOf(Collections.max(listArmySizes));
+
+                for (Player p : listPlayers) {
+                    p.setBiggestArmy(false);
+                }
+
+                listPlayers.get(playerSelected).setBiggestArmy(true);
+            }
+        }
+    }
+
     private void connectClient() throws IOException {
 
         Socket socket = new Socket(serverIP, serverPort);
@@ -242,22 +285,22 @@ public class Main extends Application {
             while (true) {
                 try {
                     String msg = in.readUTF();
-                    if (msg.compareTo( "#SetPlayer1")==0) {
+                    if (msg.compareTo("#SetPlayer1") == 0) {
                         tp1.setDisable(false);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
                         tp4.setDisable(true);
-                    } else if (msg.compareTo("#SetPlayer2")==0) {
+                    } else if (msg.compareTo("#SetPlayer2") == 0) {
                         tp1.setDisable(true);
                         tp2.setDisable(false);
                         tp3.setDisable(true);
                         tp4.setDisable(true);
-                    } else if (msg.compareTo("#SetPlayer3")==0) {
+                    } else if (msg.compareTo("#SetPlayer3") == 0) {
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(false);
                         tp4.setDisable(true);
-                    } else if (msg.compareTo("#SetPlayer4")==0) {
+                    } else if (msg.compareTo("#SetPlayer4") == 0) {
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
@@ -276,29 +319,6 @@ public class Main extends Application {
         enviarMensagem.start();
         lerMensagem.start();
 
-    }
-
-    private static void biggestArmy() {
-        List<Integer> listArmySizes = new ArrayList<Integer>();
-        int size, playerSelected;
-
-        for (Player p : listPlayers) {
-            listArmySizes.add(p.getArmy());
-        }
-
-        size = Collections.max(listArmySizes);
-
-        if (size >= 3) {
-            if (Collections.frequency(listArmySizes, size) == 1) {
-                playerSelected = listArmySizes.indexOf(Collections.max(listArmySizes));
-
-                for (Player p : listPlayers) {
-                    p.setBiggestArmy(false);
-                }
-
-                listPlayers.get(playerSelected).setBiggestArmy(true);
-            }
-        }
     }
 
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {

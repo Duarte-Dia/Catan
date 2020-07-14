@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -22,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
@@ -30,6 +32,7 @@ import javafx.scene.text.Text;
  * @author José Sampaio
  */
 public class FXMLDocumentController implements Initializable {
+
     @FXML
     private Rectangle rchat;
     @FXML
@@ -64,10 +67,6 @@ public class FXMLDocumentController implements Initializable {
     private MenuItem harborOption2;
     @FXML
     private Button bankTradeButton;
-    @FXML
-    private Button harborTradeButton1;
-    @FXML
-    private Button harborTradeButton;
     @FXML
     private Tab InformationTab;
     @FXML
@@ -200,53 +199,195 @@ public class FXMLDocumentController implements Initializable {
     private Text player3Text;
     @FXML
     private Label player3Label;
-    
+    @FXML
+    private Group rc;
+    @FXML
+    private Line r2l2;
+    @FXML
+    private Line r2l8;
+    @FXML
+    private Line r2l4;
+    @FXML
+    private Line r2l6;
+    @FXML
+    private Line c3l2;
+    @FXML
+    private Line c3l3;
+    @FXML
+    private Line c3l6;
+    @FXML
+    private Line c3l1;
+    @FXML
+    private Line c3l4;
+    @FXML
+    private Line c3l5;
+    @FXML
+    private Line r6l1;
+    @FXML
+    private Line r6l3;
+    @FXML
+    private Line r6l5;
+    @FXML
+    private Line c1l1;
+    @FXML
+    private Line c1l3;
+    @FXML
+    private Line c1l2;
+    @FXML
+    private Line c1l4;
+    @FXML
+    private Line c2l1;
+    @FXML
+    private Line c2l3;
+    @FXML
+    private Line c2l2;
+    @FXML
+    private Line c2l5;
+    @FXML
+    private Line c2l4;
+    @FXML
+    private Line r5l2;
+    @FXML
+    private Line r5l8;
+    @FXML
+    private Line r5l6;
+    @FXML
+    private Line r5l4;
+    @FXML
+    private Line r6l2;
+    @FXML
+    private Line r6l4;
+    @FXML
+    private Line r6l6;
+    @FXML
+    private Line r3l9;
+    @FXML
+    private Line r3l3;
+    @FXML
+    private Line r3l1;
+    @FXML
+    private Line r3l5;
+    @FXML
+    private Line r3l7;
+    @FXML
+    private Line c4l1;
+    @FXML
+    private Line c4l3;
+    @FXML
+    private Line c4l2;
+    @FXML
+    private Line c4l5;
+    @FXML
+    private Line c4l4;
+    @FXML
+    private Line r2l1;
+    @FXML
+    private Line r2l7;
+    @FXML
+    private Line r2l5;
+    @FXML
+    private Line r2l3;
+    @FXML
+    private Line c5l1;
+    @FXML
+    private Line c5l3;
+    @FXML
+    private Line c5l2;
+    @FXML
+    private Line c5l4;
+    @FXML
+    private Line r4l3;
+    @FXML
+    private Line r4l5;
+    @FXML
+    private Line r4l9;
+    @FXML
+    private Line r4l1;
+    @FXML
+    private Line r4l7;
+    @FXML
+    private Line r1l2;
+    @FXML
+    private Line r1l4;
+    @FXML
+    private Line r1l6;
+    @FXML
+    private Line r5l1;
+    @FXML
+    private Line r5l7;
+    @FXML
+    private Line r5l3;
+    @FXML
+    private Line r5l5;
+    @FXML
+    private Line r4l10;
+    @FXML
+    private Line r4l4;
+    @FXML
+    private Line r4l2;
+    @FXML
+    private Line r4l6;
+    @FXML
+    private Line r4l8;
+    @FXML
+    private Line r1l1;
+    @FXML
+    private Line r1l3;
+    @FXML
+    private Line r1l5;
+    @FXML
+    private Line r3l4;
+    @FXML
+    private Line r3l6;
+    @FXML
+    private Line r3l10;
+    @FXML
+    private Line r3l2;
+    @FXML
+    private Line r3l8;
+
     public static TextArea chat;
     public static TextField inputChat;
-    public static Tab tp1,tp2,tp3,tp4; 
-    
-    
+    public static Tab tp1, tp2, tp3, tp4;
+    public static Button endTurn, roadBtn;
+    public static Group linesGroup;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        chat=outputChatText;
-       inputChat= inputChatText;
-       tp1= Player1Tab;
-       tp2= Player2Tab;
-       tp3= player3Tab;
-       tp4 = player4Tab;
-       
+
+        chat = outputChatText;
+        inputChat = inputChatText;
+        tp1 = Player1Tab;
+        tp2 = Player2Tab;
+        tp3 = player3Tab;
+        tp4 = player4Tab;
+        endTurn = endTurnButton;
+        roadBtn = roadButton;
+        linesGroup = rc;
+
         // all
-        
-    }    
+    }
 
     @FXML
-    private void onClick(MouseEvent event) {
-        outputChatText.appendText("fdc");
-        
+    public void endTurnClick(ActionEvent event) {
+
     }
 
-    
-    public String getText(){
-      
-    return inputChatText.getText();
-  
+    public String getText() {
+
+        return inputChatText.getText();
+
     }
-    
-   @FXML
-    public void submitText(KeyEvent event){
-    if(event.getCode() == KeyCode.ENTER){
-        outputChatText.appendText(inputChatText.getText()+ "\n");
-        inputChatText.clear();
-    
+
+    @FXML
+    public void submitText(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            outputChatText.appendText(inputChatText.getText() + "\n");
+            inputChatText.clear();
+
+        }
+        //return inputChatText.getText();
+
     }
-    //return inputChatText.getText();
-    
-    
-    
-    }
-   
-    
-    
-    
+
 }

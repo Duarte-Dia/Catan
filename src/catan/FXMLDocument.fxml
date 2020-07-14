@@ -67,7 +67,7 @@
                         <VBox layoutX="9.0" layoutY="90.0">
                            <children>
                               <TextArea fx:id="outputChatText" editable="false" layoutX="9.0" layoutY="90.0" prefHeight="108.0" prefWidth="332.0" />
-                              <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" onKeyPressed="#submitText" prefHeight="35.0" prefWidth="384.0" promptText="Digite para falar no Chat" />
+                              <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" onKeyPressed="#submitText" prefHeight="35.0" prefWidth="384.0" promptText="Type to use the chat" />
                            </children>
                            <padding>
                               <Insets top="5.0" />
@@ -77,7 +77,7 @@
                   </VBox>
                   <VBox layoutX="40.0" layoutY="205.41796875" spacing="5.0">
                      <children>
-                        <Text fx:id="tradesTitle" layoutX="168.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trocas">
+                        <Text fx:id="tradesTitle" layoutX="168.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trades">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -89,17 +89,17 @@
                            <children>
                               <VBox layoutX="40.0" layoutY="249.0" spacing="35.0">
                                  <children>
-                                    <Text fx:id="bankText" layoutX="46.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco">
+                                    <Text fx:id="bankText" layoutX="46.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="harborText1" layoutX="40.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jogador">
+                                    <Text fx:id="harborText1" layoutX="40.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="harborText" layoutX="41.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Porto">
+                                    <Text fx:id="harborText" layoutX="41.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Harbor">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -108,19 +108,19 @@
                               </VBox>
                               <VBox layoutX="114.0" layoutY="299.0" spacing="25.0">
                                  <children>
-                                    <Button fx:id="bankTradeButton" mnemonicParsing="false" text="Trocar">
+                                    <Button fx:id="bankTradeButton" mnemonicParsing="false" text="Trade">
                                        <VBox.margin>
                                           <Insets left="45.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <MenuButton fx:id="playerMenu1" layoutX="114.0" mnemonicParsing="false" text="Selecionar Jogador:">
+                                    <MenuButton fx:id="playerMenu1" layoutX="114.0" mnemonicParsing="false" text="Select Player">
                                        <items>
                                           <MenuItem fx:id="PlayerOption1" mnemonicParsing="false" text="Jogador1" />
                                           <MenuItem fx:id="playerOption2" mnemonicParsing="false" text="Jogador2" />
                                           <MenuItem fx:id="playerOption3" mnemonicParsing="false" text="Jogador3" />
                                        </items>
                                     </MenuButton>
-                                    <MenuButton fx:id="harborMenu" layoutX="126.0" mnemonicParsing="false" text="Selecionar Porto:">
+                                    <MenuButton fx:id="harborMenu" layoutX="126.0" mnemonicParsing="false" text="Select Harbor">
                                       <items>
                                         <MenuItem fx:id="harborOption1" mnemonicParsing="false" text="Porto1" />
                                         <MenuItem fx:id="harborOption2" mnemonicParsing="false" text="Porto2" />
@@ -143,7 +143,7 @@
                   </VBox>
                   <TabPane layoutX="15.0" layoutY="396.0" prefHeight="415.0" prefWidth="387.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab fx:id="InformationTab" text="informação">
+                      <Tab fx:id="InformationTab" text="Info">
                            <content>
                               <AnchorPane prefHeight="357.0" prefWidth="389.0">
                                  <children>
@@ -158,7 +158,7 @@
                                     </VBox>
                                     <VBox layoutX="24.0" layoutY="14.0224609375" AnchorPane.bottomAnchor="27.9775390625" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Text layoutX="69.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Custo de Construções">
+                                          <Text layoutX="69.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Construction's Costs">
                                              <font>
                                                 <Font name="System Bold" size="25.0" />
                                              </font>
@@ -168,7 +168,7 @@
                                           </Text>
                                           <HBox layoutX="25.0" layoutY="88.0" prefHeight="31.0" prefWidth="356.0">
                                              <children>
-                                                <Text layoutX="25.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estrada - 0PV">
+                                                <Text layoutX="25.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Road - 0 VP">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -176,7 +176,7 @@
                                                       <Insets right="165.0" />
                                                    </HBox.margin>
                                                 </Text>
-                                                <Button fx:id="roadButton" layoutX="291.0" layoutY="88.0" mnemonicParsing="false" text="Construir" />
+                                                <Button fx:id="roadButton" layoutX="291.0" layoutY="88.0" mnemonicParsing="false" text="Build" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets bottom="50.0" left="10.0" />
@@ -184,7 +184,7 @@
                                           </HBox>
                                           <HBox layoutX="24.0" layoutY="164.576171875">
                                              <children>
-                                                <Text layoutX="24.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Casa - 1PV">
+                                                <Text layoutX="24.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settlement - 1 VP">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -192,7 +192,7 @@
                                                       <Insets right="185.0" />
                                                    </HBox.margin>
                                                 </Text>
-                                                <Button fx:id="houseButton" layoutX="291.0" layoutY="166.0" mnemonicParsing="false" text="Construir" />
+                                                <Button fx:id="houseButton" layoutX="291.0" layoutY="166.0" mnemonicParsing="false" text="Build" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets bottom="49.0" left="10.0" />
@@ -200,7 +200,7 @@
                                           </HBox>
                                           <HBox layoutX="24.0" layoutY="245.0">
                                              <children>
-                                                <Text layoutX="24.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade - 2PV">
+                                                <Text layoutX="24.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City - 2 VP">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -208,7 +208,7 @@
                                                       <Insets right="168.0" />
                                                    </HBox.margin>
                                                 </Text>
-                                                <Button fx:id="cityButton" layoutX="291.0" layoutY="245.0" mnemonicParsing="false" text="Construir" />
+                                                <Button fx:id="cityButton" layoutX="291.0" layoutY="245.0" mnemonicParsing="false" text="Build" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets bottom="45.0" left="10.0" />
@@ -216,7 +216,7 @@
                                           </HBox>
                                           <HBox layoutX="24.0" layoutY="328.0">
                                              <children>
-                                                <Text layoutX="24.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carta de desenvolvimento - ?PV ">
+                                                <Text layoutX="24.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Development Card - ? VP">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -224,7 +224,7 @@
                                                       <Insets left="10.0" right="10.0" />
                                                    </HBox.margin>
                                                 </Text>
-                                                <Button fx:id="developmentCardButton" layoutX="291.0" layoutY="328.0" mnemonicParsing="false" text="Construir" />
+                                                <Button fx:id="developmentCardButton" layoutX="291.0" layoutY="328.0" mnemonicParsing="false" text="Buy" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -827,7 +827,7 @@
                         </Tab>
                     </tabs>
                   </TabPane>
-                  <Button fx:id="endTurnButton" layoutX="117.0" layoutY="827.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="163.0" text="Proximo turno">
+                  <Button fx:id="endTurnButton" layoutX="117.0" layoutY="827.0" mnemonicParsing="false" onAction="#endTurnClick" prefHeight="44.0" prefWidth="163.0" text="Next Turn">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -1029,148 +1029,80 @@
             </HBox>
          </children>
       </Group>
-      <Group>
+      <Group fx:id="rc">
          <children>
-            <Group>
-               <children>
-                  <Line endX="-49.0" endY="31.0" layoutX="777.0" layoutY="302.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="1077.0" layoutY="302.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="877.0" layoutY="302.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="977.0" layoutY="302.0" startX="-100.0" />
-               </children>
-            </Group>
-            <Group>
-               <children>
-                  <Line endY="60.0" layoutX="678.0" layoutY="421.0" />
-                  <Line endY="60.0" layoutX="778.0" layoutY="421.0" />
-                  <Line endY="60.0" layoutX="1078.0" layoutY="421.0" />
-                  <Line endY="60.0" layoutX="578.0" layoutY="419.0" />
-                  <Line endY="60.0" layoutX="878.0" layoutY="420.0" />
-                  <Line endY="60.0" layoutX="978.0" layoutY="420.0" />
-               </children>
-            </Group>
-            <Group layoutX="10.0" layoutY="10.0">
-               <children>
-                  <Line endX="-49.0" endY="31.0" layoutX="768.0" layoutY="646.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="868.0" layoutY="646.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="967.0" layoutY="646.0" startX="-100.0" />
-               </children>
-            </Group>
-            <Group>
-               <children>
-                  <Line endY="60.0" layoutX="678.0" layoutY="243.0" />
-                  <Line endY="60.0" layoutX="879.0" layoutY="243.0" />
-                  <Line endY="60.0" layoutX="778.0" layoutY="243.0" />
-                  <Line endY="60.0" layoutX="978.0" layoutY="243.0" />
-               </children>
-            </Group>
-            <Group>
-               <children>
-                  <Line endY="60.0" layoutX="628.0" layoutY="331.0" />
-                  <Line endY="60.0" layoutX="829.0" layoutY="332.0" />
-                  <Line endY="60.0" layoutX="728.0" layoutY="332.0" />
-                  <Line endY="60.0" layoutX="1028.0" layoutY="332.0" />
-                  <Line endY="60.0" layoutX="929.0" layoutY="331.0" />
-               </children>
-            </Group>
-            <Group>
-               <children>
-                  <Line endX="100.0" layoutX="628.0" layoutY="569.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="928.0" layoutY="569.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="829.0" layoutY="568.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="729.0" layoutY="568.0" startX="50.0" startY="30.0" />
-               </children>
-            </Group>
-            <Group layoutX="10.0" layoutY="10.0">
-               <children>
-                  <Line endX="100.0" layoutX="668.0" layoutY="647.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="768.0" layoutY="647.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="868.0" layoutY="647.0" startX="50.0" startY="30.0" />
-               </children>
-            </Group>
-            <Group>
-               <children>
-                  <Line endX="100.0" layoutX="927.0" layoutY="391.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="628.0" layoutY="390.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="529.0" layoutY="390.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="728.0" layoutY="391.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="828.0" layoutY="391.0" startX="50.0" startY="30.0" />
-               </children>
-            </Group>
-            <Group layoutX="10.0" layoutY="10.0">
-               <children>
-                  <Line endY="60.0" layoutX="618.0" layoutY="498.0" />
-                  <Line endY="60.0" layoutX="819.0" layoutY="499.0" />
-                  <Line endY="60.0" layoutX="718.0" layoutY="499.0" />
-                  <Line endY="60.0" layoutX="1018.0" layoutY="499.0" />
-                  <Line endY="60.0" layoutX="919.0" layoutY="498.0" />
-               </children>
-            </Group>
-            <Group layoutY="1.0">
-               <children>
-                  <Line endX="100.0" layoutX="579.0" layoutY="301.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="879.0" layoutY="301.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="778.0" layoutY="301.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="679.0" layoutY="301.0" startX="50.0" startY="30.0" />
-               </children>
-            </Group>
-            <Group layoutY="354.0">
-               <children>
-                  <Line endY="60.0" layoutX="678.0" layoutY="243.0" />
-                  <Line endY="60.0" layoutX="879.0" layoutY="243.0" />
-                  <Line endY="60.0" layoutX="778.0" layoutY="243.0" />
-                  <Line endY="60.0" layoutX="978.0" layoutY="243.0" />
-               </children>
-            </Group>
-            <Group layoutX="10.0" layoutY="10.0">
-               <children>
-                  <Line endX="-49.0" endY="31.0" layoutX="768.0" layoutY="468.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="868.0" layoutY="468.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="1068.0" layoutY="468.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="668.0" layoutY="468.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="968.0" layoutY="468.0" startX="-100.0" />
-               </children>
-            </Group>
-            <Group>
-               <children>
-                  <Line endX="-49.0" endY="31.0" layoutX="828.0" layoutY="213.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="928.0" layoutY="213.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="1027.0" layoutY="213.0" startX="-100.0" />
-               </children>
-            </Group>
-            <Group layoutX="10.0" layoutY="10.0">
-               <children>
-                  <Line endX="-49.0" endY="31.0" layoutX="718.0" layoutY="558.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="1018.0" layoutY="558.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="818.0" layoutY="558.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="918.0" layoutY="558.0" startX="-100.0" />
-               </children>
-            </Group>
-            <Group layoutX="10.0" layoutY="10.0">
-               <children>
-                  <Line endX="100.0" layoutX="967.0" layoutY="470.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="668.0" layoutY="469.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="569.0" layoutY="469.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="768.0" layoutY="470.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="868.0" layoutY="470.0" startX="50.0" startY="30.0" />
-               </children>
-            </Group>
-            <Group>
-               <children>
-                  <Line endX="100.0" layoutX="628.0" layoutY="213.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="729.0" layoutY="213.0" startX="50.0" startY="30.0" />
-                  <Line endX="100.0" layoutX="829.0" layoutY="213.0" startX="50.0" startY="30.0" />
-               </children>
-            </Group>
-            <Group>
-               <children>
-                  <Line endX="-49.0" endY="31.0" layoutX="827.0" layoutY="391.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="927.0" layoutY="391.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="1127.0" layoutY="391.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="727.0" layoutY="391.0" startX="-100.0" />
-                  <Line endX="-49.0" endY="31.0" layoutX="1027.0" layoutY="391.0" startX="-100.0" />
-               </children>
-            </Group>
+                  <Line fx:id="r2l2" endX="-49.0" endY="31.0" layoutX="777.0" layoutY="302.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r2l8" endX="-49.0" endY="31.0" layoutX="1077.0" layoutY="302.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r2l4" endX="-49.0" endY="31.0" layoutX="877.0" layoutY="302.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r2l6" endX="-49.0" endY="31.0" layoutX="977.0" layoutY="302.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="c3l2" endY="60.0" layoutX="678.0" layoutY="421.0" strokeWidth="2.0" />
+                  <Line fx:id="c3l3" endY="60.0" layoutX="778.0" layoutY="421.0" strokeWidth="2.0" />
+                  <Line fx:id="c3l6" endY="60.0" layoutX="1078.0" layoutY="421.0" strokeWidth="2.0" />
+                  <Line fx:id="c3l1" endY="60.0" layoutX="578.0" layoutY="419.0" strokeWidth="2.0" />
+                  <Line fx:id="c3l4" endY="60.0" layoutX="878.0" layoutY="420.0" strokeWidth="2.0" />
+                  <Line fx:id="c3l5" endY="60.0" layoutX="978.0" layoutY="420.0" strokeWidth="2.0" />
+                  <Line fx:id="r6l1" endX="-49.0" endY="31.0" layoutX="768.0" layoutY="646.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r6l3" endX="-49.0" endY="31.0" layoutX="868.0" layoutY="646.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r6l5" endX="-49.0" endY="31.0" layoutX="967.0" layoutY="646.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="c1l1" endY="60.0" layoutX="678.0" layoutY="243.0" strokeWidth="2.0" />
+                  <Line fx:id="c1l3" endY="60.0" layoutX="879.0" layoutY="243.0" strokeWidth="2.0" />
+                  <Line fx:id="c1l2" endY="60.0" layoutX="778.0" layoutY="243.0" strokeWidth="2.0" />
+                  <Line fx:id="c1l4" endY="60.0" layoutX="978.0" layoutY="243.0" strokeWidth="2.0" />
+                  <Line fx:id="c2l1" endY="60.0" layoutX="628.0" layoutY="331.0" strokeWidth="2.0" />
+                  <Line fx:id="c2l3" endY="60.0" layoutX="829.0" layoutY="332.0" strokeWidth="2.0" />
+                  <Line fx:id="c2l2" endY="60.0" layoutX="728.0" layoutY="332.0" strokeWidth="2.0" />
+                  <Line fx:id="c2l5" endY="60.0" layoutX="1028.0" layoutY="332.0" strokeWidth="2.0" />
+                  <Line fx:id="c2l4" endY="60.0" layoutX="929.0" layoutY="331.0" strokeWidth="2.0" />
+                  <Line fx:id="r5l2" endX="100.0" layoutX="628.0" layoutY="569.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r5l8" endX="100.0" layoutX="928.0" layoutY="569.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r5l6" endX="100.0" layoutX="829.0" layoutY="568.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r5l4" endX="100.0" layoutX="729.0" layoutY="568.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r6l2" endX="100.0" layoutX="668.0" layoutY="647.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r6l4" endX="100.0" layoutX="768.0" layoutY="647.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r6l6" endX="100.0" layoutX="868.0" layoutY="647.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r3l9" endX="100.0" layoutX="927.0" layoutY="391.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r3l3" endX="100.0" layoutX="628.0" layoutY="390.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r3l1" endX="100.0" layoutX="529.0" layoutY="390.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r3l5" endX="100.0" layoutX="728.0" layoutY="391.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r3l7" endX="100.0" layoutX="828.0" layoutY="391.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="c4l1" endY="60.0" layoutX="618.0" layoutY="498.0" strokeWidth="2.0" />
+                  <Line fx:id="c4l3" endY="60.0" layoutX="819.0" layoutY="499.0" strokeWidth="2.0" />
+                  <Line fx:id="c4l2" endY="60.0" layoutX="718.0" layoutY="499.0" strokeWidth="2.0" />
+                  <Line fx:id="c4l5" endY="60.0" layoutX="1018.0" layoutY="499.0" strokeWidth="2.0" />
+                  <Line fx:id="c4l4" endY="60.0" layoutX="919.0" layoutY="498.0" strokeWidth="2.0" />
+                  <Line fx:id="r2l1" endX="100.0" layoutX="579.0" layoutY="301.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r2l7" endX="100.0" layoutX="879.0" layoutY="301.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r2l5" endX="100.0" layoutX="778.0" layoutY="301.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r2l3" endX="100.0" layoutX="679.0" layoutY="301.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="c5l1" endY="60.0" layoutX="678.0" layoutY="243.0" strokeWidth="2.0" />
+                  <Line fx:id="c5l3" endY="60.0" layoutX="879.0" layoutY="243.0" strokeWidth="2.0" />
+                  <Line fx:id="c5l2" endY="60.0" layoutX="778.0" layoutY="243.0" strokeWidth="2.0" />
+                  <Line fx:id="c5l4" endY="60.0" layoutX="978.0" layoutY="243.0" strokeWidth="2.0" />
+                  <Line fx:id="r4l3" endX="-49.0" endY="31.0" layoutX="768.0" layoutY="468.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r4l5" endX="-49.0" endY="31.0" layoutX="868.0" layoutY="468.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r4l9" endX="-49.0" endY="31.0" layoutX="1068.0" layoutY="468.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r4l1" endX="-49.0" endY="31.0" layoutX="668.0" layoutY="468.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r4l7" endX="-49.0" endY="31.0" layoutX="968.0" layoutY="468.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r1l2" endX="-49.0" endY="31.0" layoutX="828.0" layoutY="213.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r1l4" endX="-49.0" endY="31.0" layoutX="928.0" layoutY="213.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r1l6" endX="-49.0" endY="31.0" layoutX="1027.0" layoutY="213.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r5l1" endX="-49.0" endY="31.0" layoutX="718.0" layoutY="558.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r5l7" endX="-49.0" endY="31.0" layoutX="1018.0" layoutY="558.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r5l3" endX="-49.0" endY="31.0" layoutX="818.0" layoutY="558.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r5l5" endX="-49.0" endY="31.0" layoutX="918.0" layoutY="558.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r4l10" endX="100.0" layoutX="967.0" layoutY="470.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r4l4" endX="100.0" layoutX="668.0" layoutY="469.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r4l2" endX="100.0" layoutX="569.0" layoutY="469.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r4l6" endX="100.0" layoutX="768.0" layoutY="470.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r4l8" endX="100.0" layoutX="868.0" layoutY="470.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r1l1" endX="100.0" layoutX="628.0" layoutY="213.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r1l3" endX="100.0" layoutX="729.0" layoutY="213.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r1l5" endX="100.0" layoutX="829.0" layoutY="213.0" startX="50.0" startY="30.0" strokeWidth="2.0" />
+                  <Line fx:id="r3l4" endX="-49.0" endY="31.0" layoutX="827.0" layoutY="391.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r3l6" endX="-49.0" endY="31.0" layoutX="927.0" layoutY="391.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r3l10" endX="-49.0" endY="31.0" layoutX="1127.0" layoutY="391.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r3l2" endX="-49.0" endY="31.0" layoutX="727.0" layoutY="391.0" startX="-100.0" strokeWidth="2.0" />
+                  <Line fx:id="r3l8" endX="-49.0" endY="31.0" layoutX="1027.0" layoutY="391.0" startX="-100.0" strokeWidth="2.0" />
          </children>
       </Group>
     </children>
