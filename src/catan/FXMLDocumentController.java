@@ -204,17 +204,28 @@ public class FXMLDocumentController implements Initializable {
     public static TextArea chat;
     public static TextField inputChat;
     public static Tab tp1,tp2,tp3,tp4; 
+    public static MenuItem tj1,tj2,tj3;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        chat=outputChatText;
+        // Inicializar os elementos do chat
+       chat=outputChatText;
        inputChat= inputChatText;
+       
+       // Inicializar todas as tabs de informação
        tp1= Player1Tab;
        tp2= Player2Tab;
        tp3= player3Tab;
        tp4 = player4Tab;
+       
+       // Inicializar os elementos das trocas de jogadores
+       
+       tj1= PlayerOption1;
+       tj2= playerOption2;
+       tj3 = playerOption3;
+       
        
         // all
         

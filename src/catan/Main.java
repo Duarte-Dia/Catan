@@ -19,9 +19,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -43,17 +41,12 @@ public class Main extends Application {
     public static TextArea chat;
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
+    public static MenuItem tj1, tj2, tj3;
 
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        chat = FXMLDocumentController.chat;
-        inputChat = FXMLDocumentController.inputChat;
-
-        tp1 = FXMLDocumentController.tp1;
-        tp2 = FXMLDocumentController.tp2;
-        tp3 = FXMLDocumentController.tp3;
-        tp4 = FXMLDocumentController.tp4;
+        iniciarElementos();
 
         Scene scene = new Scene(root);
 
@@ -242,26 +235,38 @@ public class Main extends Application {
             while (true) {
                 try {
                     String msg = in.readUTF();
-                    if (msg.compareTo( "#SetPlayer1")==0) {
+                    if (msg.compareTo("#SetPlayer1") == 0) {
                         tp1.setDisable(false);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
                         tp4.setDisable(true);
-                    } else if (msg.compareTo("#SetPlayer2")==0) {
+                        tj1.setText("Jogador 2"); 
+                        tj2.setText("Jogador 3");
+                        tj3.setText("Jogador 4");
+                   } else if (msg.compareTo("#SetPlayer2") == 0) {
                         tp1.setDisable(true);
                         tp2.setDisable(false);
                         tp3.setDisable(true);
                         tp4.setDisable(true);
-                    } else if (msg.compareTo("#SetPlayer3")==0) {
+                        tj1.setText("Jogador 1"); 
+                        tj2.setText("Jogador 3");
+                        tj3.setText("Jogador 4");
+                    } else if (msg.compareTo("#SetPlayer3") == 0) {
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(false);
                         tp4.setDisable(true);
-                    } else if (msg.compareTo("#SetPlayer4")==0) {
+                        tj1.setText("Jogador 1"); 
+                        tj2.setText("Jogador 2");
+                        tj3.setText("Jogador 4");
+                    } else if (msg.compareTo("#SetPlayer4") == 0) {
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
                         tp4.setDisable(false);
+                        tj1.setText("Jogador 1"); 
+                        tj2.setText("Jogador 2");
+                        tj3.setText("Jogador 3");
                     } else {
                         System.out.println(msg);
                         chat.appendText(msg + "\n");
@@ -275,6 +280,21 @@ public class Main extends Application {
         //lerMensagem.setDaemon(true);
         enviarMensagem.start();
         lerMensagem.start();
+
+    }
+
+    private void iniciarElementos() {
+        chat = FXMLDocumentController.chat;
+        inputChat = FXMLDocumentController.inputChat;
+
+        tp1 = FXMLDocumentController.tp1;
+        tp2 = FXMLDocumentController.tp2;
+        tp3 = FXMLDocumentController.tp3;
+        tp4 = FXMLDocumentController.tp4;
+        
+        tj1 = FXMLDocumentController.tj1;
+        tj2 = FXMLDocumentController.tj2;
+        tj3 = FXMLDocumentController.tj3;
 
     }
 
