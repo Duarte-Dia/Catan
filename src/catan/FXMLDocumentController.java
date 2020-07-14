@@ -206,6 +206,11 @@ public class FXMLDocumentController implements Initializable {
     public static Tab tp1,tp2,tp3,tp4; 
     public static MenuItem tj1,tj2,tj3;
     
+    /**
+     * Inicializa os elementos do chat, tabs de informação e os elementos das trocas entre jogadores
+     * @param url
+     * @param rb 
+     */
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -236,14 +241,20 @@ public class FXMLDocumentController implements Initializable {
         outputChatText.appendText("fdc");
         
     }
-
+      /**
+       * Obtém o texto que é inserido na janela de Chat, sob a forma de String
+       * @return Retorna o texto que é inserido na janela de Chat
+       */
     
     public String getText(){
       
     return inputChatText.getText();
   
     }
-    
+    /** Quando o texto é escrito na janela de chat, basta carregar na tecla Enter
+      * para que o texto seja enviado para o chat
+      * @param event Parametro que representa o evento de uso de tecla do teclado
+      */
    @FXML
     public void submitText(KeyEvent event){
     if(event.getCode() == KeyCode.ENTER){
