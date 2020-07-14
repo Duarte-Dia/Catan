@@ -362,6 +362,7 @@ public class Main extends Application {
       * @param resource2 Parametro que representa os recursos , que o jogador oferece em troca
       * @param quantity1 Parametro que representa as quantidades de cada recurso, que o jogador pretende receber
       * @param quantity2  Parametro que representa as quantidades de cada recurso, que o jogador oferece em troca.
+      * 
       */
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
         int currentP1, currentP2;
