@@ -7,7 +7,8 @@ package common;
 import java.io.*;
 /**
  *
- * @author Mendes & Marcelino
+ * @author Mendes
+ * @author Marcelino
  */
 public class Le {
 	// Inibe o construtor por defeito
