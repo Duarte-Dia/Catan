@@ -25,7 +25,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
- *
+ *  Classe onde o jogo é iniciado, e todas as acções realizadas
+ *  pelo utilizador estão definidas
  * @author Bruno Ribeiro
  */
 public class Main extends Application {
@@ -43,6 +44,13 @@ public class Main extends Application {
     public static Tab tp1, tp2, tp3, tp4;
     public static MenuItem tj1, tj2, tj3;
 
+    
+     /**
+      * Método que inicia todas as componententes necessárias para a interface gráfica
+      *
+      * @param stage  Parametro que representa o conteúdo da interface
+      * @throws Exception 
+      */
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
@@ -56,7 +64,10 @@ public class Main extends Application {
         connectClient();
 
     }
-
+        /**
+         * Método Main, onde o jogo é jogado
+         * 
+         */
     public static void main(String[] args) throws UnknownHostException, IOException {
 
         launch(args);
@@ -91,7 +102,11 @@ public class Main extends Application {
             }
         }
     }
-
+            /**
+             *  Método que fornece os recursos ao jogador (cliente), que este ganha
+             * @param resource  Parametro que representa os recursos
+             * @param hex Parametro que representa uma casa de jogo
+             */
     private static void givePlayersResources(int resource, Hexagon hex) {
         int current;
         for (Player p : listPlayers) {
@@ -154,7 +169,11 @@ public class Main extends Application {
             }
         }
     }
-
+     /**
+      * Método que verifica se um jogo termina
+      * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha terminado, retorna falso.
+      *
+      */
     private static boolean isGameOver() {
 
         for (Player p : listPlayers) {
@@ -178,7 +197,13 @@ public class Main extends Application {
 
         return false;
     }
-
+     
+    /**
+     * Método que indica se alguém (e quem) atingiu a estrada mais longa
+     * Alguém só atinge a estrada mais longa, quem tem pelo menos 5 estradas,
+     * ou, no caso de haver mais que um jogador com 5 estradas, mostra qual o jogador
+     * com mais estradas
+     */
     private static void longestRoad() {
         List<Integer> listRoadSizes = new ArrayList<Integer>();
         int size, playerSelected;
@@ -202,6 +227,11 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor
+     * para que o jogo seja iniciado
+     * @throws IOException 
+     */
     private void connectClient() throws IOException {
 
         Socket socket = new Socket(serverIP, serverPort);
@@ -282,7 +312,9 @@ public class Main extends Application {
         lerMensagem.start();
 
     }
-
+     /**
+      * Método que inicia os elementos da interface
+      */
     private void iniciarElementos() {
         chat = FXMLDocumentController.chat;
         inputChat = FXMLDocumentController.inputChat;
@@ -297,7 +329,9 @@ public class Main extends Application {
         tj3 = FXMLDocumentController.tj3;
 
     }
-
+      /**
+       * Método que define quem tem o maior exército.
+       */
     private static void biggestArmy() {
         List<Integer> listArmySizes = new ArrayList<Integer>();
         int size, playerSelected;
@@ -320,7 +354,15 @@ public class Main extends Application {
             }
         }
     }
-
+     /**
+      * Método que permite haver troca de recursos entre jogadores/clientes
+      * @param p1 Parametro que representa o jogador que pretende efetuar a troca.
+      * @param p2 Parametro que representa o jogador que recebe o pedido de troca.
+      * @param resource1 Parametro que representa os recursos que o jogador pretende receber
+      * @param resource2 Parametro que representa os recursos , que o jogador oferece em troca
+      * @param quantity1 Parametro que representa as quantidades de cada recurso, que o jogador pretende receber
+      * @param quantity2  Parametro que representa as quantidades de cada recurso, que o jogador oferece em troca.
+      */
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
         int currentP1, currentP2;
         switch (resource1) {
