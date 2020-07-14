@@ -63,16 +63,56 @@ public class Main extends Application {
         stage.show();
 
         connectClient();
+        Player p1 = new Player(0, 1, 0, 0, 0, 0, 0, false, false);
+        Player p2 = new Player(0, 2, 0, 0, 0, 0, 0, false, false);
+        Player p3 = new Player(0, 3, 0, 0, 0, 0, 0, false, false);
+        listPlayers.add(p1);
+        listPlayers.add(p2);
+        listPlayers.add(p3);
+
+        
+        
+         
+        Thread butoes = new Thread(() -> {
+            
+
+                roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+                            chat.appendText(n.toString() + "\n");
+                        }
+                    }
+                });
+                
+                
+                endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        chat.appendText("Next player");
+                        endPlay = true;
+                    }
+                });
+
+            
+        });
+
+         butoes.start();
+        
+        
+        
+        gameover = false;
+        
 
     }
 
     public static void main(String[] args) throws UnknownHostException, IOException {
 
         launch(args);
-
-        gameover = true;
-
+        
+        
         while (!gameover) {
+
             for (int i = 0; i < listPlayers.size(); i++) {
                 endPlay = false;
                 chosenTile = dice.throwDice(2);
@@ -88,26 +128,12 @@ public class Main extends Application {
                     // MOVE LADRAO
                 }
 
-                roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent m) {
-                        for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
-                            chat.appendText(n.toString());
-                        }
-                    }
-                });
+                
 
-                endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent m) {
-                        chat.appendText("Next player");
-                        endPlay = true;
-                    }
-                });
+               /* do {
 
-                do {
-
-                } while (!endPlay);
+                
+                } while (!endPlay);*/
 
                 longestRoad();
                 biggestArmy();
@@ -117,6 +143,8 @@ public class Main extends Application {
                 }
             }
         }
+
+
     }
 
     private static void givePlayersResources(int resource, Hexagon hex) {
@@ -314,11 +342,13 @@ public class Main extends Application {
                 }
             }
         });
-
+        
+        
+       
         //lerMensagem.setDaemon(true);
         enviarMensagem.start();
         lerMensagem.start();
-
+       
     }
 
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
