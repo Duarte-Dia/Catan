@@ -343,9 +343,13 @@ public class FXMLDocumentController implements Initializable {
     public static Tab tp1, tp2, tp3, tp4;
     public static Button endTurn, roadBtn ;
     public static Group linesGroup;
-    public static MenuItem exitBtn;
+    public static MenuItem exitBtn, contributorsBtn;
     @FXML
     private MenuItem exitButton;
+    @FXML
+    private MenuItem ruleButton;
+    @FXML
+    private MenuItem contributorsButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -360,7 +364,7 @@ public class FXMLDocumentController implements Initializable {
         roadBtn = roadButton;
         linesGroup = rc;
         exitBtn =exitButton;
-
+        contributorsBtn = contributorsButton;
         // all
     }
 
@@ -384,6 +388,10 @@ public class FXMLDocumentController implements Initializable {
         }
         //return inputChatText.getText();
 
+    }
+
+    @FXML
+    private void displayContributors(ActionEvent event) {
     }
 
 }

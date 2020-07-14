@@ -16,14 +16,20 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 /**
@@ -45,7 +51,7 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static Button endTurn, roadButton;
-    public static MenuItem exitBtn;
+    public static MenuItem exitBtn, contributorsBtn;
         DataInputStream in ;
         DataOutputStream out;
 
@@ -62,7 +68,57 @@ public class Main extends Application {
         endTurn = FXMLDocumentController.endTurn;
         roadButton = FXMLDocumentController.roadBtn;
         exitBtn = FXMLDocumentController.exitBtn;
-
+        contributorsBtn = FXMLDocumentController.contributorsBtn;
+        
+        Label l1 = new Label("Criado por:");
+        Label l2 = new Label("Tiago Neveda:4481");
+        Label l3 = new Label("Luis Carvalho:19565");
+        Label l4 = new Label("José Sampaio:20734");
+        Label l5 = new Label("João Sousa:20770");
+        Label l6 = new Label("Bruno Ribeiro:21318");
+        Label l7 = new Label("Duarte Dias:21883");
+        
+        Popup popup1 = new Popup();
+        
+        Rectangle rct1 = new Rectangle();
+        
+        rct1.setX(25);
+        rct1.setY(25);
+        
+        GridPane grid = new GridPane();
+        grid.setAlignment(Pos.CENTER);
+        grid.setVgap(10);
+        grid.setHgap(10);
+        
+        grid.setPadding(new Insets(25, 10, 25, 10));
+        grid.add(l1, 1, 1);
+        grid.add(l2, 1, 2);
+        grid.add(l3, 1, 3);
+        grid.add(l4, 1, 4);
+        grid.add(l5, 1, 5);
+        grid.add(l6, 1, 6);
+        grid.add(l7, 1, 7);
+        
+        popup1.getContent().add(rct1);
+        popup1.getContent().add(grid); 
+        
+        EventHandler<ActionEvent> event =  
+        new EventHandler<ActionEvent>() { 
+   
+            public void handle(ActionEvent e) 
+            { 
+                if (!popup1.isShowing()) 
+                    popup1.show(stage); 
+                else
+                    popup1.hide(); 
+            } 
+        };
+        
+        contributorsBtn.setOnAction(event);
+        
+        
+        
+        
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
