@@ -44,7 +44,7 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static MenuItem tj1, tj2, tj3;
-
+    static boolean gameover, endPlay;
     public static Button endTurn, roadButton;
     static DataInputStream in;
     static DataOutputStream out;
@@ -127,24 +127,28 @@ public class Main extends Application {
                         tp2.setDisable(true);
                         tp3.setDisable(true);
                         tp4.setDisable(true);
+                        tj1.setText("Jogador 2");
+                        tj2.setText("Jogador 3");
+                        tj3.setText("Jogador 4");
                     } else if (msg.compareTo("#SetPlayer2") == 0) {
                         idJogadorLocal = 2;
                         tp1.setDisable(true);
                         tp2.setDisable(false);
                         tp3.setDisable(true);
                         tp4.setDisable(true);
+                        tj1.setText("Jogador 1");
+                        tj2.setText("Jogador 3");
+                        tj3.setText("Jogador 4");
                     } else if (msg.compareTo("#SetPlayer3") == 0) {
                         idJogadorLocal = 3;
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(false);
                         tp4.setDisable(true);
-                    } else if (msg.compareTo("#SetPlayer4") == 0) {
-                        idJogadorLocal = 4;
                         tj1.setText("Jogador 1");
                         tj2.setText("Jogador 2");
                         tj3.setText("Jogador 4");
-                    } else if (msg.compareTo("#SetPlayer4") == 0) {
+                    }  else if (msg.compareTo("#SetPlayer4") == 0) {
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
@@ -187,54 +191,50 @@ public class Main extends Application {
         tj2 = FXMLDocumentController.tj2;
         tj3 = FXMLDocumentController.tj3;
 
+        Thread buttonListener = new Thread(() -> {
+
+            roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent m) {
+                    for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+                        if (idJogadorLocal == i) {
+                            System.out.println(n.getId() + "\n");
+                            n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                @Override
+                                public void handle(MouseEvent m) {
+                                    if (idJogadorLocal == i) {
+                                        System.out.println(n.getId());
+                                        // player tem recursos?
+                                        // rua disponivel?
+                                        // 
+                                    }
+                                }
+                            });
+                                    
+                        }
+                    }
+                }
+            });
+
+            endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent m) {
+                    if (idJogadorLocal == i) {
+                        System.out.println("Next player");
+                        endPlay = true;
+                        try {
+                            out.writeUTF("end Turn button pressed");
+                        } catch (IOException ex) {
+                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+            });
+
+        });
+        
+        buttonListener.start();
+
     }
 
 }
-
-
-
-
-
-/*
-
-
-roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent m) {
-                for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
-                    if (idJogadorLocal == i) {
-                        System.out.println(n.getId() + "\n");
-                        n.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                            @Override
-                            public void handle(MouseEvent m) {
-                                if (idJogadorLocal == i) {
-                                    System.out.println(n.getId());
-                                    // player tem recursos?
-                                    // rua disponivel?
-                                    // 
-                                }
-                            }
-                        });
-
-
-
-
-
-
- endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent m) {
-                        if (idJogadorLocal == i) {
-                            System.out.println("Next player");
-                            endPlay = true;
-                            try {
-                                out.writeUTF("end Turn button pressed");
-                            } catch (IOException ex) {
-                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                    }
-                });
-
-
-*/
