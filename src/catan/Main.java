@@ -43,6 +43,7 @@ public class Main extends Application {
     public static Button endTurn, roadButton;
     static DataInputStream in;
     static DataOutputStream out;
+    //NOTA DE DUARTE.... ESTE I SERVE PARA INDICAR O INFERNO 
     int idJogadorLocal = 1, i;
 
     /**
@@ -58,15 +59,13 @@ public class Main extends Application {
 
         Scene scene = new Scene(root);
 
-         iniciarElementos();
-        
-        
-        
         stage.setScene(scene);
         stage.show();
 
         connectClient();
-       
+        iniciarElementos();
+        
+
     }
 
     /**
@@ -120,6 +119,7 @@ public class Main extends Application {
                     String msg = in.readUTF();
                     if (msg.compareTo("#SetPlayer1") == 0) {
                         idJogadorLocal = 1;
+                        i=1;
                         tp1.setDisable(false);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
@@ -129,6 +129,7 @@ public class Main extends Application {
                         tj3.setText("Jogador 4");
                     } else if (msg.compareTo("#SetPlayer2") == 0) {
                         idJogadorLocal = 2;
+                        i=2;
                         tp1.setDisable(true);
                         tp2.setDisable(false);
                         tp3.setDisable(true);
@@ -138,6 +139,7 @@ public class Main extends Application {
                         tj3.setText("Jogador 4");
                     } else if (msg.compareTo("#SetPlayer3") == 0) {
                         idJogadorLocal = 3;
+                        i=3;
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(false);
@@ -146,6 +148,8 @@ public class Main extends Application {
                         tj2.setText("Jogador 2");
                         tj3.setText("Jogador 4");
                     } else if (msg.compareTo("#SetPlayer4") == 0) {
+                        idJogadorLocal = 4;
+                        i=4;
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
@@ -188,10 +192,8 @@ public class Main extends Application {
         tj2 = FXMLDocumentController.tj2;
         tj3 = FXMLDocumentController.tj3;
 
+        
         Thread buttonListener = new Thread(() -> {
-
-            while (true) {
-
                 roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent m) {
@@ -202,7 +204,7 @@ public class Main extends Application {
                                     @Override
                                     public void handle(MouseEvent m) {
                                         if (idJogadorLocal == i) {
-                                            System.out.println(n.getId());
+                                            chat.appendText(n.getId());
                                             // player tem recursos?
                                             // rua disponivel?
                                             // 
@@ -229,11 +231,10 @@ public class Main extends Application {
                     }
                 });
 
-            }
+            
         });
 
         buttonListener.start();
-
     }
 
 }

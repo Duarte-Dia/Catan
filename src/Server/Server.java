@@ -42,63 +42,51 @@ public class Server {
     static Board board = new Board();
 
     public static void main(String[] args) throws IOException {
-        
-        
-        
-        
+
         ServerSocket server = new ServerSocket(port);
         Thread servidor = new Thread(() -> {
-        while (true) {
-            // Servidor fica a espera de um cliente
-            if (nClientes <= 4) {
-                try {
-                    System.out.println("[SERVER]Esperando por ligação");
+            while (true) {
+                // Servidor fica a espera de um cliente
+                if (nClientes <= 4) {
                     try {
-                        client = server.accept();
-                    } catch (IOException ex) {
-                        Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    System.out.println("[SERVER]Estabelecido ligação a um cliente");
-                    
-                    in = new DataInputStream(client.getInputStream());
-                    out = new DataOutputStream(client.getOutputStream());
-                    
-                    ClientHandler ch = new ClientHandler("Cliente " + nClientes, in, out, client);
-                    Thread t = new Thread(ch);
-                    
-                    System.out.println("[SERVER]Cliente " + nClientes + " adicionado ");
-                    listaClientes.add(ch);
-                    
-                    try {
-                        out.writeUTF("Sucesso a Conectar o Cliente " + nClientes + " \n");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    try {
-                        out.writeUTF("#SetPlayer" + nClientes);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    t.start();
-                    
-                    nClientes++;
-                } catch (IOException ex) {
-                    Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+                        System.out.println("[SERVER]Esperando por ligação");
 
-        }
+                        client = server.accept();
+
+                        System.out.println("[SERVER]Estabelecido ligação a um cliente");
+
+                        in = new DataInputStream(client.getInputStream());
+                        out = new DataOutputStream(client.getOutputStream());
+
+                        ClientHandler ch = new ClientHandler("Cliente " + nClientes, in, out, client);
+                        Thread t = new Thread(ch);
+
+                        System.out.println("[SERVER]Cliente " + nClientes + " adicionado ");
+                        listaClientes.add(ch);
+
+                        out.writeUTF("Sucesso a Conectar o Cliente " + nClientes + " \n");
+
+                        out.writeUTF("#SetPlayer" + nClientes);
+
+                        t.start();
+
+                        nClientes++;
+                    } catch (IOException ex) {
+                        Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+
+            }
 
         // fechar ligação
         /*
-         client.close();
-         System.out.println("[Server]A desligar");
-         server.close();*/
+             client.close();
+             System.out.println("[Server]A desligar");
+             server.close();*/
         });
-        
+
         servidor.start();
 
-        
         Player p1 = new Player(0, 1, 0, 0, 0, 0, 0, false, false);
         Player p2 = new Player(0, 2, 0, 0, 0, 0, 0, false, false);
         Player p3 = new Player(0, 3, 0, 0, 0, 0, 0, false, false);
@@ -106,14 +94,11 @@ public class Server {
         listPlayers.add(p2);
         listPlayers.add(p3);
 
-        
-        
-        
         gameover = false;
-        
+
         Thread jogo;
         jogo = new Thread(() -> {
-            
+
             while (!gameover) {
 
                 for (i = 1; i <= listPlayers.size();) {
@@ -131,8 +116,6 @@ public class Server {
                         // LANÇOU 7
                         // MOVE LADRAO
                     }
-                    
-                   
 
                     if (endPlay) {
                         i++;
@@ -148,13 +131,9 @@ public class Server {
             }
 
         });
-        
 
         jogo.start();
 
-        
-
-        
     }
 
     private static class ClientHandler implements Runnable {
@@ -222,15 +201,14 @@ public class Server {
         }
 
     }
-    
-    
+
     /**
-             *  Método que fornece os recursos ao jogador (cliente), que este ganha
-             * @param resource  Parametro que representa os recursos
-             * @param hex Parametro que representa uma casa de jogo
-             */
-    
-       private static void givePlayersResources(int resource, Hexagon hex) {
+     * Método que fornece os recursos ao jogador (cliente), que este ganha
+     *
+     * @param resource Parametro que representa os recursos
+     * @param hex Parametro que representa uma casa de jogo
+     */
+    private static void givePlayersResources(int resource, Hexagon hex) {
         int current;
         for (Player p : listPlayers) {
             for (City c : p.getListCities()) {
@@ -293,12 +271,13 @@ public class Server {
         }
     }
 
-        /**
-      * Método que verifica se um jogo termina
-      * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha terminado, retorna falso.
-      *
-      */
- 
+    /**
+     * Método que verifica se um jogo termina
+     *
+     * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha
+     * terminado, retorna falso.
+     *
+     */
     private static boolean isGameOver() {
 
         for (Player p : listPlayers) {
@@ -323,11 +302,10 @@ public class Server {
         return false;
     }
 
-    
     /**
-     * Método que indica se alguém (e quem) atingiu a estrada mais longa
-     * Alguém só atinge a estrada mais longa, quem tem pelo menos 5 estradas,
-     * ou, no caso de haver mais que um jogador com 5 estradas, mostra qual o jogador
+     * Método que indica se alguém (e quem) atingiu a estrada mais longa Alguém
+     * só atinge a estrada mais longa, quem tem pelo menos 5 estradas, ou, no
+     * caso de haver mais que um jogador com 5 estradas, mostra qual o jogador
      * com mais estradas
      */
     private static void longestRoad() {
@@ -354,8 +332,8 @@ public class Server {
     }
 
     /**
-       * Método que define quem tem o maior exército.
-       */
+     * Método que define quem tem o maior exército.
+     */
     private static void biggestArmy() {
         List<Integer> listArmySizes = new ArrayList<Integer>();
         int size, playerSelected;
@@ -378,18 +356,24 @@ public class Server {
             }
         }
     }
-    
-    
-     /**
-      * Método que permite haver troca de recursos entre jogadores/clientes
-      * @param p1 Parametro que representa o jogador que pretende efetuar a troca.
-      * @param p2 Parametro que representa o jogador que recebe o pedido de troca.
-      * @param resource1 Parametro que representa os recursos que o jogador pretende receber
-      * @param resource2 Parametro que representa os recursos , que o jogador oferece em troca
-      * @param quantity1 Parametro que representa as quantidades de cada recurso, que o jogador pretende receber
-      * @param quantity2  Parametro que representa as quantidades de cada recurso, que o jogador oferece em troca.
-      * 
-      */
+
+    /**
+     * Método que permite haver troca de recursos entre jogadores/clientes
+     *
+     * @param p1 Parametro que representa o jogador que pretende efetuar a
+     * troca.
+     * @param p2 Parametro que representa o jogador que recebe o pedido de
+     * troca.
+     * @param resource1 Parametro que representa os recursos que o jogador
+     * pretende receber
+     * @param resource2 Parametro que representa os recursos , que o jogador
+     * oferece em troca
+     * @param quantity1 Parametro que representa as quantidades de cada recurso,
+     * que o jogador pretende receber
+     * @param quantity2 Parametro que representa as quantidades de cada recurso,
+     * que o jogador oferece em troca.
+     *
+     */
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
         int currentP1, currentP2;
         switch (resource1) {
@@ -462,6 +446,5 @@ public class Server {
                 break;
         }
     }
-
 
 }
