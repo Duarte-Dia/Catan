@@ -10,7 +10,8 @@ import java.net.*;
 import java.util.*;
 
 /**
- *
+ *  Esta classe define e inicia o servidor
+ * 
  * @author Utilizador
  */
 public class Server {
@@ -19,6 +20,10 @@ public class Server {
     private static Vector<ClientHandler> listaClientes = new Vector<>();
     private static Socket client;
     
+    /**
+     * Método Main do servidor
+     * 
+    */
 
     public static void main(String[] args) throws IOException {
 
@@ -26,7 +31,7 @@ public class Server {
         
 
         while (true) {
-            // Servidor fica a espera de um cliente
+            //Servidor fica à espera do cliente
             if(nClientes <=4 ){
             System.out.println("[SERVER]Esperando por ligação");
              client = server.accept();
@@ -37,12 +42,16 @@ public class Server {
 
             ClientHandler ch = new ClientHandler("Cliente " + nClientes, in, out, client);
             Thread t = new Thread(ch);
-
+            
+            // Quando um Cliente é iniciado este é adicionado à lista de Clientes, e o Servidor recebe a informação
+            // que o Cliente  é adicionado
             System.out.println("[SERVER]Cliente " + nClientes + " adicionado ");
             listaClientes.add(ch);
-
+            
+            // O Cliente recebe a informação que teve Sucesso a conectar
             out.writeUTF("Sucesso a Conectar o Cliente "+nClientes+" \n");
             out.writeUTF("#SetPlayer"+nClientes);
+            // A thread é iniciada
             t.start();
 
             nClientes++;}
@@ -55,7 +64,9 @@ public class Server {
          System.out.println("[Server]A desligar");
          server.close();*/
     }
-
+       /**
+        * Classe que controla os clientes dentro do servidor
+        */
     private static class ClientHandler implements Runnable {
 
         private String name;
@@ -63,7 +74,15 @@ public class Server {
         final DataOutputStream out;
         Socket socket;
         boolean logged;
-
+    
+        /**
+         * Construtor da classe ClientHandler
+         *
+         * @param name parametro que atribui um nome ao cliente
+         * @param in parametro referente à informação enviada pelo cliente ao servidor
+         * @param out parametro referente à informação recebida do cliente, pelo servidor
+         * @param s parametro referente ao Socket
+         */
         public ClientHandler(String name, DataInputStream in, DataOutputStream out, Socket s) {
 
             this.name = name;
@@ -73,7 +92,10 @@ public class Server {
             logged = true;
 
         }
-
+          /**
+           * Método evocado, após o inicio da thread.
+           * Manipula as solicitações feitas pelo cliente
+           */
         @Override
         public void run() {
             String cmd;
@@ -83,7 +105,7 @@ public class Server {
                 try {
                     cmd = in.readUTF();
                     System.out.println(cmd);
-
+                     // Sempre que aparece # numa String
                     StringTokenizer st = new StringTokenizer(cmd, "#");
                     String receivingClient = null;
                     try {
@@ -97,7 +119,9 @@ public class Server {
                     };
 
                     if (msg != null) {
-
+                            /* Permite que o cliente envie uma mensagem a outro cliente especifico
+                            Procura na lista de Clientes, e quando encontra o Cliente desejado,
+                             a mensagem é enviada para ele */
                         for (ClientHandler client : Server.listaClientes) {
                             if (client.name.equals(receivingClient) && client.logged) {
                                 client.out.writeUTF("Whisper from " + name + ": " + msg);
@@ -105,7 +129,7 @@ public class Server {
 
                         }
                     } else {
-
+                              
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(name) && client.logged) {
                                 client.out.writeUTF(name + ": " + receivingClient);
