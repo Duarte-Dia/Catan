@@ -5,11 +5,6 @@
  */
 package catan;
 
-import static Server.Server.chat;
-import static Server.Server.tp1;
-import static Server.Server.tp2;
-import static Server.Server.tp3;
-import static Server.Server.tp4;
 import common.Le;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -61,15 +56,17 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
 
-        iniciarElementos();
-
         Scene scene = new Scene(root);
 
+         iniciarElementos();
+        
+        
+        
         stage.setScene(scene);
         stage.show();
 
         connectClient();
-
+       
     }
 
     /**
@@ -206,7 +203,7 @@ public class Main extends Application {
                                     public void handle(MouseEvent m) {
                                         if (idJogadorLocal == i) {
                                             System.out.println(n.getId());
-                                                // player tem recursos?
+                                            // player tem recursos?
                                             // rua disponivel?
                                             // 
                                         }
