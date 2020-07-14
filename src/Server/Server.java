@@ -293,6 +293,12 @@ public class Server {
     }
     
     
+    /**
+             *  Método que fornece os recursos ao jogador (cliente), que este ganha
+             * @param resource  Parametro que representa os recursos
+             * @param hex Parametro que representa uma casa de jogo
+             */
+    
        private static void givePlayersResources(int resource, Hexagon hex) {
         int current;
         for (Player p : listPlayers) {
@@ -356,6 +362,12 @@ public class Server {
         }
     }
 
+        /**
+      * Método que verifica se um jogo termina
+      * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha terminado, retorna falso.
+      *
+      */
+ 
     private static boolean isGameOver() {
 
         for (Player p : listPlayers) {
@@ -380,6 +392,13 @@ public class Server {
         return false;
     }
 
+    
+    /**
+     * Método que indica se alguém (e quem) atingiu a estrada mais longa
+     * Alguém só atinge a estrada mais longa, quem tem pelo menos 5 estradas,
+     * ou, no caso de haver mais que um jogador com 5 estradas, mostra qual o jogador
+     * com mais estradas
+     */
     private static void longestRoad() {
         List<Integer> listRoadSizes = new ArrayList<Integer>();
         int size, playerSelected;
@@ -403,6 +422,9 @@ public class Server {
         }
     }
 
+    /**
+       * Método que define quem tem o maior exército.
+       */
     private static void biggestArmy() {
         List<Integer> listArmySizes = new ArrayList<Integer>();
         int size, playerSelected;
@@ -425,5 +447,90 @@ public class Server {
             }
         }
     }
+    
+    
+     /**
+      * Método que permite haver troca de recursos entre jogadores/clientes
+      * @param p1 Parametro que representa o jogador que pretende efetuar a troca.
+      * @param p2 Parametro que representa o jogador que recebe o pedido de troca.
+      * @param resource1 Parametro que representa os recursos que o jogador pretende receber
+      * @param resource2 Parametro que representa os recursos , que o jogador oferece em troca
+      * @param quantity1 Parametro que representa as quantidades de cada recurso, que o jogador pretende receber
+      * @param quantity2  Parametro que representa as quantidades de cada recurso, que o jogador oferece em troca.
+      * 
+      */
+    private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
+        int currentP1, currentP2;
+        switch (resource1) {
+            case 1: // wool
+                currentP1 = p1.getWool();
+                currentP2 = p2.getWool();
+                p1.setWool(currentP1 + quantity1);
+                p2.setWool(currentP2 - quantity1);
+                break;
+            case 2: // timber
+                currentP1 = p1.getTimber();
+                currentP2 = p2.getTimber();
+                p1.setTimber(currentP1 + quantity1);
+                p2.setTimber(currentP2 - quantity1);
+                break;
+            case 3: // brick
+                currentP1 = p1.getBrick();
+                currentP2 = p2.getBrick();
+                p1.setBrick(currentP1 + quantity1);
+                p2.setBrick(currentP2 - quantity1);
+                break;
+            case 4: // wheat
+                currentP1 = p1.getWheat();
+                currentP2 = p2.getWheat();
+                p1.setWheat(currentP1 + quantity1);
+                p2.setWheat(currentP2 - quantity1);
+                break;
+            case 5: // metal
+                currentP1 = p1.getMetal();
+                currentP2 = p2.getMetal();
+                p1.setMetal(currentP1 + quantity1);
+                p2.setMetal(currentP2 - quantity1);
+                break;
+            default:
+                break;
+        }
+
+        switch (resource2) {
+            case 1: // wool
+                currentP1 = p1.getWool();
+                currentP2 = p2.getWool();
+                p1.setWool(currentP1 - quantity2);
+                p2.setWool(currentP2 + quantity2);
+                break;
+            case 2: // timber
+                currentP1 = p1.getTimber();
+                currentP2 = p2.getTimber();
+                p1.setTimber(currentP1 - quantity2);
+                p2.setTimber(currentP2 + quantity2);
+                break;
+            case 3: // brick
+                currentP1 = p1.getBrick();
+                currentP2 = p2.getBrick();
+                p1.setBrick(currentP1 - quantity2);
+                p2.setBrick(currentP2 + quantity2);
+                break;
+            case 4: // wheat
+                currentP1 = p1.getWheat();
+                currentP2 = p2.getWheat();
+                p1.setWheat(currentP1 - quantity2);
+                p2.setWheat(currentP2 + quantity2);
+                break;
+            case 5: // metal
+                currentP1 = p1.getMetal();
+                currentP2 = p2.getMetal();
+                p1.setMetal(currentP1 - quantity2);
+                p2.setMetal(currentP2 + quantity2);
+                break;
+            default:
+                break;
+        }
+    }
+
 
 }
