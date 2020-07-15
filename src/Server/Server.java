@@ -123,17 +123,15 @@ public class Server extends Application {
                     }
                 }
 
-                }
-            }
-
-            // for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
-            // }
-            // fechar ligação
-            /*
+                // for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+                // }
+                // fechar ligação
+                /*
              client.close();
              System.out.println("[Server]A desligar");
              server.close();*/
-        });}
+            }
+        });
 
         Player p1 = new Player(0, 1, 0, 2, 1, 4, 3, false, false);
         Player p2 = new Player(0, 2, 1, 2, 3, 4, 5, false, false);
