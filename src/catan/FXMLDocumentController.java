@@ -341,9 +341,9 @@ public class FXMLDocumentController implements Initializable {
     public static TextArea chat;
     public static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
-    public static Button endTurn, roadBtn ;
+    public static Button endTurn, roadBtn, bankTradeBtn ;
     public static Group linesGroup;
-    public static MenuItem exitBtn, contributorsBtn, playerOpt1, playerOpt2, playerOpt3;
+    public static MenuItem exitBtn, contributorsBtn, playerOpt1, playerOpt2, playerOpt3, harborOpt1, harborOpt2;
     @FXML
     private MenuItem exitButton;
     @FXML
@@ -368,7 +368,9 @@ public class FXMLDocumentController implements Initializable {
         playerOpt1 = PlayerOption1;
         playerOpt2 = playerOption2;
         playerOpt3 = playerOption3;
-        
+        harborOpt1 = harborOption1;
+        harborOpt2 = harborOption2;
+        bankTradeBtn = bankTradeButton;        
         // all
     }
 

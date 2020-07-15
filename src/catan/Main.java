@@ -51,7 +51,7 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static Button endTurn, roadButton;
-    public static MenuItem exitBtn, contributorsBtn, playerOpt1, playerOpt2, playerOpt3;
+    public static MenuItem exitBtn, contributorsBtn, playerOpt1, playerOpt2, playerOpt3, harborOpt1, harborOpt2, harborOpt3;
         DataInputStream in ;
         DataOutputStream out;
 
@@ -72,7 +72,10 @@ public class Main extends Application {
         playerOpt1 = FXMLDocumentController.playerOpt1;
         playerOpt2 = FXMLDocumentController.playerOpt2;
         playerOpt3 = FXMLDocumentController.playerOpt3;
+        harborOpt1 = FXMLDocumentController.harborOpt1;
+        harborOpt2 = FXMLDocumentController.harborOpt2;
         
+        //Popup Contributors
         Label l1 = new Label("Criado por:");
         Label l2 = new Label("Tiago Neveda:4481");
         Label l3 = new Label("Luis Carvalho:19565");
@@ -80,13 +83,10 @@ public class Main extends Application {
         Label l5 = new Label("João Sousa:20770");
         Label l6 = new Label("Bruno Ribeiro:21318");
         Label l7 = new Label("Duarte Dias:21883");
+        Button closePopup1Button = new Button("Close");
+        Button closePopup2Button = new Button("Close");
         
         Popup popup1 = new Popup();
-        
-        Rectangle rct1 = new Rectangle();
-        
-        rct1.setX(25);
-        rct1.setY(25);
         
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -102,36 +102,24 @@ public class Main extends Application {
         grid.add(l5, 1, 5);
         grid.add(l6, 1, 6);
         grid.add(l7, 1, 7);
+        grid.add(closePopup1Button, 1, 8);
         
-        popup1.getContent().add(rct1);
         popup1.getContent().add(grid); 
         
-        EventHandler<ActionEvent> event =  
-        new EventHandler<ActionEvent>() { 
-   
-            public void handle(ActionEvent e) 
-            { 
-                if (!popup1.isShowing()) 
-                    popup1.show(stage); 
-                else
-                    popup1.hide(); 
-            } 
-        };
-        
-        contributorsBtn.setOnAction(event);
-        
+        //Popup in Players/Harbor/Bank
+        Label empty = new Label(" ");
         Label r1 = new Label("Wood");
         Label r2 = new Label("Brick");
         Label r3 = new Label("Metal");
         Label r4 = new Label("Wheat");
         Label r5 = new Label("Wool");
-        Label f0 = new Label("From");
+        Label f0 = new Label("You");
         Label f1 = new Label("0");
         Label f2 = new Label("0");
         Label f3 = new Label("0");
         Label f4 = new Label("0");
         Label f5 = new Label("0");
-        Label t0 = new Label("To");
+        Label o0 = new Label("");
         Label t1 = new Label("0");
         Label t2 = new Label("0");
         Label t3 = new Label("0");
@@ -151,11 +139,6 @@ public class Main extends Application {
         
         Popup popup2 = new Popup();
         
-        Rectangle rct2 = new Rectangle();
-        
-        rct2.setX(25);
-        rct2.setY(25);
-        
         GridPane grid2 = new GridPane();
         grid2.setAlignment(Pos.CENTER);
         grid2.setVgap(40);
@@ -174,7 +157,7 @@ public class Main extends Application {
         grid2.add(f3, 4, 2);
         grid2.add(f4, 5, 2);
         grid2.add(f5, 6, 2);
-        grid2.add(t0, 1, 3);
+        grid2.add(o0, 1, 3);
         grid2.add(t1, 2, 3);
         grid2.add(t2, 3, 3);
         grid2.add(t3, 4, 3);
@@ -190,24 +173,69 @@ public class Main extends Application {
         grid2.add(t3btn, 4, 5);
         grid2.add(t4btn, 5, 5);
         grid2.add(t5btn, 6, 5);
-        grid2.add(sendButton, 6, 6);
+        grid2.add(sendButton, 5, 6);
+        grid2.add(closePopup2Button, 6, 6);
+        grid2.add(empty, 7, 6);
         
-        popup2.getContent().add(rct2);
         popup2.getContent().add(grid2); 
         
-        EventHandler<ActionEvent> event2 =  
+        EventHandler<ActionEvent> openContributors =  
         new EventHandler<ActionEvent>() { 
    
             public void handle(ActionEvent e) 
             { 
+                
+                if (!popup1.isShowing()) 
+                    popup1.show(stage);  
+            } 
+        }; 
+        
+        EventHandler<ActionEvent> openTrades =  
+        new EventHandler<ActionEvent>() { 
+   
+            public void handle(ActionEvent e) 
+            { 
+                o0.setText("Player");
                 if (!popup2.isShowing()) 
-                    popup2.show(stage); 
-                else
+                    if(popup1.isShowing())
+                        popup1.hide();
+                    popup2.show(stage);
+            } 
+        };
+        
+        
+        EventHandler<ActionEvent> close =  
+        new EventHandler<ActionEvent>() { 
+   
+            public void handle(ActionEvent e) 
+            { 
+                if (popup1.isShowing()) 
+                    popup1.hide(); 
+                if(popup2.isShowing())
                     popup2.hide(); 
             } 
         };
         
-        playerOpt1.setOnAction(event2);
+        EventHandler<ActionEvent> openHarbor =  
+        new EventHandler<ActionEvent>() { 
+   
+            public void handle(ActionEvent e) 
+            { 
+                o0.setText("Harbor");
+                if (!popup2.isShowing()) 
+                    if(popup1.isShowing())
+                        popup1.hide();
+                    popup2.show(stage);
+            } 
+        };
+        
+        
+        
+        playerOpt1.setOnAction(openTrades);
+        contributorsBtn.setOnAction(openContributors);
+        harborOpt1.setOnAction(openHarbor);
+        closePopup2Button.setOnAction(close);
+        closePopup1Button.setOnAction(close);
         
         Scene scene = new Scene(root);
 
