@@ -77,6 +77,8 @@ public class Server {
                     } catch (IOException ex) {
                         Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                } else {
+                    gameover = false;
                 }
 
             }
@@ -103,8 +105,6 @@ public class Server {
         listPlayers.add(p3);
         listPlayers.add(p4);
 
-        gameover = false;
-
         Thread jogo;
         jogo = new Thread(() -> {
 
@@ -114,13 +114,12 @@ public class Server {
                     if (!dadosLancados) {
                         chosenTile = dice.throwDice(2);
                         System.out.println(chosenTile);
-                        sendResources = true;
 
                         if (chosenTile != 7) {
                             for (Hexagon hex : board.getTiles()) {
                                 if (chosenTile == hex.getNum()) {
-                                    //givePlayersResources(hex.getResourceID(), hex);
-                                    //sendResources = true;
+                                    givePlayersResources(hex.getResourceID(), hex);
+                                    sendResources = true;
                                 }
                             }
                         } else {
@@ -130,8 +129,6 @@ public class Server {
                         dadosLancados = true;
                     }
                     if (endPlay) {
-                        givePlayersResources(1);
-                        sendResources = true;
                         dadosLancados = false;
                         i++;
                         endPlay = false;
@@ -251,66 +248,66 @@ public class Server {
      * @param resource Parametro que representa os recursos
      * @param hex Parametro que representa uma casa de jogo
      */
-    private static void givePlayersResources(int resource/*, Hexagon hex*/) {
+    private static void givePlayersResources(int resource, Hexagon hex) {
         int current;
         for (Player p : listPlayers) {
-            //for (City c : p.getListCities()) {
-            //if (hex.containVector(c.getPosition())) {
-            switch (resource) {
-                case 1: // wool
-                    current = p.getWool();
-                    p.setWool(current += 2);
-                    break;
-                case 2: // timber
-                    current = p.getTimber();
-                    p.setTimber(current += 2);
-                    break;
-                case 3: // brick
-                    current = p.getBrick();
-                    p.setBrick(current += 2);
-                    break;
-                case 4: // wheat
-                    current = p.getWheat();
-                    p.setWheat(current += 2);
-                    break;
-                case 5: // metal
-                    current = p.getMetal();
-                    p.setMetal(current += 2);
-                    break;
-                default:
-                    break;
+            for (City c : p.getListCities()) {
+                if (hex.containVector(c.getPosition())) {
+                    switch (resource) {
+                        case 1: // wool
+                            current = p.getWool();
+                            p.setWool(current += 2);
+                            break;
+                        case 2: // timber
+                            current = p.getTimber();
+                            p.setTimber(current += 2);
+                            break;
+                        case 3: // brick
+                            current = p.getBrick();
+                            p.setBrick(current += 2);
+                            break;
+                        case 4: // wheat
+                            current = p.getWheat();
+                            p.setWheat(current += 2);
+                            break;
+                        case 5: // metal
+                            current = p.getMetal();
+                            p.setMetal(current += 2);
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
-            //}
-            //}
 
-            //for (Settlement s : p.getListSettlements()) {
-            //if (hex.containVector(s.getPosition())) {
-            switch (resource) {
-                case 1: // wool
-                    current = p.getWool();
-                    p.setWool(current++);
-                    break;
-                case 2: // timber
-                    current = p.getTimber();
-                    p.setTimber(current++);
-                    break;
-                case 3: // brick
-                    current = p.getBrick();
-                    p.setBrick(current++);
-                    break;
-                case 4: // wheat
-                    current = p.getWheat();
-                    p.setWheat(current++);
-                    break;
-                case 5: // metal
-                    current = p.getMetal();
-                    p.setMetal(current++);
-                    break;
-                default:
-                    break;
+            for (Settlement s : p.getListSettlements()) {
+                if (hex.containVector(s.getPosition())) {
+                    switch (resource) {
+                        case 1: // wool
+                            current = p.getWool();
+                            p.setWool(current++);
+                            break;
+                        case 2: // timber
+                            current = p.getTimber();
+                            p.setTimber(current++);
+                            break;
+                        case 3: // brick
+                            current = p.getBrick();
+                            p.setBrick(current++);
+                            break;
+                        case 4: // wheat
+                            current = p.getWheat();
+                            p.setWheat(current++);
+                            break;
+                        case 5: // metal
+                            current = p.getMetal();
+                            p.setMetal(current++);
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
-            //}
-            //}
         }
     }
 
