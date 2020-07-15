@@ -39,7 +39,7 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static MenuItem tj1, tj2, tj3;
-    static boolean gameover, endPlay;
+    static boolean gameover, endPlay, startServer = true;
     public static Button endTurn, roadButton, settleButton, cityButton, devButton;
     static DataInputStream in;
     static DataOutputStream out;
@@ -93,6 +93,29 @@ public class Main extends Application {
         out = new DataOutputStream(socket.getOutputStream());
 
         Thread enviarMensagem = new Thread(() -> {
+            /* if (startServer) {
+
+             for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+             try {
+             out.writeUTF("StartLine @" + n.getId() + "@ styled @" + n.getStyle());
+             } catch (IOException ex) {
+             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+             }
+
+             }
+
+             for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
+
+             try {
+             out.writeUTF("StartVertice @" + n.getId() + "@ styled @" + n.getStyle());
+             } catch (IOException ex) {
+             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+             }
+             }
+
+             startServer = false;
+             }*/
+
             while (true) {
 
                 inputChat.setOnKeyPressed(new EventHandler<KeyEvent>() {

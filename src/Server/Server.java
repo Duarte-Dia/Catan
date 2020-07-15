@@ -99,30 +99,30 @@ public class Server extends Application {
                         Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
+                    /*
+                     // ciclo para atualizar o board de todos os jogadores
+                     for (ClientHandler client : listaClientes) {
+                     for (Node n : vertices.getChildren()) {
+                     try {
+                     client.out.writeUTF("Vertice @" + n.getId() + "@ styled @" + n.getStyle());
+                     } catch (IOException ex) {
+                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                     }
 
-                    // ciclo para atualizar o board de todos os jogadores
-                    for (ClientHandler client : listaClientes) {
-                        for (Node n : vertices.getChildren()) {
-                            try {
-                                client.out.writeUTF("Vertice @" + n.getId() + "@ styled @" + n.getStyle());
-                            } catch (IOException ex) {
-                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                     }
 
-                        }
+                     }
+                     for (ClientHandler client : listaClientes) {
+                     for (Node n : lines.getChildren()) {
+                     try {
+                     client.out.writeUTF("Line @" + n.getId() + "@ styled @" + n.getStyle());
+                     } catch (IOException ex) {
+                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                     }
 
-                    }
-                    for (ClientHandler client : listaClientes) {
-                        for (Node n : lines.getChildren()) {
-                            try {
-                                client.out.writeUTF("Line @" + n.getId() + "@ styled @" + n.getStyle());
-                            } catch (IOException ex) {
-                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                     }
 
-                        }
-
-                    }
+                     }*/
 
                 }
             }
@@ -249,27 +249,27 @@ public class Server extends Application {
                     } else if (cmd.compareTo("5 turn") == 0) {
                         endPlay = true;
                         Server.listaClientes.get(0).out.writeUTF("Player1 turn");
+
                     } else if (cmd.startsWith("Line")) {
 
                         String[] arraysOfString = cmd.split("@", 4);
 
-                        for (Node n : lines.getChildren()) {
-
-                            if (n.getId().compareTo(arraysOfString[1]) == 0) {
-                                n.setStyle(arraysOfString[3]);
+                        for (ClientHandler client : Server.listaClientes) {
+                            if (!client.name.equals(this.name)) {
+                                client.out.writeUTF("Line @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
                             }
                         }
+
                     } else if (cmd.startsWith("Vertice")) {
 
                         String[] arraysOfString = cmd.split("@", 4);
-
-                        for (Node n : vertices.getChildren()) {
-
-                            if (n.getId().compareTo(arraysOfString[1]) == 0) {
-                                n.setStyle(arraysOfString[3]);
+                        for (ClientHandler client : Server.listaClientes) {
+                            if (!client.name.equals(this.name)) {
+                                client.out.writeUTF("Vertice @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
                             }
                         }
                     }
+
                     StringTokenizer st = new StringTokenizer(cmd, "#");
                     String receivingClient = null;
                     try {
