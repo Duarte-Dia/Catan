@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
@@ -344,6 +345,114 @@ public class FXMLDocumentController implements Initializable {
     public static MenuItem tj1, tj2, tj3;
     public static Button endTurn, roadBtn, settleBtn, cityBtn;
     public static Group linesGroup;
+    @FXML
+    private Circle v1;
+    @FXML
+    private Circle v2;
+    @FXML
+    private Circle v3;
+    @FXML
+    private Circle v4;
+    @FXML
+    private Circle v5;
+    @FXML
+    private Circle v6;
+    @FXML
+    private Circle v7;
+    @FXML
+    private Circle v8;
+    @FXML
+    private Circle v9;
+    @FXML
+    private Circle v10;
+    @FXML
+    private Circle v11;
+    @FXML
+    private Circle v12;
+    @FXML
+    private Circle v13;
+    @FXML
+    private Circle v14;
+    @FXML
+    private Circle v15;
+    @FXML
+    private Circle v16;
+    @FXML
+    private Circle v17;
+    @FXML
+    private Circle v18;
+    @FXML
+    private Circle v19;
+    @FXML
+    private Circle v20;
+    @FXML
+    private Circle v21;
+    @FXML
+    private Circle v22;
+    @FXML
+    private Circle v23;
+    @FXML
+    private Circle v24;
+    @FXML
+    private Circle v25;
+    @FXML
+    private Circle v26;
+    @FXML
+    private Circle v27;
+    @FXML
+    private Circle v28;
+    @FXML
+    private Circle v29;
+    @FXML
+    private Circle v30;
+    @FXML
+    private Circle v31;
+    @FXML
+    private Circle v32;
+    @FXML
+    private Circle v33;
+    @FXML
+    private Circle v34;
+    @FXML
+    private Circle v35;
+    @FXML
+    private Circle v36;
+    @FXML
+    private Circle v37;
+    @FXML
+    private Circle v38;
+    @FXML
+    private Circle v39;
+    @FXML
+    private Circle v40;
+    @FXML
+    private Circle v41;
+    @FXML
+    private Circle v42;
+    @FXML
+    private Circle v43;
+    @FXML
+    private Circle v44;
+    @FXML
+    private Circle v45;
+    @FXML
+    private Circle v46;
+    @FXML
+    private Circle v47;
+    @FXML
+    private Circle v48;
+    @FXML
+    private Circle v49;
+    @FXML
+    private Circle v50;
+    @FXML
+    private Circle v51;
+    @FXML
+    private Circle v52;
+    @FXML
+    private Circle v53;
+    @FXML
+    private Circle v54;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
