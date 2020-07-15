@@ -28,7 +28,8 @@ import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
+ * estão definidas
  *
  * @author Bruno Ribeiro
  */
@@ -40,17 +41,18 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static MenuItem tj1, tj2, tj3;
-    static boolean gameover, endPlay, startServer = true;
+    static boolean gameover, endPlay, startGame;
     public static Button endTurn, roadButton, settleButton, cityButton, devButton;
     static DataInputStream in;
     static DataOutputStream out;
     //NOTA DE DUARTE.... ESTE I SERVE PARA INDICAR O INFERNO 
-    int idJogadorLocal, i = 1;
+    int idJogadorLocal, i = 4;
     String color;
     boolean vertices, edges;
 
     /**
-     * Método que inicia todas as componententes necessárias para a interface gráfica
+     * Método que inicia todas as componententes necessárias para a interface
+     * gráfica
      *
      * @param stage Parametro que representa o conteúdo da interface
      * @throws Exception
@@ -84,7 +86,8 @@ public class Main extends Application {
     }
 
     /**
-     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor para que o jogo seja iniciado
+     * Método que define as funcionalidades necessárias para que haja
+     * comunicação entre o cliente e o servidor para que o jogo seja iniciado
      *
      * @throws IOException
      */
@@ -142,7 +145,7 @@ public class Main extends Application {
                         tj1.setText("Jogador 1");
                         tj2.setText("Jogador 3");
                         tj3.setText("Jogador 4");
-                        color = "yellow";
+                        color = "#CCDA0A";
                     } else if (msg.compareTo("#SetPlayer3") == 0) {
                         idJogadorLocal = 3;
                         tp1.setDisable(true);
@@ -152,7 +155,7 @@ public class Main extends Application {
                         tj1.setText("Jogador 1");
                         tj2.setText("Jogador 2");
                         tj3.setText("Jogador 4");
-                        color = "green";
+                        color = "#00FF37";
                     } else if (msg.compareTo("#SetPlayer4") == 0) {
                         idJogadorLocal = 4;
                         tp1.setDisable(true);
@@ -162,7 +165,7 @@ public class Main extends Application {
                         tj1.setText("Jogador 1");
                         tj2.setText("Jogador 2");
                         tj3.setText("Jogador 3");
-                        color = "blue";
+                        color = "#00EAFA";
                     } else if (msg.contains("###RESOURCES")) {
                         System.out.println(msg);
                         VBox v = new VBox();
@@ -224,16 +227,28 @@ public class Main extends Application {
                     }// receber comando de servidor para ativar o turno
                     else if (msg.compareTo("Player1 turn") == 0) {
                         i = 1;
+                        if (startGame = true) {
+                            buyRoad();
+                            buySettle();
+                        }
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                     } else if (msg.compareTo("Player2 turn") == 0) {
                         i = 2;
+                        if (startGame = true) {
+                            buyRoad();
+                            buySettle();
+                        }
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                     } else if (msg.compareTo("Player3 turn") == 0) {
                         i = 3;
+                        if (startGame = true) {
+                            buyRoad();
+                            buySettle();
+                        }
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
@@ -245,9 +260,13 @@ public class Main extends Application {
                     } else if (msg.compareTo("First Play") == 0) {
                         buyRoad();
                         buySettle();
+                        startGame = true;
+
                     } else if (msg.compareTo("Second Play") == 0) {
+                        startGame = false;
                         buyRoad();
                         buySettle();
+
                     } else {
                         System.out.println(msg);
                         chat.appendText(msg + "\n");
@@ -311,21 +330,50 @@ public class Main extends Application {
                 }
             });
 
-            endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent m) {
-                    if (idJogadorLocal == i) {
-                        System.out.println("Next player");
-                        endPlay = true;
-                        try {
-                            out.writeUTF(i + 1 + " turn");
-                            i++;
-                        } catch (IOException ex) {
-                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            if (startGame == true) {
+                endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        if (idJogadorLocal == i) {
+                            System.out.println("Next player");
+                            endPlay = true;
+                            try {
+
+                                if (i == 0) {
+                                    out.writeUTF(5 + " turn");
+                                    out.writeUTF("Second start");
+
+                                } else {
+                                    out.writeUTF(i - 1 + " turn");
+                                }
+                                i--;
+
+                            } catch (IOException ex) {
+                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                         }
                     }
-                }
-            });
+                });
+            } else {
+                endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        if (idJogadorLocal == i) {
+                            System.out.println("Next player");
+                            endPlay = true;
+                            try {
+
+                                out.writeUTF(i + 1 + " turn");
+                                i++;
+
+                            } catch (IOException ex) {
+                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                });
+
+            }
 
         });
 
