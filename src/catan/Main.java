@@ -263,7 +263,7 @@ public class Main extends Application {
                                 @Override
                                 public void handle(MouseEvent m) {
                                     if (idJogadorLocal == i) {
-                                        //dchat.appendText(n.getId());
+
                                         if (!n.getStyle().contains("-fx-stroke-type: outside; -fx-stroke-width: 3") && n.getStyle().contains("-fx-stroke: " + color + "; -fx-fill: " + color + ";") && vertices) {
                                             n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + "; -fx-stroke-type: outside; -fx-stroke-width: 3");
                                             vertices = false;
@@ -288,12 +288,12 @@ public class Main extends Application {
                     vertices = true;
                     for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
                         if (idJogadorLocal == i) {
-                            //System.out.println(n.getId() + "\n");
+
                             n.setOnMouseClicked(new EventHandler<MouseEvent>() {
                                 @Override
                                 public void handle(MouseEvent m) {
                                     if (idJogadorLocal == i) {
-                                        //chat.appendText(n.getId());
+
                                         if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && vertices) {
                                             n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + ";");
                                             vertices = false;
@@ -318,12 +318,12 @@ public class Main extends Application {
                     edges = true;
                     for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
                         if (idJogadorLocal == i) {
-                            //System.out.println(n.getId() + "\n");
+
                             n.setOnMouseClicked(new EventHandler<MouseEvent>() {
                                 @Override
                                 public void handle(MouseEvent m) {
                                     if (idJogadorLocal == i) {
-                                        //chat.appendText(n.getId());
+
                                         if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && edges) {
                                             n.setStyle("-fx-stroke: " + color + ";");
                                             edges = false;
