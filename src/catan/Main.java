@@ -182,6 +182,16 @@ public class Main extends Application {
                             }
                         }
 
+                    } else if (msg.startsWith("City")) {
+                        String[] arraysOfString = msg.split("@", 4);
+
+                        for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
+
+                            if (n.getId().compareTo(arraysOfString[1]) == 0) {
+                                n.setStyle(arraysOfString[3]);
+                            }
+                        }
+
                     }// receber comando de servidor para ativar o turno
                     else if (msg.compareTo("Player1 turn") == 0) {
                         i = 1;
@@ -257,6 +267,11 @@ public class Main extends Application {
                                         if (!n.getStyle().contains("-fx-stroke-type: outside; -fx-stroke-width: 3") && n.getStyle().contains("-fx-stroke: " + color + "; -fx-fill: " + color + ";") && vertices) {
                                             n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + "; -fx-stroke-type: outside; -fx-stroke-width: 3");
                                             vertices = false;
+                                            try {
+                                                out.writeUTF("City @" + n.getId() + "@ styled @" + n.getStyle());
+                                            } catch (IOException ex) {
+                                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         }
                                         // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
                                     }

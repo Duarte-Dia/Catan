@@ -46,7 +46,6 @@ public class Server extends Application {
     static DataOutputStream out;
     static int chosenTile = 0;
     static Board board = new Board();
-    private static Group vertices, lines;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -60,9 +59,6 @@ public class Server extends Application {
     }
 
     public static void main(String[] args) throws IOException {
-
-        vertices = FXMLDocumentController.verticesGroup;
-        lines = FXMLDocumentController.linesGroup;
 
         dadosLancados = false;
         ServerSocket server = new ServerSocket(port);
@@ -242,6 +238,14 @@ public class Server extends Application {
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(this.name)) {
                                 client.out.writeUTF("Vertice @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
+                            }
+                        }
+                    } else if (cmd.startsWith("City")) {
+
+                        String[] arraysOfString = cmd.split("@", 4);
+                        for (ClientHandler client : Server.listaClientes) {
+                            if (!client.name.equals(this.name)) {
+                                client.out.writeUTF("City @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
                             }
                         }
                     }
