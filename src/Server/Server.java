@@ -8,9 +8,7 @@ package Server;
 import catan.Board;
 import catan.City;
 import catan.Dice;
-import catan.FXMLDocumentController;
 import catan.Hexagon;
-import catan.Main;
 import catan.Player;
 import catan.Settlement;
 import java.io.*;
@@ -18,22 +16,12 @@ import java.net.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 /**
  *
  * @author Utilizador
  */
-public class Server extends Application {
+public class Server {
 
     private static int port = 6666, nClientes = 1;
     private static Vector<ClientHandler> listaClientes = new Vector<>();
@@ -46,17 +34,6 @@ public class Server extends Application {
     static DataOutputStream out;
     static int chosenTile = 0;
     static Board board = new Board();
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
-
-    }
 
     public static void main(String[] args) throws IOException {
 
@@ -135,9 +112,9 @@ public class Server extends Application {
                 // }
                 // fechar ligação
                 /*
-             client.close();
-             System.out.println("[Server]A desligar");
-             server.close();*/
+                 client.close();
+                 System.out.println("[Server]A desligar");
+                 server.close();*/
             }
         });
 
@@ -380,7 +357,8 @@ public class Server extends Application {
     /**
      * Método que verifica se um jogo termina
      *
-     * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha terminado, retorna falso.
+     * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha
+     * terminado, retorna falso.
      *
      */
     private static boolean isGameOver() {
@@ -408,7 +386,10 @@ public class Server extends Application {
     }
 
     /**
-     * Método que indica se alguém (e quem) atingiu a estrada mais longa Alguém só atinge a estrada mais longa, quem tem pelo menos 5 estradas, ou, no caso de haver mais que um jogador com 5 estradas, mostra qual o jogador com mais estradas
+     * Método que indica se alguém (e quem) atingiu a estrada mais longa Alguém
+     * só atinge a estrada mais longa, quem tem pelo menos 5 estradas, ou, no
+     * caso de haver mais que um jogador com 5 estradas, mostra qual o jogador
+     * com mais estradas
      */
     private static void longestRoad() {
         List<Integer> listRoadSizes = new ArrayList<Integer>();
@@ -462,12 +443,18 @@ public class Server extends Application {
     /**
      * Método que permite haver troca de recursos entre jogadores/clientes
      *
-     * @param p1 Parametro que representa o jogador que pretende efetuar a troca.
-     * @param p2 Parametro que representa o jogador que recebe o pedido de troca.
-     * @param resource1 Parametro que representa os recursos que o jogador pretende receber
-     * @param resource2 Parametro que representa os recursos , que o jogador oferece em troca
-     * @param quantity1 Parametro que representa as quantidades de cada recurso, que o jogador pretende receber
-     * @param quantity2 Parametro que representa as quantidades de cada recurso, que o jogador oferece em troca.
+     * @param p1 Parametro que representa o jogador que pretende efetuar a
+     * troca.
+     * @param p2 Parametro que representa o jogador que recebe o pedido de
+     * troca.
+     * @param resource1 Parametro que representa os recursos que o jogador
+     * pretende receber
+     * @param resource2 Parametro que representa os recursos , que o jogador
+     * oferece em troca
+     * @param quantity1 Parametro que representa as quantidades de cada recurso,
+     * que o jogador pretende receber
+     * @param quantity2 Parametro que representa as quantidades de cada recurso,
+     * que o jogador oferece em troca.
      *
      */
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
