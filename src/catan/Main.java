@@ -28,8 +28,7 @@ import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
- * estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador estão definidas
  *
  * @author Bruno Ribeiro
  */
@@ -51,8 +50,7 @@ public class Main extends Application {
     boolean vertices, edges;
 
     /**
-     * Método que inicia todas as componententes necessárias para a interface
-     * gráfica
+     * Método que inicia todas as componententes necessárias para a interface gráfica
      *
      * @param stage Parametro que representa o conteúdo da interface
      * @throws Exception
@@ -86,8 +84,7 @@ public class Main extends Application {
     }
 
     /**
-     * Método que define as funcionalidades necessárias para que haja
-     * comunicação entre o cliente e o servidor para que o jogo seja iniciado
+     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor para que o jogo seja iniciado
      *
      * @throws IOException
      */
@@ -263,9 +260,11 @@ public class Main extends Application {
                         startGame = true;
 
                     } else if (msg.compareTo("Second Play") == 0) {
-                        startGame = false;
+                        edges = true;
+                        vertices = true;
                         buyRoad();
                         buySettle();
+                        startGame = false;
 
                     } else {
                         System.out.println(msg);
@@ -330,16 +329,18 @@ public class Main extends Application {
                 }
             });
 
-            if (startGame == true) {
-                endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent m) {
-                        if (idJogadorLocal == i) {
-                            System.out.println("Next player");
-                            endPlay = true;
-                            try {
+            endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent m) {
+                    if (idJogadorLocal == i) {
+                        System.out.println("Next player");
+                        endPlay = true;
+                        try {
 
-                                if (i == 0) {
+                            if (startGame == true) {
+                                if (i == 2) {
+                                    out.writeUTF(5 + " turn");
+                                } else if (i == 1) {
                                     out.writeUTF(5 + " turn");
                                     out.writeUTF("Second start");
 
@@ -347,34 +348,17 @@ public class Main extends Application {
                                     out.writeUTF(i - 1 + " turn");
                                 }
                                 i--;
-
-                            } catch (IOException ex) {
-                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                    }
-                });
-            } else {
-                endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent m) {
-                        if (idJogadorLocal == i) {
-                            System.out.println("Next player");
-                            endPlay = true;
-                            try {
-
+                            } else {
                                 out.writeUTF(i + 1 + " turn");
                                 i++;
-
-                            } catch (IOException ex) {
-                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                             }
+
+                        } catch (IOException ex) {
+                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                });
-
-            }
-
+                }
+            });
         });
 
         buttonListener.start();
