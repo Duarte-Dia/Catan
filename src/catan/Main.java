@@ -161,7 +161,7 @@ public class Main extends Application {
                         tj3.setText("Jogador 3");
                         color = "blue";
                     } else if (msg.contains("###RESOURCES")) {
-                        System.out.println("A tua prima sabe bem");
+                        System.out.println("A tua prima é uma bela mulher independente");
                     } else if (msg.startsWith("Line")) {
                         String[] arraysOfString = msg.split("@", 4);
 
