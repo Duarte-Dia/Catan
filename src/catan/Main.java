@@ -112,11 +112,11 @@ public class Main extends Application {
         Thread lerMensagem;
         lerMensagem = new Thread(() -> {
             while (true) {
+
                 try {
                     String msg = in.readUTF();
                     if (msg.compareTo("#SetPlayer1") == 0) {
                         idJogadorLocal = 1;
-                        i = 1;
                         tp1.setDisable(false);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
@@ -127,7 +127,6 @@ public class Main extends Application {
                         color = "red";
                     } else if (msg.compareTo("#SetPlayer2") == 0) {
                         idJogadorLocal = 2;
-                        i = 2;
                         tp1.setDisable(true);
                         tp2.setDisable(false);
                         tp3.setDisable(true);
@@ -138,7 +137,6 @@ public class Main extends Application {
                         color = "yellow";
                     } else if (msg.compareTo("#SetPlayer3") == 0) {
                         idJogadorLocal = 3;
-                        i = 3;
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(false);
@@ -149,7 +147,6 @@ public class Main extends Application {
                         color = "green";
                     } else if (msg.compareTo("#SetPlayer4") == 0) {
                         idJogadorLocal = 4;
-                        i = 4;
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
@@ -160,7 +157,35 @@ public class Main extends Application {
                         color = "blue";
                     } else if (msg.contains("###RESOURCES")) {
                         System.out.println("A tua prima sabe bem");
-                    } else {
+                    } 
+                       
+                        // receber comando de servidor para ativar o turno
+                     else if (msg.compareTo("Player1 turn") == 0) {
+                        i = 1;
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                    } else if (msg.compareTo("Player2 turn") == 0) {
+                        i = 2;
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                    } else if (msg.compareTo("Player3 turn") == 0) {
+                        i = 3;
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                    } else if (msg.compareTo("Player4 turn") == 0) {
+                        i = 4;
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                    } 
+                    
+                    
+                    
+                    
+                    else {
                         System.out.println(msg);
                         chat.appendText(msg + "\n");
                     }
@@ -229,7 +254,8 @@ public class Main extends Application {
                         System.out.println("Next player");
                         endPlay = true;
                         try {
-                            out.writeUTF("end Turn button pressed");
+                            out.writeUTF(i + 1 + " turn");
+                            i++;
                         } catch (IOException ex) {
                             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                         }
