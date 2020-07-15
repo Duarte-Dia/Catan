@@ -44,6 +44,7 @@ public class Server {
     public static void main(String[] args) throws IOException {
 
         ServerSocket server = new ServerSocket(port);
+
         Thread servidor = new Thread(() -> {
             while (true) {
                 // Servidor fica a espera de um cliente
@@ -65,12 +66,13 @@ public class Server {
                         listaClientes.add(ch);
 
                         out.writeUTF("Sucesso a Conectar o Cliente " + nClientes + " \n");
-
+                        // define a posição do jogador
                         out.writeUTF("#SetPlayer" + nClientes);
 
                         t.start();
 
                         nClientes++;
+
                     } catch (IOException ex) {
                         Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -78,7 +80,7 @@ public class Server {
 
             }
 
-        // fechar ligação
+            // fechar ligação
         /*
              client.close();
              System.out.println("[Server]A desligar");
@@ -90,6 +92,10 @@ public class Server {
         Player p1 = new Player(0, 1, 0, 0, 0, 0, 0, false, false);
         Player p2 = new Player(0, 2, 0, 0, 0, 0, 0, false, false);
         Player p3 = new Player(0, 3, 0, 0, 0, 0, 0, false, false);
+
+        Thread recursos = new Thread(() -> {
+        });
+
         listPlayers.add(p1);
         listPlayers.add(p2);
         listPlayers.add(p3);
@@ -183,7 +189,17 @@ public class Server {
                                 client.out.writeUTF("Whisper from " + name + ": " + msg);
                             }
                         }
-                    } else {
+                        // Comando para trocar o turno para o  jogador seguinte
+                    } else if (cmd.compareTo("2 turn") == 0) {
+                        Server.listaClientes.get(1).out.writeUTF("Player2 turn");
+                    }else if (cmd.compareTo("3 turn") == 0) {
+                        Server.listaClientes.get(2).out.writeUTF("Player3 turn");
+                    }else if (cmd.compareTo("4 turn") == 0) {
+                        Server.listaClientes.get(3).out.writeUTF("Player4 turn");
+                    }else if (cmd.compareTo("5 turn") == 0) {
+                        Server.listaClientes.get(0).out.writeUTF("Player1 turn");
+                    }
+                    else {
 
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(name) && client.logged) {
