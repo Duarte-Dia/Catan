@@ -13,10 +13,11 @@ import java.util.*;
  */
 public class Hexagon {
 
-    private int num, resourceID;
+    private int id, num, resourceID;
     private List<Vector3> vectors = new ArrayList<Vector3>();
 
-    public Hexagon(int num, int resourceID) {
+    public Hexagon(int id, int num, int resourceID) {
+        this.id = id;
         this.num = num;
         this.resourceID = resourceID;
     }

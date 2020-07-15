@@ -341,8 +341,8 @@ public class FXMLDocumentController implements Initializable {
     public static TextArea chat;
     public static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
-    public static MenuItem tj1 ,tj2 ,tj3;
-    public static Button endTurn, roadBtn;
+    public static MenuItem tj1, tj2, tj3;
+    public static Button endTurn, roadBtn, settleBtn, cityBtn;
     public static Group linesGroup;
 
     @Override
@@ -354,14 +354,14 @@ public class FXMLDocumentController implements Initializable {
         tp2 = Player2Tab;
         tp3 = player3Tab;
         tp4 = player4Tab;
-        tj1= PlayerOption1;
-        tj2= playerOption2;
-        tj3= playerOption3;
-        
-        
-        
+        tj1 = PlayerOption1;
+        tj2 = playerOption2;
+        tj3 = playerOption3;
+
         endTurn = endTurnButton;
         roadBtn = roadButton;
+        settleBtn = houseButton;
+        cityBtn = cityButton;
         linesGroup = rc;
 
         // all

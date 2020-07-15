@@ -26,8 +26,7 @@ import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
- * estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador estão definidas
  *
  * @author Bruno Ribeiro
  */
@@ -40,15 +39,15 @@ public class Main extends Application {
     public static Tab tp1, tp2, tp3, tp4;
     public static MenuItem tj1, tj2, tj3;
     static boolean gameover, endPlay;
-    public static Button endTurn, roadButton;
+    public static Button endTurn, roadButton, settleButton, cityButton, devButton;
     static DataInputStream in;
     static DataOutputStream out;
     //NOTA DE DUARTE.... ESTE I SERVE PARA INDICAR O INFERNO 
     int idJogadorLocal = 1, i;
+    String color;
 
     /**
-     * Método que inicia todas as componententes necessárias para a interface
-     * gráfica
+     * Método que inicia todas as componententes necessárias para a interface gráfica
      *
      * @param stage Parametro que representa o conteúdo da interface
      * @throws Exception
@@ -64,7 +63,6 @@ public class Main extends Application {
 
         connectClient();
         iniciarElementos();
-        
 
     }
 
@@ -79,8 +77,7 @@ public class Main extends Application {
     }
 
     /**
-     * Método que define as funcionalidades necessárias para que haja
-     * comunicação entre o cliente e o servidor para que o jogo seja iniciado
+     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor para que o jogo seja iniciado
      *
      * @throws IOException
      */
@@ -119,7 +116,7 @@ public class Main extends Application {
                     String msg = in.readUTF();
                     if (msg.compareTo("#SetPlayer1") == 0) {
                         idJogadorLocal = 1;
-                        i=1;
+                        i = 1;
                         tp1.setDisable(false);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
@@ -127,9 +124,10 @@ public class Main extends Application {
                         tj1.setText("Jogador 2");
                         tj2.setText("Jogador 3");
                         tj3.setText("Jogador 4");
+                        color = "red";
                     } else if (msg.compareTo("#SetPlayer2") == 0) {
                         idJogadorLocal = 2;
-                        i=2;
+                        i = 2;
                         tp1.setDisable(true);
                         tp2.setDisable(false);
                         tp3.setDisable(true);
@@ -137,9 +135,10 @@ public class Main extends Application {
                         tj1.setText("Jogador 1");
                         tj2.setText("Jogador 3");
                         tj3.setText("Jogador 4");
+                        color = "yellow";
                     } else if (msg.compareTo("#SetPlayer3") == 0) {
                         idJogadorLocal = 3;
-                        i=3;
+                        i = 3;
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(false);
@@ -147,9 +146,10 @@ public class Main extends Application {
                         tj1.setText("Jogador 1");
                         tj2.setText("Jogador 2");
                         tj3.setText("Jogador 4");
+                        color = "green";
                     } else if (msg.compareTo("#SetPlayer4") == 0) {
                         idJogadorLocal = 4;
-                        i=4;
+                        i = 4;
                         tp1.setDisable(true);
                         tp2.setDisable(true);
                         tp3.setDisable(true);
@@ -157,6 +157,9 @@ public class Main extends Application {
                         tj1.setText("Jogador 1");
                         tj2.setText("Jogador 2");
                         tj3.setText("Jogador 3");
+                        color = "blue";
+                    } else if (msg.contains("###RESOURCES")) {
+                        System.out.println("A tua prima sabe bem");
                     } else {
                         System.out.println(msg);
                         chat.appendText(msg + "\n");
@@ -187,51 +190,53 @@ public class Main extends Application {
         tp4 = FXMLDocumentController.tp4;
         endTurn = FXMLDocumentController.endTurn;
         roadButton = FXMLDocumentController.roadBtn;
+        settleButton = FXMLDocumentController.settleBtn;
+        cityButton = FXMLDocumentController.cityBtn;
 
         tj1 = FXMLDocumentController.tj1;
         tj2 = FXMLDocumentController.tj2;
         tj3 = FXMLDocumentController.tj3;
 
-        
         Thread buttonListener = new Thread(() -> {
-                roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent m) {
-                        for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
-                            if (idJogadorLocal == i) {
-                                System.out.println(n.getId() + "\n");
-                                n.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                    @Override
-                                    public void handle(MouseEvent m) {
-                                        if (idJogadorLocal == i) {
-                                            chat.appendText(n.getId());
-                                            // player tem recursos?
-                                            // rua disponivel?
-                                            // 
-                                        }
-                                    }
-                                });
-                            }
-                        }
-                    }
-                });
 
-                endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent m) {
+            roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent m) {
+                    for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
                         if (idJogadorLocal == i) {
-                            System.out.println("Next player");
-                            endPlay = true;
-                            try {
-                                out.writeUTF("end Turn button pressed");
-                            } catch (IOException ex) {
-                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                            System.out.println(n.getId() + "\n");
+                            n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                @Override
+                                public void handle(MouseEvent m) {
+                                    if (idJogadorLocal == i) {
+                                        chat.appendText(n.getId());
+                                        n.setStyle("-fx-stroke: red;");
+                                        // player tem recursos - 1 timber, 1 brick
+                                        // rua disponivel?
+                                        // 
+                                    }
+                                }
+                            });
                         }
                     }
-                });
+                }
+            });
 
-            
+            endTurn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent m) {
+                    if (idJogadorLocal == i) {
+                        System.out.println("Next player");
+                        endPlay = true;
+                        try {
+                            out.writeUTF("end Turn button pressed");
+                        } catch (IOException ex) {
+                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+            });
+
         });
 
         buttonListener.start();
