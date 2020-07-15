@@ -33,7 +33,7 @@ public class Server {
     private static Vector<ClientHandler> listaClientes = new Vector<>();
     private static Socket client;
     static int idJogadorLocal = 1, i;
-    static boolean gameover, endPlay = false, sendResources = false, dadosLancados;
+    static boolean gameover, endPlay = false, sendResources = false, dadosLancados, firstPlay;
     static Dice dice = new Dice();
     static List<Player> listPlayers = new ArrayList<Player>();
     static DataInputStream in;
@@ -127,6 +127,12 @@ public class Server {
         jogo = new Thread(() -> {
 
             while (!gameover) {
+
+                if (firstPlay) {
+                    for (i = 1; i <= listPlayers.size(); i++) {
+
+                    }
+                }
 
                 for (i = 1; i <= listPlayers.size();) {
                     if (!dadosLancados) {
@@ -320,8 +326,7 @@ public class Server {
     /**
      * Método que verifica se um jogo termina
      *
-     * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha
-     * terminado, retorna falso.
+     * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha terminado, retorna falso.
      *
      */
     private static boolean isGameOver() {
@@ -349,10 +354,7 @@ public class Server {
     }
 
     /**
-     * Método que indica se alguém (e quem) atingiu a estrada mais longa Alguém
-     * só atinge a estrada mais longa, quem tem pelo menos 5 estradas, ou, no
-     * caso de haver mais que um jogador com 5 estradas, mostra qual o jogador
-     * com mais estradas
+     * Método que indica se alguém (e quem) atingiu a estrada mais longa Alguém só atinge a estrada mais longa, quem tem pelo menos 5 estradas, ou, no caso de haver mais que um jogador com 5 estradas, mostra qual o jogador com mais estradas
      */
     private static void longestRoad() {
         List<Integer> listRoadSizes = new ArrayList<Integer>();
@@ -406,18 +408,12 @@ public class Server {
     /**
      * Método que permite haver troca de recursos entre jogadores/clientes
      *
-     * @param p1 Parametro que representa o jogador que pretende efetuar a
-     * troca.
-     * @param p2 Parametro que representa o jogador que recebe o pedido de
-     * troca.
-     * @param resource1 Parametro que representa os recursos que o jogador
-     * pretende receber
-     * @param resource2 Parametro que representa os recursos , que o jogador
-     * oferece em troca
-     * @param quantity1 Parametro que representa as quantidades de cada recurso,
-     * que o jogador pretende receber
-     * @param quantity2 Parametro que representa as quantidades de cada recurso,
-     * que o jogador oferece em troca.
+     * @param p1 Parametro que representa o jogador que pretende efetuar a troca.
+     * @param p2 Parametro que representa o jogador que recebe o pedido de troca.
+     * @param resource1 Parametro que representa os recursos que o jogador pretende receber
+     * @param resource2 Parametro que representa os recursos , que o jogador oferece em troca
+     * @param quantity1 Parametro que representa as quantidades de cada recurso, que o jogador pretende receber
+     * @param quantity2 Parametro que representa as quantidades de cada recurso, que o jogador oferece em troca.
      *
      */
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
