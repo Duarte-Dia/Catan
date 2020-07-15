@@ -28,8 +28,7 @@ import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
- * estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador estão definidas
  *
  * @author Bruno Ribeiro
  */
@@ -48,11 +47,10 @@ public class Main extends Application {
     //NOTA DE DUARTE.... ESTE I SERVE PARA INDICAR O INFERNO 
     int idJogadorLocal, i = 1;
     String color;
-    boolean vertices = false, edges = false;
+    boolean vertices, edges;
 
     /**
-     * Método que inicia todas as componententes necessárias para a interface
-     * gráfica
+     * Método que inicia todas as componententes necessárias para a interface gráfica
      *
      * @param stage Parametro que representa o conteúdo da interface
      * @throws Exception
@@ -82,8 +80,7 @@ public class Main extends Application {
     }
 
     /**
-     * Método que define as funcionalidades necessárias para que haja
-     * comunicação entre o cliente e o servidor para que o jogo seja iniciado
+     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor para que o jogo seja iniciado
      *
      * @throws IOException
      */
@@ -190,8 +187,7 @@ public class Main extends Application {
                         }
                         System.out.println(s);
                     } // receber comando de servidor para ativar o turno
-                      
-                     else if (msg.startsWith("Line")) {
+                    else if (msg.startsWith("Line")) {
                         String[] arraysOfString = msg.split("@", 4);
 
                         for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
@@ -275,24 +271,7 @@ public class Main extends Application {
                 @Override
                 public void handle(MouseEvent m) {
                     vertices = true;
-                    for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
-                        if (idJogadorLocal == i) {
-                            //System.out.println(n.getId() + "\n");
-                            n.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                @Override
-                                public void handle(MouseEvent m) {
-                                    if (idJogadorLocal == i) {
-                                        //dchat.appendText(n.getId());
-                                        if (!n.getStyle().contains("-fx-stroke-type: outside; -fx-stroke-width: 3") && n.getStyle().contains("-fx-stroke: " + color + "; -fx-fill: " + color + ";") && vertices) {
-                                            n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + "; -fx-stroke-type: outside; -fx-stroke-width: 3");
-                                            vertices = false;
-                                        }
-                                        // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
-                                    }
-                                }
-                            });
-                        }
-                    }
+                    buyRoad();
                 }
             });
 
@@ -375,6 +354,27 @@ public class Main extends Application {
         });
 
         buttonListener.start();
+    }
+
+    public void buyRoad() {
+        for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
+            if (idJogadorLocal == i) {
+                //System.out.println(n.getId() + "\n");
+                n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        if (idJogadorLocal == i) {
+                            //dchat.appendText(n.getId());
+                            if (!n.getStyle().contains("-fx-stroke-type: outside; -fx-stroke-width: 3") && n.getStyle().contains("-fx-stroke: " + color + "; -fx-fill: " + color + ";") && vertices) {
+                                n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + "; -fx-stroke-type: outside; -fx-stroke-width: 3");
+                                vertices = false;
+                            }
+                            // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
+                        }
+                    }
+                });
+            }
+        }
     }
 
 }

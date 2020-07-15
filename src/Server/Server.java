@@ -151,8 +151,8 @@ public class Server extends Application {
             while (!gameover) {
 
                 if (firstPlay) {
-                    for (i = 1; i <= listPlayers.size(); i++) {
-
+                    for (i = 1; i >= listPlayers.size(); i++) {
+                        //if()
                     }
                 }
 
