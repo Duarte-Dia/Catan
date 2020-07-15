@@ -121,6 +121,18 @@ public class Server extends Application {
 
                         sendResources = false;
                     }
+
+                    if (firstPlay) {
+                        for (ClientHandler client : listaClientes) {
+                            try {
+                                client.out.writeUTF("First Play");
+                            } catch (IOException ex) {
+                                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+
+                        firstPlay = false;
+                    }
                 }
 
                 // for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
@@ -149,12 +161,6 @@ public class Server extends Application {
         jogo = new Thread(() -> {
 
             while (!gameover) {
-
-                if (firstPlay) {
-                    for (i = 1; i >= listPlayers.size(); i++) {
-                        //if()
-                    }
-                }
 
                 for (i = 1; i <= listPlayers.size();) {
                     if (!dadosLancados) {
