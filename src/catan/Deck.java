@@ -95,4 +95,8 @@ public class Deck {
             specialCards.add(newCard);
         }
     } 
+    
+    public void shuffleDeck(){
+        Collections.shuffle(deckOfCards);
+    }
 }
