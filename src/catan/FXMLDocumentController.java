@@ -500,5 +500,11 @@ public class FXMLDocumentController implements Initializable {
         //return inputChatText.getText();
 
     }
-
+    
+    public void addBackground(){
+        for(int i = 0; i < 19; i++){
+            v.getChildren();
+        }
+    }
+    
 }

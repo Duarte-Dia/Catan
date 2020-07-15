@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -985,9 +986,9 @@
             </HBox>
             <HBox layoutX="640.0" layoutY="209.0">
                <children>
-                  <Polygon id="forest_11" fill="WHITE" layoutX="690.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="pasture_12" fill="WHITE" layoutX="789.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="field_9" fill="WHITE" layoutX="888.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="forest_11" layoutX="690.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="pasture_12" layoutX="789.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="field_9" layoutX="888.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </HBox>
             <HBox layoutX="640.0" layoutY="565.0">
@@ -999,10 +1000,10 @@
             </HBox>
             <HBox layoutX="590.0" layoutY="298.0">
                <children>
-                  <Polygon id="hills_4" fill="WHITE" layoutX="640.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="mountain_6" fill="WHITE" layoutX="740.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="hills_5" fill="WHITE" layoutX="840.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="pasture_10" fill="WHITE" layoutX="940.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="hills_4" layoutX="640.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="mountain_6" layoutX="740.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="hills_5" layoutX="840.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="pasture_10" layoutX="940.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </HBox>
             <HBox layoutX="590.0" layoutY="476.0">
@@ -1147,6 +1148,45 @@
             <Circle fx:id="v52" layoutX="727.0" layoutY="686.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="v53" layoutX="828.0" layoutY="686.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="v54" layoutX="926.0" layoutY="686.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="175.0" fitWidth="202.0" layoutX="620.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Hexagons/forest_hexagon_11.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="110.0" fitWidth="95.0" layoutX="780.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Hexagons/pasture_hexagon_12.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="143.0" fitWidth="94.0" layoutX="880.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Hexagons/field_hexagon_9.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="240.0" fitWidth="266.0" layoutX="501.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Hexagons/Hills_Hexagon_4.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="202.0" fitWidth="233.0" layoutX="640.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Hexagons/mountain_hexagon_6.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="231.0" fitWidth="257.0" layoutX="707.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Hexagons/Hills_Hexagon_5.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="110.0" fitWidth="98.0" layoutX="929.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Hexagons/pasture_hexagon_9.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="215.0" fitWidth="257.0" layoutX="478.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Hexagons/desert_hexagon_tile.png" />
+               </image></ImageView>
          </children>
       </Group>
     </children>
