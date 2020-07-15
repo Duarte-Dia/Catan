@@ -245,6 +245,9 @@ public class Main extends Application {
                     } else if (msg.compareTo("First Play") == 0) {
                         buyRoad();
                         buySettle();
+                    } else if (msg.compareTo("Second Play") == 0) {
+                        buyRoad();
+                        buySettle();
                     } else {
                         System.out.println(msg);
                         chat.appendText(msg + "\n");
