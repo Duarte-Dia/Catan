@@ -43,7 +43,7 @@ public class Main extends Application {
     static DataInputStream in;
     static DataOutputStream out;
     //NOTA DE DUARTE.... ESTE I SERVE PARA INDICAR O INFERNO 
-    int idJogadorLocal = 1, i;
+    int idJogadorLocal = 1, i = 1;
     String color;
 
     /**
@@ -157,35 +157,28 @@ public class Main extends Application {
                         color = "blue";
                     } else if (msg.contains("###RESOURCES")) {
                         System.out.println("A tua prima sabe bem");
-                    } 
-                       
-                        // receber comando de servidor para ativar o turno
-                     else if (msg.compareTo("Player1 turn") == 0) {
+                    } // receber comando de servidor para ativar o turno
+                    else if (msg.compareTo("Player1 turn") == 0) {
                         i = 1;
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                     } else if (msg.compareTo("Player2 turn") == 0) {
                         i = 2;
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                     } else if (msg.compareTo("Player3 turn") == 0) {
                         i = 3;
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                     } else if (msg.compareTo("Player4 turn") == 0) {
                         i = 4;
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER"+i+ " ITS YOUR TURN!!\n");
-                    } 
-                    
-                    
-                    
-                    
-                    else {
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                    } else {
                         System.out.println(msg);
                         chat.appendText(msg + "\n");
                     }
@@ -235,7 +228,10 @@ public class Main extends Application {
                                 public void handle(MouseEvent m) {
                                     if (idJogadorLocal == i) {
                                         chat.appendText(n.getId());
-                                        n.setStyle("-fx-stroke: red;");
+                                        if (!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) {
+                                            n.setStyle("-fx-stroke: " + color + ";");
+                                        }
+
                                         // player tem recursos - 1 timber, 1 brick
                                         // rua disponivel?
                                         // 
