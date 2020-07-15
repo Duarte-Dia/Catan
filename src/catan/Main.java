@@ -51,7 +51,7 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static Button endTurn, roadButton;
-    public static MenuItem exitBtn, contributorsBtn;
+    public static MenuItem exitBtn, contributorsBtn, playerOpt1, playerOpt2, playerOpt3;
         DataInputStream in ;
         DataOutputStream out;
 
@@ -69,6 +69,9 @@ public class Main extends Application {
         roadButton = FXMLDocumentController.roadBtn;
         exitBtn = FXMLDocumentController.exitBtn;
         contributorsBtn = FXMLDocumentController.contributorsBtn;
+        playerOpt1 = FXMLDocumentController.playerOpt1;
+        playerOpt2 = FXMLDocumentController.playerOpt2;
+        playerOpt3 = FXMLDocumentController.playerOpt3;
         
         Label l1 = new Label("Criado por:");
         Label l2 = new Label("Tiago Neveda:4481");
@@ -89,6 +92,7 @@ public class Main extends Application {
         grid.setAlignment(Pos.CENTER);
         grid.setVgap(10);
         grid.setHgap(10);
+        grid.setStyle(" -fx-background-color: white;");
         
         grid.setPadding(new Insets(25, 10, 25, 10));
         grid.add(l1, 1, 1);
@@ -116,8 +120,94 @@ public class Main extends Application {
         
         contributorsBtn.setOnAction(event);
         
+        Label r1 = new Label("Wood");
+        Label r2 = new Label("Brick");
+        Label r3 = new Label("Metal");
+        Label r4 = new Label("Wheat");
+        Label r5 = new Label("Wool");
+        Label f0 = new Label("From");
+        Label f1 = new Label("0");
+        Label f2 = new Label("0");
+        Label f3 = new Label("0");
+        Label f4 = new Label("0");
+        Label f5 = new Label("0");
+        Label t0 = new Label("To");
+        Label t1 = new Label("0");
+        Label t2 = new Label("0");
+        Label t3 = new Label("0");
+        Label t4 = new Label("0");
+        Label t5 = new Label("0");
+        Button f1btn = new Button("Wood");
+        Button f2btn = new Button("Brick");
+        Button f3btn = new Button("Metal");
+        Button f4btn = new Button("Wheat");
+        Button f5btn = new Button("Wool");
+        Button t1btn = new Button("Wood");
+        Button t2btn = new Button("Brick");
+        Button t3btn = new Button("Metal");
+        Button t4btn = new Button("Wheat");
+        Button t5btn = new Button("Wool");
+        Button sendButton = new Button("Send");
         
+        Popup popup2 = new Popup();
         
+        Rectangle rct2 = new Rectangle();
+        
+        rct2.setX(25);
+        rct2.setY(25);
+        
+        GridPane grid2 = new GridPane();
+        grid2.setAlignment(Pos.CENTER);
+        grid2.setVgap(40);
+        grid2.setHgap(40);
+        grid2.setStyle(" -fx-background-color: white;");
+        
+        grid2.setPadding(new Insets(25, 10, 60, 40));
+        grid2.add(r1, 2, 1);
+        grid2.add(r2, 3, 1);
+        grid2.add(r3, 4, 1);
+        grid2.add(r4, 5, 1);
+        grid2.add(r5, 6, 1);
+        grid2.add(f0, 1, 2);
+        grid2.add(f1, 2, 2);
+        grid2.add(f2, 3, 2);
+        grid2.add(f3, 4, 2);
+        grid2.add(f4, 5, 2);
+        grid2.add(f5, 6, 2);
+        grid2.add(t0, 1, 3);
+        grid2.add(t1, 2, 3);
+        grid2.add(t2, 3, 3);
+        grid2.add(t3, 4, 3);
+        grid2.add(t4, 5, 3);
+        grid2.add(t5, 6, 3);
+        grid2.add(f1btn, 2, 4);
+        grid2.add(f2btn, 3, 4);
+        grid2.add(f3btn, 4, 4);
+        grid2.add(f4btn, 5, 4);
+        grid2.add(f5btn, 6, 4);
+        grid2.add(t1btn, 2, 5);
+        grid2.add(t2btn, 3, 5);
+        grid2.add(t3btn, 4, 5);
+        grid2.add(t4btn, 5, 5);
+        grid2.add(t5btn, 6, 5);
+        grid2.add(sendButton, 6, 6);
+        
+        popup2.getContent().add(rct2);
+        popup2.getContent().add(grid2); 
+        
+        EventHandler<ActionEvent> event2 =  
+        new EventHandler<ActionEvent>() { 
+   
+            public void handle(ActionEvent e) 
+            { 
+                if (!popup2.isShowing()) 
+                    popup2.show(stage); 
+                else
+                    popup2.hide(); 
+            } 
+        };
+        
+        playerOpt1.setOnAction(event2);
         
         Scene scene = new Scene(root);
 
