@@ -18,16 +18,22 @@ import java.net.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  *
  * @author Utilizador
  */
-public class Server {
+public class Server extends Application {
 
     private static int port = 6666, nClientes = 1;
     private static Vector<ClientHandler> listaClientes = new Vector<>();
@@ -40,8 +46,23 @@ public class Server {
     static DataOutputStream out;
     static int chosenTile = 0;
     static Board board = new Board();
+    private static Group vertices, lines;
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
     public static void main(String[] args) throws IOException {
+
+        vertices = FXMLDocumentController.verticesGroup;
+        lines = FXMLDocumentController.linesGroup;
 
         dadosLancados = false;
         ServerSocket server = new ServerSocket(port);
@@ -102,14 +123,17 @@ public class Server {
                     }
                 }
 
+                }
             }
 
+            // for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+            // }
             // fechar ligação
             /*
              client.close();
              System.out.println("[Server]A desligar");
              server.close();*/
-        });
+        });}
 
         Player p1 = new Player(0, 1, 0, 2, 1, 4, 3, false, false);
         Player p2 = new Player(0, 2, 1, 2, 3, 4, 5, false, false);
@@ -203,6 +227,39 @@ public class Server {
                     cmd = in.readUTF();
                     System.out.println(cmd);
 
+                    if (cmd.compareTo("2 turn") == 0) {
+                        endPlay = true;
+                        Server.listaClientes.get(1).out.writeUTF("Player2 turn");
+                    } else if (cmd.compareTo("3 turn") == 0) {
+                        endPlay = true;
+                        Server.listaClientes.get(2).out.writeUTF("Player3 turn");
+                    } else if (cmd.compareTo("4 turn") == 0) {
+                        endPlay = true;
+                        Server.listaClientes.get(3).out.writeUTF("Player4 turn");
+                    } else if (cmd.compareTo("5 turn") == 0) {
+                        endPlay = true;
+                        Server.listaClientes.get(0).out.writeUTF("Player1 turn");
+
+                    } else if (cmd.startsWith("Line")) {
+
+                        String[] arraysOfString = cmd.split("@", 4);
+
+                        for (ClientHandler client : Server.listaClientes) {
+                            if (!client.name.equals(this.name)) {
+                                client.out.writeUTF("Line @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
+                            }
+                        }
+
+                    } else if (cmd.startsWith("Vertice")) {
+
+                        String[] arraysOfString = cmd.split("@", 4);
+                        for (ClientHandler client : Server.listaClientes) {
+                            if (!client.name.equals(this.name)) {
+                                client.out.writeUTF("Vertice @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
+                            }
+                        }
+                    }
+
                     StringTokenizer st = new StringTokenizer(cmd, "#");
                     String receivingClient = null;
                     try {
@@ -223,18 +280,6 @@ public class Server {
                             }
                         }
                         // Comando para trocar o turno para o  jogador seguinte
-                    } else if (cmd.compareTo("2 turn") == 0) {
-                        endPlay = true;
-                        Server.listaClientes.get(1).out.writeUTF("Player2 turn");
-                    } else if (cmd.compareTo("3 turn") == 0) {
-                        endPlay = true;
-                        Server.listaClientes.get(2).out.writeUTF("Player3 turn");
-                    } else if (cmd.compareTo("4 turn") == 0) {
-                        endPlay = true;
-                        Server.listaClientes.get(3).out.writeUTF("Player4 turn");
-                    } else if (cmd.compareTo("5 turn") == 0) {
-                        endPlay = true;
-                        Server.listaClientes.get(0).out.writeUTF("Player1 turn");
                     } else {
 
                         for (ClientHandler client : Server.listaClientes) {

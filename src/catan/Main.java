@@ -41,7 +41,7 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static MenuItem tj1, tj2, tj3;
-    static boolean gameover, endPlay;
+    static boolean gameover, endPlay, startServer = true;
     public static Button endTurn, roadButton, settleButton, cityButton, devButton;
     static DataInputStream in;
     static DataOutputStream out;
@@ -95,6 +95,7 @@ public class Main extends Application {
         out = new DataOutputStream(socket.getOutputStream());
 
         Thread enviarMensagem = new Thread(() -> {
+
             while (true) {
 
                 inputChat.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -189,6 +190,28 @@ public class Main extends Application {
                         }
                         System.out.println(s);
                     } // receber comando de servidor para ativar o turno
+                      
+                     else if (msg.startsWith("Line")) {
+                        String[] arraysOfString = msg.split("@", 4);
+
+                        for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+
+                            if (n.getId().compareTo(arraysOfString[1]) == 0) {
+                                n.setStyle(arraysOfString[3]);
+                            }
+                        }
+
+                    } else if (msg.startsWith("Vertice")) {
+                        String[] arraysOfString = msg.split("@", 4);
+
+                        for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
+
+                            if (n.getId().compareTo(arraysOfString[1]) == 0) {
+                                n.setStyle(arraysOfString[3]);
+                            }
+                        }
+
+                    }// receber comando de servidor para ativar o turno
                     else if (msg.compareTo("Player1 turn") == 0) {
                         i = 1;
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
@@ -288,6 +311,11 @@ public class Main extends Application {
                                         if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && vertices) {
                                             n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + ";");
                                             vertices = false;
+                                            try {
+                                                out.writeUTF("Vertice @" + n.getId() + "@ styled @" + n.getStyle());
+                                            } catch (IOException ex) {
+                                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         }
                                         // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
                                     }
@@ -313,6 +341,11 @@ public class Main extends Application {
                                         if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && edges) {
                                             n.setStyle("-fx-stroke: " + color + ";");
                                             edges = false;
+                                            try {
+                                                out.writeUTF("Line @" + n.getId() + "@ styled @" + n.getStyle());
+                                            } catch (IOException ex) {
+                                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         }
                                         // !!!!!!!!!!! player tem recursos - 1 timber, 1 brick !!!!!!!!!!!!!!!!
                                     }
