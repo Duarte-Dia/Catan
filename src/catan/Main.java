@@ -211,6 +211,16 @@ public class Main extends Application {
                             }
                         }
 
+                    } else if (msg.startsWith("City")) {
+                        String[] arraysOfString = msg.split("@", 4);
+
+                        for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
+
+                            if (n.getId().compareTo(arraysOfString[1]) == 0) {
+                                n.setStyle(arraysOfString[3]);
+                            }
+                        }
+
                     }// receber comando de servidor para ativar o turno
                     else if (msg.compareTo("Player1 turn") == 0) {
                         i = 1;

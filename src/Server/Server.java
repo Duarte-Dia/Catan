@@ -46,7 +46,6 @@ public class Server extends Application {
     static DataOutputStream out;
     static int chosenTile = 0;
     static Board board = new Board();
-    private static Group vertices, lines;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -60,9 +59,6 @@ public class Server extends Application {
     }
 
     public static void main(String[] args) throws IOException {
-
-        vertices = FXMLDocumentController.verticesGroup;
-        lines = FXMLDocumentController.linesGroup;
 
         dadosLancados = false;
         ServerSocket server = new ServerSocket(port);
@@ -262,40 +258,49 @@ public class Server extends Application {
                                 client.out.writeUTF("Vertice @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
                             }
                         }
-                    }
+                    } else if (cmd.startsWith("City")) {
 
-                    StringTokenizer st = new StringTokenizer(cmd, "#");
-                    String receivingClient = null;
-                    try {
-                        receivingClient = st.nextToken();
-                    } catch (Exception e) {
-                    };
-                    String msg = null;
-                    try {
-                        msg = st.nextToken();
-                    } catch (Exception e) {
-                    };
-
-                    if (msg != null) {
-
+                        String[] arraysOfString = cmd.split("@", 4);
                         for (ClientHandler client : Server.listaClientes) {
-                            if (client.name.equals(receivingClient) && client.logged) {
-                                client.out.writeUTF("Whisper from " + name + ": " + msg);
+                            if (!client.name.equals(this.name)) {
+                                client.out.writeUTF("City @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
                             }
                         }
-                        // Comando para trocar o turno para o  jogador seguinte
                     } else {
 
-                        for (ClientHandler client : Server.listaClientes) {
-                            if (!client.name.equals(name) && client.logged) {
-                                client.out.writeUTF(name + ": " + receivingClient);
+                        StringTokenizer st = new StringTokenizer(cmd, "#");
+                        String receivingClient = null;
+                        try {
+                            receivingClient = st.nextToken();
+                        } catch (Exception e) {
+                        };
+                        String msg = null;
+                        try {
+                            msg = st.nextToken();
+                        } catch (Exception e) {
+                        };
+
+                        if (msg != null) {
+
+                            for (ClientHandler client : Server.listaClientes) {
+                                if (client.name.equals(receivingClient) && client.logged) {
+                                    client.out.writeUTF("Whisper from " + name + ": " + msg);
+                                }
                             }
+                            // Comando para trocar o turno para o  jogador seguinte
+                        } else {
 
+                            for (ClientHandler client : Server.listaClientes) {
+                                if (!client.name.equals(name) && client.logged) {
+                                    client.out.writeUTF(name + ":teste " + receivingClient);
+                                }
+
+                            }
                         }
-                    }
 
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
