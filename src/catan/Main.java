@@ -50,7 +50,7 @@ public class Main extends Application {
     public static TextArea chat;
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
-    public static Button endTurn, roadButton;
+    public static Button endTurn, roadButton, bankTradeBtn;
     public static MenuItem exitBtn, contributorsBtn, playerOpt1, playerOpt2, playerOpt3, harborOpt1, harborOpt2, harborOpt3;
         DataInputStream in ;
         DataOutputStream out;
@@ -74,6 +74,7 @@ public class Main extends Application {
         playerOpt3 = FXMLDocumentController.playerOpt3;
         harborOpt1 = FXMLDocumentController.harborOpt1;
         harborOpt2 = FXMLDocumentController.harborOpt2;
+        bankTradeBtn = FXMLDocumentController.bankTradeBtn;
         
         //Popup Contributors
         Label l1 = new Label("Criado por:");
@@ -229,11 +230,38 @@ public class Main extends Application {
             } 
         };
         
+        EventHandler<ActionEvent> openBank =  
+        new EventHandler<ActionEvent>() { 
+   
+            public void handle(ActionEvent e) 
+            { 
+                o0.setText("Bank");
+                if (!popup2.isShowing()) 
+                    if(popup1.isShowing())
+                        popup1.hide();
+                    popup2.show(stage);
+            } 
+        };
+        
         
         
         playerOpt1.setOnAction(openTrades);
         contributorsBtn.setOnAction(openContributors);
         harborOpt1.setOnAction(openHarbor);
+        bankTradeBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent m) {
+                {
+                    o0.setText("Bank");
+                    if (!popup2.isShowing()) {
+                        if (popup1.isShowing()) {
+                            popup1.hide();
+                        }
+                    }
+                    popup2.show(stage);
+                }
+            }
+        });
         closePopup2Button.setOnAction(close);
         closePopup1Button.setOnAction(close);
         
