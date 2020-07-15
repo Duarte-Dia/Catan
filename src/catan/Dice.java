@@ -6,14 +6,18 @@
 package catan;
 
 /**
- *
+ *  Classe onde o dado é definido
  * @author José Sampaio
  * Criação da Classe, Novos metodos(throwDice(), diceValue())
  */
 public class Dice {
     
     int total = 0;
-    
+    /**
+     * Método para o lançamento dos dados
+     * @param n 
+     * @return  retorna a soma dos valores dos dados, após oseu lançamento
+     */
     public int throwDice(int n){
         
         while(n > 0){

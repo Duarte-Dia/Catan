@@ -30,10 +30,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
- *
+ * Classe onde o servidor se encontra implementado e é iniciado
+ * 
  * @author Utilizador
  */
-public class Server extends Application {
+public class Server  {
 
     private static int port = 6666, nClientes = 1;
     private static Vector<ClientHandler> listaClientes = new Vector<>();
@@ -47,16 +48,7 @@ public class Server extends Application {
     static int chosenTile = 0;
     static Board board = new Board();
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
-
-    }
+    
 
     public static void main(String[] args) throws IOException {
 
@@ -166,7 +158,9 @@ public class Server extends Application {
         jogo.start();
 
     }
-
+    /**
+     * Método que permite controlar os clientes
+     */
     private static class ClientHandler implements Runnable {
 
         private String name;
@@ -184,7 +178,9 @@ public class Server extends Application {
             logged = true;
 
         }
-
+         /**
+          * Método inicializado, quando a thread é iniciada, e manipula as solicitações realizadas pelo cliente
+          */
         @Override
         public void run() {
             String cmd;

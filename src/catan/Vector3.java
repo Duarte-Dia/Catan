@@ -6,7 +6,7 @@
 package catan;
 
 /**
- *
+ *  Classe que representa um vector de três dimensões
  * @author Bruno Ribeiro
  */
 public class Vector3 {
