@@ -99,30 +99,6 @@ public class Server extends Application {
                         Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
-                    /*
-                     // ciclo para atualizar o board de todos os jogadores
-                     for (ClientHandler client : listaClientes) {
-                     for (Node n : vertices.getChildren()) {
-                     try {
-                     client.out.writeUTF("Vertice @" + n.getId() + "@ styled @" + n.getStyle());
-                     } catch (IOException ex) {
-                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     }
-
-                     }
-                     for (ClientHandler client : listaClientes) {
-                     for (Node n : lines.getChildren()) {
-                     try {
-                     client.out.writeUTF("Line @" + n.getId() + "@ styled @" + n.getStyle());
-                     } catch (IOException ex) {
-                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                     }
-
-                     }
-
-                     }*/
 
                 }
             }
