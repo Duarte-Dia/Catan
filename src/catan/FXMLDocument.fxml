@@ -1089,6 +1089,10 @@
                   <Line fx:id="r3l10" endX="-49.0" endY="31.0" layoutX="1127.0" layoutY="391.0" startX="-100.0" strokeWidth="4.0" />
                   <Line fx:id="r3l2" endX="-49.0" endY="31.0" layoutX="728.0" layoutY="390.0" startX="-100.0" strokeWidth="4.0" />
                   <Line fx:id="r3l8" endX="-49.0" endY="31.0" layoutX="1027.0" layoutY="391.0" startX="-100.0" strokeWidth="4.0" />
+         </children>
+      </Group>
+      <Group fx:id="v">
+         <children>
             <Circle fx:id="v1" layoutX="727.0" layoutY="212.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="v2" layoutX="829.0" layoutY="213.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="v3" layoutX="928.0" layoutY="213.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />

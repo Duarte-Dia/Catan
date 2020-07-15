@@ -344,7 +344,7 @@ public class FXMLDocumentController implements Initializable {
     public static Tab tp1, tp2, tp3, tp4;
     public static MenuItem tj1, tj2, tj3;
     public static Button endTurn, roadBtn, settleBtn, cityBtn;
-    public static Group linesGroup;
+    public static Group linesGroup, verticesGroup;
     @FXML
     private Circle v1;
     @FXML
@@ -453,6 +453,8 @@ public class FXMLDocumentController implements Initializable {
     private Circle v53;
     @FXML
     private Circle v54;
+    @FXML
+    private Group v;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -472,6 +474,7 @@ public class FXMLDocumentController implements Initializable {
         settleBtn = houseButton;
         cityBtn = cityButton;
         linesGroup = rc;
+        verticesGroup = v;
 
         // all
     }

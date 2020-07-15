@@ -45,6 +45,7 @@ public class Main extends Application {
     //NOTA DE DUARTE.... ESTE I SERVE PARA INDICAR O INFERNO 
     int idJogadorLocal = 1, i = 1;
     String color;
+    boolean vertices = false, edges = false;
 
     /**
      * Método que inicia todas as componententes necessárias para a interface gráfica
@@ -217,24 +218,73 @@ public class Main extends Application {
 
         Thread buttonListener = new Thread(() -> {
 
-            roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            cityButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent m) {
-                    for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+                    vertices = true;
+                    for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
                         if (idJogadorLocal == i) {
-                            System.out.println(n.getId() + "\n");
+                            //System.out.println(n.getId() + "\n");
                             n.setOnMouseClicked(new EventHandler<MouseEvent>() {
                                 @Override
                                 public void handle(MouseEvent m) {
                                     if (idJogadorLocal == i) {
-                                        chat.appendText(n.getId());
-                                        if (!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) {
-                                            n.setStyle("-fx-stroke: " + color + ";");
+                                        //dchat.appendText(n.getId());
+                                        if (!n.getStyle().contains("-fx-stroke-type: outside; -fx-stroke-width: 3") && n.getStyle().contains("-fx-stroke: " + color + "; -fx-fill: " + color + ";") && vertices) {
+                                            n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + "; -fx-stroke-type: outside; -fx-stroke-width: 3");
+                                            vertices = false;
                                         }
+                                        // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }
+            });
 
-                                        // player tem recursos - 1 timber, 1 brick
-                                        // rua disponivel?
-                                        // 
+            settleButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent m) {
+                    vertices = true;
+                    for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
+                        if (idJogadorLocal == i) {
+                            //System.out.println(n.getId() + "\n");
+                            n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                @Override
+                                public void handle(MouseEvent m) {
+                                    if (idJogadorLocal == i) {
+                                        //chat.appendText(n.getId());
+                                        if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && vertices) {
+                                            n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + ";");
+                                            vertices = false;
+                                        }
+                                        // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+
+            roadButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent m) {
+                    edges = true;
+                    for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+                        if (idJogadorLocal == i) {
+                            //System.out.println(n.getId() + "\n");
+                            n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                                @Override
+                                public void handle(MouseEvent m) {
+                                    if (idJogadorLocal == i) {
+                                        //chat.appendText(n.getId());
+                                        if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && edges) {
+                                            n.setStyle("-fx-stroke: " + color + ";");
+                                            edges = false;
+                                        }
+                                        // !!!!!!!!!!! player tem recursos - 1 timber, 1 brick !!!!!!!!!!!!!!!!
                                     }
                                 }
                             });

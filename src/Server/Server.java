@@ -33,7 +33,7 @@ public class Server {
     private static Vector<ClientHandler> listaClientes = new Vector<>();
     private static Socket client;
     static int idJogadorLocal = 1, i;
-    static boolean gameover, endPlay, sendResources, dadosLancados;
+    static boolean gameover, endPlay = false, sendResources = false, dadosLancados;
     static Dice dice = new Dice();
     static List<Player> listPlayers = new ArrayList<Player>();
     static DataInputStream in;
@@ -43,7 +43,6 @@ public class Server {
 
     public static void main(String[] args) throws IOException {
 
-        sendResources = false;
         dadosLancados = false;
         ServerSocket server = new ServerSocket(port);
 
@@ -83,7 +82,7 @@ public class Server {
             }
 
             // fechar ligação
-        /*
+            /*
              client.close();
              System.out.println("[Server]A desligar");
              server.close();*/
@@ -110,7 +109,6 @@ public class Server {
             while (!gameover) {
 
                 for (i = 1; i <= listPlayers.size();) {
-                    endPlay = false;
                     if (!dadosLancados) {
                         chosenTile = dice.throwDice(2);
                         System.out.println(chosenTile);
@@ -118,7 +116,7 @@ public class Server {
                         if (chosenTile != 7) {
                             for (Hexagon hex : board.getTiles()) {
                                 if (chosenTile == hex.getNum()) {
-                                    givePlayersResources(hex.getResourceID(), hex);
+                                    //givePlayersResources(hex.getResourceID(), hex);
                                     sendResources = true;
                                 }
                             }
@@ -129,8 +127,11 @@ public class Server {
                         dadosLancados = true;
                     }
                     if (endPlay) {
+                        givePlayersResources(1);
+                        sendResources = true;
                         dadosLancados = false;
                         i++;
+                        endPlay = false;
                     }
 
                     longestRoad();
@@ -169,6 +170,14 @@ public class Server {
         @Override
         public void run() {
             String cmd;
+            String resources = "###RESOURCES";
+            for (Player p : listPlayers) {
+                resources = resources.concat(Integer.toString(p.getWool())).concat(" ");
+                resources = resources.concat(Integer.toString(p.getTimber())).concat(" ");
+                resources = resources.concat(Integer.toString(p.getBrick())).concat(" ");
+                resources = resources.concat(Integer.toString(p.getWheat())).concat(" ");
+                resources = resources.concat(Integer.toString(p.getMetal())).concat(" ");
+            }
 
             while (true) {
 
@@ -197,15 +206,18 @@ public class Server {
                         }
                         // Comando para trocar o turno para o  jogador seguinte
                     } else if (cmd.compareTo("2 turn") == 0) {
+                        endPlay = true;
                         Server.listaClientes.get(1).out.writeUTF("Player2 turn");
-                    }else if (cmd.compareTo("3 turn") == 0) {
+                    } else if (cmd.compareTo("3 turn") == 0) {
+                        endPlay = true;
                         Server.listaClientes.get(2).out.writeUTF("Player3 turn");
-                    }else if (cmd.compareTo("4 turn") == 0) {
+                    } else if (cmd.compareTo("4 turn") == 0) {
+                        endPlay = true;
                         Server.listaClientes.get(3).out.writeUTF("Player4 turn");
-                    }else if (cmd.compareTo("5 turn") == 0) {
+                    } else if (cmd.compareTo("5 turn") == 0) {
+                        endPlay = true;
                         Server.listaClientes.get(0).out.writeUTF("Player1 turn");
-                    }
-                    else {
+                    } else {
 
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(name) && client.logged) {
@@ -216,14 +228,6 @@ public class Server {
                     }
 
                     if (sendResources) {
-                        String resources = "###RESOURCES";
-                        for (Player p : listPlayers) {
-                            resources = resources.concat(Integer.toString(p.getWool())).concat(" ");
-                            resources = resources.concat(Integer.toString(p.getTimber())).concat(" ");
-                            resources = resources.concat(Integer.toString(p.getBrick())).concat(" ");
-                            resources = resources.concat(Integer.toString(p.getWheat())).concat(" ");
-                            resources = resources.concat(Integer.toString(p.getMetal())).concat(" ");
-                        }
                         out.writeUTF(resources);
                         sendResources = false;
                     }
@@ -243,66 +247,66 @@ public class Server {
      * @param resource Parametro que representa os recursos
      * @param hex Parametro que representa uma casa de jogo
      */
-    private static void givePlayersResources(int resource, Hexagon hex) {
+    private static void givePlayersResources(int resource/*, Hexagon hex*/) {
         int current;
         for (Player p : listPlayers) {
-            for (City c : p.getListCities()) {
-                if (hex.containVector(c.getPosition())) {
-                    switch (resource) {
-                        case 1: // wool
-                            current = p.getWool();
-                            p.setWool(current += 2);
-                            break;
-                        case 2: // timber
-                            current = p.getTimber();
-                            p.setTimber(current += 2);
-                            break;
-                        case 3: // brick
-                            current = p.getBrick();
-                            p.setBrick(current += 2);
-                            break;
-                        case 4: // wheat
-                            current = p.getWheat();
-                            p.setWheat(current += 2);
-                            break;
-                        case 5: // metal
-                            current = p.getMetal();
-                            p.setMetal(current += 2);
-                            break;
-                        default:
-                            break;
-                    }
-                }
+            //for (City c : p.getListCities()) {
+            //if (hex.containVector(c.getPosition())) {
+            switch (resource) {
+                case 1: // wool
+                    current = p.getWool();
+                    p.setWool(current += 2);
+                    break;
+                case 2: // timber
+                    current = p.getTimber();
+                    p.setTimber(current += 2);
+                    break;
+                case 3: // brick
+                    current = p.getBrick();
+                    p.setBrick(current += 2);
+                    break;
+                case 4: // wheat
+                    current = p.getWheat();
+                    p.setWheat(current += 2);
+                    break;
+                case 5: // metal
+                    current = p.getMetal();
+                    p.setMetal(current += 2);
+                    break;
+                default:
+                    break;
             }
+            //}
+            //}
 
-            for (Settlement s : p.getListSettlements()) {
-                if (hex.containVector(s.getPosition())) {
-                    switch (resource) {
-                        case 1: // wool
-                            current = p.getWool();
-                            p.setWool(current++);
-                            break;
-                        case 2: // timber
-                            current = p.getTimber();
-                            p.setTimber(current++);
-                            break;
-                        case 3: // brick
-                            current = p.getBrick();
-                            p.setBrick(current++);
-                            break;
-                        case 4: // wheat
-                            current = p.getWheat();
-                            p.setWheat(current++);
-                            break;
-                        case 5: // metal
-                            current = p.getMetal();
-                            p.setMetal(current++);
-                            break;
-                        default:
-                            break;
-                    }
-                }
+            //for (Settlement s : p.getListSettlements()) {
+            //if (hex.containVector(s.getPosition())) {
+            switch (resource) {
+                case 1: // wool
+                    current = p.getWool();
+                    p.setWool(current++);
+                    break;
+                case 2: // timber
+                    current = p.getTimber();
+                    p.setTimber(current++);
+                    break;
+                case 3: // brick
+                    current = p.getBrick();
+                    p.setBrick(current++);
+                    break;
+                case 4: // wheat
+                    current = p.getWheat();
+                    p.setWheat(current++);
+                    break;
+                case 5: // metal
+                    current = p.getMetal();
+                    p.setMetal(current++);
+                    break;
+                default:
+                    break;
             }
+            //}
+            //}
         }
     }
 
