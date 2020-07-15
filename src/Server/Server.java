@@ -90,9 +90,10 @@ public class Server {
 
         servidor.start();
 
-        Player p1 = new Player(0, 1, 0, 0, 0, 0, 0, false, false);
-        Player p2 = new Player(0, 2, 0, 0, 0, 0, 0, false, false);
-        Player p3 = new Player(0, 3, 0, 0, 0, 0, 0, false, false);
+        Player p1 = new Player(0, 1, 0, 2, 1, 4, 3, false, false);
+        Player p2 = new Player(0, 2, 1, 2, 3, 4, 5, false, false);
+        Player p3 = new Player(0, 3, 11, 3, 55, 2, 3, false, false);
+        Player p4 = new Player(0, 4, 41, 1, 1, 1, 1, false, false);
 
         Thread recursos = new Thread(() -> {
         });
@@ -100,6 +101,7 @@ public class Server {
         listPlayers.add(p1);
         listPlayers.add(p2);
         listPlayers.add(p3);
+        listPlayers.add(p4);
 
         gameover = false;
 
@@ -173,11 +175,11 @@ public class Server {
             String cmd;
             String resources = "###RESOURCES";
             for (Player p : listPlayers) {
-                resources = resources.concat(Integer.toString(p.getWool())).concat(" ");
+                resources = resources.concat("@").concat(Integer.toString(p.getWool())).concat(" ");
                 resources = resources.concat(Integer.toString(p.getTimber())).concat(" ");
                 resources = resources.concat(Integer.toString(p.getBrick())).concat(" ");
                 resources = resources.concat(Integer.toString(p.getWheat())).concat(" ");
-                resources = resources.concat(Integer.toString(p.getMetal())).concat(" ");
+                resources = resources.concat(Integer.toString(p.getMetal()));
             }
 
             while (true) {
@@ -315,8 +317,7 @@ public class Server {
     /**
      * Método que verifica se um jogo termina
      *
-     * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha
-     * terminado, retorna falso.
+     * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha terminado, retorna falso.
      *
      */
     private static boolean isGameOver() {
@@ -344,10 +345,7 @@ public class Server {
     }
 
     /**
-     * Método que indica se alguém (e quem) atingiu a estrada mais longa Alguém
-     * só atinge a estrada mais longa, quem tem pelo menos 5 estradas, ou, no
-     * caso de haver mais que um jogador com 5 estradas, mostra qual o jogador
-     * com mais estradas
+     * Método que indica se alguém (e quem) atingiu a estrada mais longa Alguém só atinge a estrada mais longa, quem tem pelo menos 5 estradas, ou, no caso de haver mais que um jogador com 5 estradas, mostra qual o jogador com mais estradas
      */
     private static void longestRoad() {
         List<Integer> listRoadSizes = new ArrayList<Integer>();
@@ -401,18 +399,12 @@ public class Server {
     /**
      * Método que permite haver troca de recursos entre jogadores/clientes
      *
-     * @param p1 Parametro que representa o jogador que pretende efetuar a
-     * troca.
-     * @param p2 Parametro que representa o jogador que recebe o pedido de
-     * troca.
-     * @param resource1 Parametro que representa os recursos que o jogador
-     * pretende receber
-     * @param resource2 Parametro que representa os recursos , que o jogador
-     * oferece em troca
-     * @param quantity1 Parametro que representa as quantidades de cada recurso,
-     * que o jogador pretende receber
-     * @param quantity2 Parametro que representa as quantidades de cada recurso,
-     * que o jogador oferece em troca.
+     * @param p1 Parametro que representa o jogador que pretende efetuar a troca.
+     * @param p2 Parametro que representa o jogador que recebe o pedido de troca.
+     * @param resource1 Parametro que representa os recursos que o jogador pretende receber
+     * @param resource2 Parametro que representa os recursos , que o jogador oferece em troca
+     * @param quantity1 Parametro que representa as quantidades de cada recurso, que o jogador pretende receber
+     * @param quantity2 Parametro que representa as quantidades de cada recurso, que o jogador oferece em troca.
      *
      */
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {

@@ -22,12 +22,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
- * estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador estão definidas
  *
  * @author Bruno Ribeiro
  */
@@ -49,8 +50,7 @@ public class Main extends Application {
     boolean vertices = false, edges = false;
 
     /**
-     * Método que inicia todas as componententes necessárias para a interface
-     * gráfica
+     * Método que inicia todas as componententes necessárias para a interface gráfica
      *
      * @param stage Parametro que representa o conteúdo da interface
      * @throws Exception
@@ -80,8 +80,7 @@ public class Main extends Application {
     }
 
     /**
-     * Método que define as funcionalidades necessárias para que haja
-     * comunicação entre o cliente e o servidor para que o jogo seja iniciado
+     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor para que o jogo seja iniciado
      *
      * @throws IOException
      */
@@ -160,7 +159,32 @@ public class Main extends Application {
                         tj3.setText("Jogador 3");
                         color = "blue";
                     } else if (msg.contains("###RESOURCES")) {
-                        System.out.println("A tua prima sabe bem");
+                        System.out.println(msg);
+                        VBox v = new VBox();
+                        switch (idJogadorLocal) {
+                            case 1:
+                                v = FXMLDocumentController.p1group;
+                                break;
+                            case 2:
+                                v = FXMLDocumentController.p2group;
+                                break;
+                            case 3:
+                                v = FXMLDocumentController.p3group;
+                                break;
+                            case 4:
+                                v = FXMLDocumentController.p4group;
+                                break;
+                        }
+                        String s = msg.split("@", 5)[idJogadorLocal];
+                        int j = 0;
+                        String[] resources = s.split(" ", 5);
+                        for (Node t : v.getChildren()) {
+                            if (t instanceof Text) {
+                                ((Text) t).setText(resources[j]);
+                                j++;
+                            }
+                        }
+                        System.out.println(s);
                     } // receber comando de servidor para ativar o turno
                     else if (msg.compareTo("Player1 turn") == 0) {
                         i = 1;

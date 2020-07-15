@@ -286,7 +286,7 @@
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
+                                                      <VBox fx:id="p1resources" layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberBrickPlayer1" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -434,7 +434,7 @@
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
+                                                      <VBox fx:id="p2resources" layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberBrickPlayer2" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -582,7 +582,7 @@
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
+                                                      <VBox fx:id="p3resources" layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberBrickPlayer3" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -730,7 +730,7 @@
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox layoutX="127.0" layoutY="81.576171875" spacing="36.0">
+                                                      <VBox fx:id="p4resources" layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberBrickPlayer4" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>

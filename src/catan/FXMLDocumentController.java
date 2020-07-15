@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
@@ -338,13 +339,6 @@ public class FXMLDocumentController implements Initializable {
     private Line r3l2;
     @FXML
     private Line r3l8;
-
-    public static TextArea chat;
-    public static TextField inputChat;
-    public static Tab tp1, tp2, tp3, tp4;
-    public static MenuItem tj1, tj2, tj3;
-    public static Button endTurn, roadBtn, settleBtn, cityBtn;
-    public static Group linesGroup, verticesGroup;
     @FXML
     private Circle v1;
     @FXML
@@ -455,6 +449,22 @@ public class FXMLDocumentController implements Initializable {
     private Circle v54;
     @FXML
     private Group v;
+    @FXML
+    private VBox p1resources;
+    @FXML
+    private VBox p2resources;
+    @FXML
+    private VBox p3resources;
+    @FXML
+    private VBox p4resources;
+
+    public static TextArea chat;
+    public static TextField inputChat;
+    public static Tab tp1, tp2, tp3, tp4;
+    public static MenuItem tj1, tj2, tj3;
+    public static Button endTurn, roadBtn, settleBtn, cityBtn;
+    public static Group linesGroup, verticesGroup;
+    public static VBox p1group, p2group, p3group, p4group;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -475,6 +485,10 @@ public class FXMLDocumentController implements Initializable {
         cityBtn = cityButton;
         linesGroup = rc;
         verticesGroup = v;
+        p1group = p1resources;
+        p2group = p2resources;
+        p3group = p3resources;
+        p4group = p4resources;
 
         // all
     }
