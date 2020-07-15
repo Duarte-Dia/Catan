@@ -8,7 +8,7 @@ package catan;
 import java.util.*;
 
 /**
- *
+ *  Classe onde o jogador é definido
  * @author Bruno Ribeiro Criaçao da Classe
  */
 public class Player {
