@@ -188,7 +188,7 @@ public class Server {
 
     }
     /**
-     * Método que permite controlar os clientes
+     * Classe que permite controlar os clientes
      */
     private static class ClientHandler implements Runnable {
 
