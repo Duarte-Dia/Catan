@@ -78,8 +78,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button cityButton;
     @FXML
-    private Button developmentCardButton;
-    @FXML
     private Tab Player1Tab;
     @FXML
     private Text numberBrickPlayer1;
@@ -520,5 +518,11 @@ public class FXMLDocumentController implements Initializable {
         //return inputChatText.getText();
 
     }
-
+    
+    public void addBackground(){
+        for(int i = 0; i < 19; i++){
+            v.getChildren();
+        }
+    }
+    
 }

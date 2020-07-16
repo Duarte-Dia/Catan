@@ -7,9 +7,10 @@ package catan;
 
 /**
  *
- * @author José Sampaio
- * Criaçao da Classe
+ * @author José Sampaio Criaçao da Classe
  */
 public class Road {
-    
+
+    public Road() {
+    }
 }

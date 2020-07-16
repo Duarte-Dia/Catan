@@ -5,12 +5,7 @@
  */
 package Server;
 
-import catan.Board;
-import catan.City;
-import catan.Dice;
-import catan.Hexagon;
-import catan.Player;
-import catan.Settlement;
+import catan.*;
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -28,7 +23,7 @@ public class Server {
     private static Vector<ClientHandler> listaClientes = new Vector<>();
     private static Socket client;
     static int idJogadorLocal = 1, i;
-    static boolean gameover, endPlay = false, sendResources = false, dadosLancados, firstPlay = true, secondPlay = false;
+    static boolean gameover, endPlay = false, sendResources = true, dadosLancados, firstPlay = true, secondPlay = false;
     static Dice dice = new Dice();
     static List<Player> listPlayers = new ArrayList<Player>();
     static DataInputStream in;
@@ -131,10 +126,10 @@ public class Server {
             }
         });
 
-        Player p1 = new Player(0, 1, 0, 2, 1, 4, 3, false, false);
-        Player p2 = new Player(0, 2, 1, 2, 3, 4, 5, false, false);
-        Player p3 = new Player(0, 3, 11, 3, 55, 2, 3, false, false);
-        Player p4 = new Player(0, 4, 41, 1, 1, 1, 1, false, false);
+        Player p1 = new Player(0, 1, 2, 4, 4, 2, 0, false, false);
+        Player p2 = new Player(0, 2, 2, 4, 4, 2, 0, false, false);
+        Player p3 = new Player(0, 3, 2, 4, 4, 2, 0, false, false);
+        Player p4 = new Player(0, 4, 2, 4, 4, 2, 0, false, false);
 
         listPlayers.add(p1);
         listPlayers.add(p2);
@@ -151,14 +146,20 @@ public class Server {
                 for (i = 1; i <= listPlayers.size();) {
                     if (!dadosLancados) {
                         chosenTile = dice.throwDice(2);
+                        for (ClientHandler client : listaClientes) {
+                            try {
+                                client.out.writeUTF("Foi mandado um " + chosenTile);
+                            } catch (IOException ex) {
+                                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
                         System.out.println(chosenTile);
-                        sendResources = true;
 
                         if (chosenTile != 7) {
                             for (Hexagon hex : board.getTiles()) {
                                 if (chosenTile == hex.getNum()) {
                                     givePlayersResources(hex.getResourceID(), hex);
-
+                                    sendResources = true;
                                 }
                             }
                         } else {
@@ -176,9 +177,9 @@ public class Server {
                     longestRoad();
                     biggestArmy();
 
-                    if (isGameOver()) {
-                        gameover = true;
-                    }
+                }
+                if (isGameOver()) {
+                    gameover = true;
                 }
             }
 
@@ -236,28 +237,51 @@ public class Server {
 
                     } else if (cmd.startsWith("Line")) {
 
-                        String[] arraysOfString = cmd.split("@", 4);
+                        String[] arraysOfString = cmd.split("@", 6);
 
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(this.name)) {
                                 client.out.writeUTF("Line @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
+                            } else {
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setTimber(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getTimber() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setBrick(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getBrick() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).addRoad(new Road());
                             }
                         }
 
                     } else if (cmd.startsWith("Vertice")) {
 
-                        String[] arraysOfString = cmd.split("@", 4);
+                        String[] arraysOfString = cmd.split("@", 6);
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(this.name)) {
                                 client.out.writeUTF("Vertice @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
+                            } else {
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setWool(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getWool() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setBrick(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getBrick() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setTimber(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getTimber() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setWheat(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getWheat() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).addSettlement(new Settlement(defineVertices(arraysOfString[1])));
+
                             }
                         }
                     } else if (cmd.startsWith("City")) {
 
-                        String[] arraysOfString = cmd.split("@", 4);
+                        String[] arraysOfString = cmd.split("@", 6);
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(this.name)) {
                                 client.out.writeUTF("City @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
+                            } else {
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setWheat(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getWheat() - 2);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setMetal(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getMetal() - 3);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).addCity(new City(defineVertices(arraysOfString[1])));
                             }
                         }
                     } else if (cmd.compareTo("Second start") == 0) {
@@ -289,7 +313,7 @@ public class Server {
 
                             for (ClientHandler client : Server.listaClientes) {
                                 if (!client.name.equals(name) && client.logged) {
-                                    client.out.writeUTF(name + ":teste " + receivingClient);
+                                    client.out.writeUTF(name + ": " + receivingClient);
                                 }
 
                             }
@@ -344,27 +368,28 @@ public class Server {
             }
 
             for (Settlement s : p.getListSettlements()) {
+                System.out.println(s.toString());
                 if (hex.containVector(s.getPosition())) {
                     switch (resource) {
                         case 1: // wool
                             current = p.getWool();
-                            p.setWool(current++);
+                            p.setWool(current + 1);
                             break;
                         case 2: // timber
                             current = p.getTimber();
-                            p.setTimber(current++);
+                            p.setTimber(current + 1);
                             break;
                         case 3: // brick
                             current = p.getBrick();
-                            p.setBrick(current++);
+                            p.setBrick(current + 1);
                             break;
                         case 4: // wheat
                             current = p.getWheat();
-                            p.setWheat(current++);
+                            p.setWheat(current + 1);
                             break;
                         case 5: // metal
                             current = p.getMetal();
-                            p.setMetal(current++);
+                            p.setMetal(current + 1);
                             break;
                         default:
                             break;
@@ -385,19 +410,24 @@ public class Server {
 
         for (Player p : listPlayers) {
             p.addScore(p.getListSettlements().size());
-
+            System.out.println(p.getId());
             p.addScore(p.getListCities().size() * 2);
 
-            if (p.isLongestRoad()) {
-                p.addScore(2);
-            }
+            /*
+             if (p.isLongestRoad()) {
+             p.addScore(2);
+             }
 
-            if (p.isBiggestArmy()) {
-                p.addScore(2);
-            }
+             if (p.isBiggestArmy()) {
+             p.addScore(2);
+             }
 
-            //p.addScore(p.devCardsPoints());
+             p.addScore(p.devCardsPoints());
+             */
             if (p.getScore() >= 10) {
+                System.out.println("VENCEDOR É" + p.getId());
+                System.out.println("Com ESTES PONTOS" + p.getScore());
+
                 return true;
             }
         }
@@ -457,6 +487,121 @@ public class Server {
 
                 listPlayers.get(playerSelected).setBiggestArmy(true);
             }
+        }
+    }
+
+    public static Vector3 defineVertices(String s) {
+        switch (s) {
+            case "v1":
+                return new Vector3(0, 1, 0);
+            case "v2":
+                return new Vector3(1, 2, 0);
+            case "v3":
+                return new Vector3(2, 3, 0);
+            case "v4":
+                return new Vector3(0, 0, 0);
+            case "v5":
+                return new Vector3(1, 1, 0);
+            case "v6":
+                return new Vector3(2, 2, 0);
+            case "v7":
+                return new Vector3(3, 3, 0);
+            case "v8":
+                return new Vector3(0, 0, 1);
+            case "v9":
+                return new Vector3(1, 1, 1);
+            case "v10":
+                return new Vector3(2, 2, 1);
+            case "v11":
+                return new Vector3(3, 3, 1);
+            case "v12":
+                return new Vector3(0, -1, 1);
+            case "v13":
+                return new Vector3(1, 0, 1);
+            case "v14":
+                return new Vector3(2, 1, 1);
+            case "v15":
+                return new Vector3(3, 2, 1);
+            case "v16":
+                return new Vector3(4, 3, 1);
+            case "v17":
+                return new Vector3(0, -1, 2);
+            case "v18":
+                return new Vector3(1, 0, 2);
+            case "v19":
+                return new Vector3(2, 1, 2);
+            case "v20":
+                return new Vector3(3, 2, 2);
+            case "v21":
+                return new Vector3(4, 3, 2);
+            case "v22":
+                return new Vector3(0, -2, 2);
+            case "v23":
+                return new Vector3(1, -1, 2);
+            case "v24":
+                return new Vector3(2, 0, 2);
+            case "v25":
+                return new Vector3(3, 1, 2);
+            case "v26":
+                return new Vector3(4, 2, 2);
+            case "v27":
+                return new Vector3(5, 3, 2);
+            case "v28":
+                return new Vector3(0, -2, 3);
+            case "v29":
+                return new Vector3(1, -1, 3);
+            case "v30":
+                return new Vector3(2, 0, 3);
+            case "v31":
+                return new Vector3(3, 1, 3);
+            case "v32":
+                return new Vector3(4, 2, 3);
+            case "v33":
+                return new Vector3(5, 3, 3);
+            case "v34":
+                return new Vector3(1, -2, 3);
+            case "v35":
+                return new Vector3(2, -1, 3);
+            case "v36":
+                return new Vector3(3, 0, 3);
+            case "v37":
+                return new Vector3(4, 1, 3);
+            case "v38":
+                return new Vector3(5, 2, 3);
+            case "v39":
+                return new Vector3(1, -2, 4);
+            case "v40":
+                return new Vector3(2, -1, 4);
+            case "v41":
+                return new Vector3(3, 0, 4);
+            case "v42":
+                return new Vector3(4, 1, 4);
+            case "v43":
+                return new Vector3(5, 2, 4);
+            case "v44":
+                return new Vector3(2, -2, 4);
+            case "v45":
+                return new Vector3(3, -1, 4);
+            case "v46":
+                return new Vector3(4, 0, 4);
+            case "v47":
+                return new Vector3(5, 1, 4);
+            case "v48":
+                return new Vector3(2, -2, 5);
+            case "v49":
+                return new Vector3(3, -1, 5);
+            case "v50":
+                return new Vector3(4, 0, 5);
+            case "v51":
+                return new Vector3(5, 1, 5);
+            case "v52":
+                return new Vector3(3, -2, 5);
+            case "v53":
+                return new Vector3(4, -1, 5);
+            case "v54":
+                return new Vector3(5, 0, 5);
+            default:
+                return new Vector3();
         }
     }
 

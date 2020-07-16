@@ -11,6 +11,7 @@ package catan;
  * 
  */
 public class City {
+
     private Vector3 position;
 
     public Vector3 getPosition() {
@@ -18,6 +19,10 @@ public class City {
     }
 
     public void setPosition(Vector3 position) {
+        this.position = position;
+    }
+
+    public City(Vector3 position) {
         this.position = position;
     }
 }
