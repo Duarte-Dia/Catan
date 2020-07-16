@@ -145,6 +145,13 @@ public class Server {
                 for (i = 1; i <= listPlayers.size();) {
                     if (!dadosLancados) {
                         chosenTile = dice.throwDice(2);
+                        for (ClientHandler client : listaClientes) {
+                            try {
+                                client.out.writeUTF("" + chosenTile);
+                            } catch (IOException ex) {
+                                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
                         System.out.println(chosenTile);
 
                         if (chosenTile != 7) {
@@ -301,7 +308,7 @@ public class Server {
 
                             for (ClientHandler client : Server.listaClientes) {
                                 if (!client.name.equals(name) && client.logged) {
-                                    client.out.writeUTF(name + ":teste " + receivingClient);
+                                    client.out.writeUTF(name + ": " + receivingClient);
                                 }
 
                             }
