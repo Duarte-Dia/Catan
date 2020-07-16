@@ -210,7 +210,6 @@ public class Main extends Application {
                         String[] arraysOfString = msg.split("@", 4);
 
                         for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
-                            System.out.println(n.getId());
                             if (n.getId().compareTo(arraysOfString[1]) == 0) {
                                 n.setStyle(arraysOfString[3]);
                             }

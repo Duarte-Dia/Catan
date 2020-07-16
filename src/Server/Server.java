@@ -147,7 +147,7 @@ public class Server {
                         chosenTile = dice.throwDice(2);
                         for (ClientHandler client : listaClientes) {
                             try {
-                                client.out.writeUTF("" + chosenTile);
+                                client.out.writeUTF("Foi mandado um " + chosenTile);
                             } catch (IOException ex) {
                                 Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -176,9 +176,9 @@ public class Server {
                     longestRoad();
                     biggestArmy();
 
-                    if (isGameOver()) {
-                        gameover = true;
-                    }
+                }
+                if (isGameOver()) {
+                    gameover = true;
                 }
             }
 
@@ -405,19 +405,24 @@ public class Server {
 
         for (Player p : listPlayers) {
             p.addScore(p.getListSettlements().size());
-
+            System.out.println(p.getId());
             p.addScore(p.getListCities().size() * 2);
 
-            if (p.isLongestRoad()) {
-                p.addScore(2);
-            }
+            /*
+             if (p.isLongestRoad()) {
+             p.addScore(2);
+             }
 
-            if (p.isBiggestArmy()) {
-                p.addScore(2);
-            }
+             if (p.isBiggestArmy()) {
+             p.addScore(2);
+             }
 
-            //p.addScore(p.devCardsPoints());
+             p.addScore(p.devCardsPoints());
+             */
             if (p.getScore() >= 10) {
+                System.out.println("VENCEDOR É" + p.getId());
+                System.out.println("Com ESTES PONTOS" + p.getScore());
+
                 return true;
             }
         }
