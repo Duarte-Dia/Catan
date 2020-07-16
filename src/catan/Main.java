@@ -28,7 +28,8 @@ import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
+ * estão definidas
  *
  * @author Bruno Ribeiro
  */
@@ -50,7 +51,8 @@ public class Main extends Application {
     boolean vertices, edges;
 
     /**
-     * Método que inicia todas as componententes necessárias para a interface gráfica
+     * Método que inicia todas as componententes necessárias para a interface
+     * gráfica
      *
      * @param stage Parametro que representa o conteúdo da interface
      * @throws Exception
@@ -84,7 +86,8 @@ public class Main extends Application {
     }
 
     /**
-     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor para que o jogo seja iniciado
+     * Método que define as funcionalidades necessárias para que haja
+     * comunicação entre o cliente e o servidor para que o jogo seja iniciado
      *
      * @throws IOException
      */
@@ -342,12 +345,14 @@ public class Main extends Application {
                                 }
                                 if (startGame == false) {
                                     if (i == 2) {
+                                        firstRounds = true;
                                         out.writeUTF(5 + " turn");
                                     } else if (i == 1) {
                                         firstRounds = true;
                                         out.writeUTF(5 + " turn");
                                         secondPlay = false;
                                     } else {
+                                        firstRounds = true;
                                         out.writeUTF(i - 1 + " turn");
                                     }
                                     i--;
