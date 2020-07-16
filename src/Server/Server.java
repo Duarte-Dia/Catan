@@ -539,9 +539,113 @@ public class Server {
     public Vector3 defineVertices(String s) {
         switch (s) {
             case "v1":
-                return new Vector3();
+                return new Vector3(0,1,0);
             case "v2":
-                return new Vector3();
+                return new Vector3(1,2,0);
+            case "v3":
+                return new Vector3(2,3,0);
+            case "v4":
+                return new Vector3(0,0,0);
+            case "v5":
+                return new Vector3(1,1,0);
+            case "v6":
+                return new Vector3(2,2,0);
+            case "v7":
+                return new Vector3(3,3,0);
+            case "v8":
+                return new Vector3(0,0,1);
+            case "v9":
+                return new Vector3(1,1,1);
+            case "v10":
+                return new Vector3(2,2,1);
+            case "v11":
+                return new Vector3(3,3,1);
+            case "v12":
+                return new Vector3(0,-1,1);
+            case "v13":
+                return new Vector3(1,0,1);
+            case "v14":
+                return new Vector3(2,1,1);
+            case "v15":
+                return new Vector3(3,2,1);
+            case "v16":
+                return new Vector3(4,3,1);
+            case "v17":
+                return new Vector3(0,-1,2);
+            case "v18":
+                return new Vector3(1,0,2);
+            case "v19":
+                return new Vector3(2,1,2);
+            case "v20":
+                return new Vector3(3,2,2);
+            case "v21":
+                return new Vector3(4,3,2);
+            case "v22":
+                return new Vector3(0,-2,2);
+            case "v23":
+                return new Vector3(1,-1,2);
+            case "v24":
+                return new Vector3(2,0,2);
+            case "v25":
+                return new Vector3(3,1,2);
+            case "v26":
+                return new Vector3(4,2,2);
+            case "v27":
+                return new Vector3(5,3,2);
+            case "v28":
+                return new Vector3(0,-2,3);
+            case "v29":
+                return new Vector3(1,-1,3);
+            case "v30":
+                return new Vector3(2,0,3);
+            case "v31":
+                return new Vector3(3,1,3);
+            case "v32":
+                return new Vector3(4,2,3);
+            case "v33":
+                return new Vector3(5,3,3);
+            case "v34":
+                return new Vector3(1,-2,3);
+            case "v35":
+                return new Vector3(2,-1,3);
+            case "v36":
+                return new Vector3(3,0,3);
+            case "v37":
+                return new Vector3(4,1,3);
+            case "v38":
+                return new Vector3(5,2,3);
+            case "v39":
+                return new Vector3(1,-2,4);
+            case "v40":
+                return new Vector3(2,-1,4);
+            case "v41":
+                return new Vector3(3,0,4);
+            case "v42":
+                return new Vector3(4,1,4);
+            case "v43":
+                return new Vector3(5,2,4);
+            case "v44":
+                return new Vector3(2,-2,4);
+            case "v45":
+                return new Vector3(3,-1,4);
+            case "v46":
+                return new Vector3(4,0,4);
+            case "v47":
+                return new Vector3(5,1,4);
+            case "v48":
+                return new Vector3(2,-2,5);
+            case "v49":
+                return new Vector3(3,-1,5);
+            case "v50":
+                return new Vector3(4,0,5);
+            case "v51":
+                return new Vector3(5,1,5);
+            case "v52":
+                return new Vector3(3,-2,5);
+            case "v53":
+                return new Vector3(4,-1,5);
+            case "v54":
+                return new Vector3(5,0,5);
             default:
                 return new Vector3();
 
