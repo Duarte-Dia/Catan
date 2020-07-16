@@ -39,6 +39,10 @@ public class Player {
         this.listSettlements = listSettlements;
     }
 
+    public void addSettlement(Settlement s) {
+        this.listSettlements.add(s);
+    }
+
     public List<Road> getListRoads() {
         return listRoads;
     }
@@ -47,12 +51,20 @@ public class Player {
         this.listRoads = listRoads;
     }
 
+    public void addRoad(Road r) {
+        this.listRoads.add(r);
+    }
+
     public List<City> getListCities() {
         return listCities;
     }
 
     public void setListCities(List<City> listCities) {
         this.listCities = listCities;
+    }
+
+    public void addCity(City c) {
+        this.listCities.add(c);
     }
 
     public int getScore() {

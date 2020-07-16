@@ -5,12 +5,7 @@
  */
 package Server;
 
-import catan.Board;
-import catan.City;
-import catan.Dice;
-import catan.Hexagon;
-import catan.Player;
-import catan.Settlement;
+import catan.*;
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -43,7 +38,7 @@ public class Server {
         Thread servidor = new Thread(() -> {
             while (true) {
                 // Servidor fica a espera de um cliente
-                if (nClientes <= 4) {
+                if (nClientes <= 1) {
                     try {
                         System.out.println("[SERVER]Esperando por ligação");
 
@@ -231,28 +226,34 @@ public class Server {
 
                     } else if (cmd.startsWith("Line")) {
 
-                        String[] arraysOfString = cmd.split("@", 4);
+                        String[] arraysOfString = cmd.split("@", 5);
 
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(this.name)) {
                                 client.out.writeUTF("Line @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
+                            } else {
+                                listPlayers.get(Integer.parseInt(arraysOfString[4])).addRoad(new Road());
                             }
                         }
 
                     } else if (cmd.startsWith("Vertice")) {
 
-                        String[] arraysOfString = cmd.split("@", 4);
+                        String[] arraysOfString = cmd.split("@", 5);
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(this.name)) {
                                 client.out.writeUTF("Vertice @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
+                            } else {
+                                listPlayers.get(Integer.parseInt(arraysOfString[4])).addSettlement(new Settlement());
                             }
                         }
                     } else if (cmd.startsWith("City")) {
 
-                        String[] arraysOfString = cmd.split("@", 4);
+                        String[] arraysOfString = cmd.split("@", 5);
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(this.name)) {
                                 client.out.writeUTF("City @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
+                            } else {
+                                listPlayers.get(Integer.parseInt(arraysOfString[4])).addCity(new City());
                             }
                         }
                     } else if (cmd.compareTo("Second start") == 0) {

@@ -28,8 +28,7 @@ import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
- * estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador estão definidas
  *
  * @author Bruno Ribeiro
  */
@@ -51,8 +50,7 @@ public class Main extends Application {
     boolean vertices, edges;
 
     /**
-     * Método que inicia todas as componententes necessárias para a interface
-     * gráfica
+     * Método que inicia todas as componententes necessárias para a interface gráfica
      *
      * @param stage Parametro que representa o conteúdo da interface
      * @throws Exception
@@ -86,8 +84,7 @@ public class Main extends Application {
     }
 
     /**
-     * Método que define as funcionalidades necessárias para que haja
-     * comunicação entre o cliente e o servidor para que o jogo seja iniciado
+     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor para que o jogo seja iniciado
      *
      * @throws IOException
      */
@@ -410,7 +407,7 @@ public class Main extends Application {
                                 n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + ";");
                                 vertices = false;
                                 try {
-                                    out.writeUTF("Vertice @" + n.getId() + "@ styled @" + n.getStyle());
+                                    out.writeUTF("Vertice @" + n.getId() + "@ styled @" + n.getStyle() + "@" + i);
                                 } catch (IOException ex) {
                                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                                 }
@@ -436,7 +433,7 @@ public class Main extends Application {
                                 n.setStyle("-fx-stroke: " + color + ";");
                                 edges = false;
                                 try {
-                                    out.writeUTF("Line @" + n.getId() + "@ styled @" + n.getStyle());
+                                    out.writeUTF("Line @" + n.getId() + "@ styled @" + n.getStyle() + "@" + i);
                                 } catch (IOException ex) {
                                     Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                                 }

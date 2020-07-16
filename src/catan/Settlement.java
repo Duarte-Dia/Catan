@@ -13,6 +13,10 @@ public class Settlement {
 
     private Vector3 position;
 
+    public Settlement() {
+
+    }
+
     public Vector3 getPosition() {
         return position;
     }

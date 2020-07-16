@@ -7,10 +7,10 @@ package catan;
 
 /**
  *
- * @author José Sampaio
- * Criaçao da Classe
+ * @author José Sampaio Criaçao da Classe
  */
 public class City {
+
     private Vector3 position;
 
     public Vector3 getPosition() {
@@ -19,5 +19,9 @@ public class City {
 
     public void setPosition(Vector3 position) {
         this.position = position;
+    }
+
+    public City() {
+
     }
 }
