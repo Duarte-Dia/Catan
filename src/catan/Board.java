@@ -14,6 +14,7 @@ import java.util.*;
 public class Board {
 
     private List<Hexagon> tiles = new ArrayList<Hexagon>();
+    Robber thief = new Robber(7);
 
     public Board() {
         //this.tiles = tiles;
@@ -77,6 +78,8 @@ public class Board {
 
         Hexagon newHex19 = new Hexagon(18, 6, 2);
         tiles.add(newHex19);
+        
+        
     }
 
     public List<Hexagon> getTiles() {
@@ -85,6 +88,13 @@ public class Board {
 
     public void setTiles(List<Hexagon> tiles) {
         this.tiles = tiles;
+    }
+    
+    public void isRobbed(int dieValue, int endTile){
+        if(dieValue == 7){
+            //Moves thief to chosen tile
+            thief.setTileId(endTile);
+        }
     }
 
 }

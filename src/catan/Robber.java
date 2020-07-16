@@ -11,5 +11,17 @@ package catan;
  * Criaçao da Classe
  */
 public class Robber {
+    private int tileId;
     
+    public Robber(int tileId){
+        this.tileId = tileId;
+    }
+    
+    public int getTileId(){
+        return tileId;
+    }
+    
+    public void setTileId(int newTileId){
+        this.tileId = newTileId;
+    }
 }
