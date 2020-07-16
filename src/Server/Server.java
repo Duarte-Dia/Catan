@@ -125,7 +125,7 @@ public class Server {
             }
         });
 
-        Player p1 = new Player(0, 1, 2, 4, 4, 2, 0, false, false);
+        Player p1 = new Player(0, 1, 20, 40, 40, 20, 0, false, false);
         Player p2 = new Player(0, 2, 2, 4, 4, 2, 0, false, false);
         Player p3 = new Player(0, 3, 2, 4, 4, 2, 0, false, false);
         Player p4 = new Player(0, 4, 2, 4, 4, 2, 0, false, false);
@@ -151,7 +151,7 @@ public class Server {
                             for (Hexagon hex : board.getTiles()) {
                                 if (chosenTile == hex.getNum()) {
                                     givePlayersResources(hex.getResourceID(), hex);
-
+                                    sendResources = true;
                                 }
                             }
                         } else {
@@ -254,7 +254,8 @@ public class Server {
                                         listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getTimber() - 1);
                                 listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setWheat(
                                         listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getWheat() - 1);
-                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).addSettlement(new Settlement());
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).addSettlement(new Settlement(defineVertices(arraysOfString[1])));
+
                             }
                         }
                     } else if (cmd.startsWith("City")) {
@@ -268,7 +269,7 @@ public class Server {
                                         listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getWheat() - 2);
                                 listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setMetal(
                                         listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getMetal() - 3);
-                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).addCity(new City());
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).addCity(new City(defineVertices(arraysOfString[1])));
                             }
                         }
                     } else if (cmd.compareTo("Second start") == 0) {
@@ -360,23 +361,23 @@ public class Server {
                     switch (resource) {
                         case 1: // wool
                             current = p.getWool();
-                            p.setWool(current++);
+                            p.setWool(current + 1);
                             break;
                         case 2: // timber
                             current = p.getTimber();
-                            p.setTimber(current++);
+                            p.setTimber(current + 1);
                             break;
                         case 3: // brick
                             current = p.getBrick();
-                            p.setBrick(current++);
+                            p.setBrick(current + 1);
                             break;
                         case 4: // wheat
                             current = p.getWheat();
-                            p.setWheat(current++);
+                            p.setWheat(current + 1);
                             break;
                         case 5: // metal
                             current = p.getMetal();
-                            p.setMetal(current++);
+                            p.setMetal(current + 1);
                             break;
                         default:
                             break;
@@ -468,6 +469,121 @@ public class Server {
         }
     }
 
+    public static Vector3 defineVertices(String s) {
+        switch (s) {
+            case "v1":
+                return new Vector3(0, 1, 0);
+            case "v2":
+                return new Vector3(1, 2, 0);
+            case "v3":
+                return new Vector3(2, 3, 0);
+            case "v4":
+                return new Vector3(0, 0, 0);
+            case "v5":
+                return new Vector3(1, 1, 0);
+            case "v6":
+                return new Vector3(2, 2, 0);
+            case "v7":
+                return new Vector3(3, 3, 0);
+            case "v8":
+                return new Vector3(0, 0, 1);
+            case "v9":
+                return new Vector3(1, 1, 1);
+            case "v10":
+                return new Vector3(2, 2, 1);
+            case "v11":
+                return new Vector3(3, 3, 1);
+            case "v12":
+                return new Vector3(0, -1, 1);
+            case "v13":
+                return new Vector3(1, 0, 1);
+            case "v14":
+                return new Vector3(2, 1, 1);
+            case "v15":
+                return new Vector3(3, 2, 1);
+            case "v16":
+                return new Vector3(4, 3, 1);
+            case "v17":
+                return new Vector3(0, -1, 2);
+            case "v18":
+                return new Vector3(1, 0, 2);
+            case "v19":
+                return new Vector3(2, 1, 2);
+            case "v20":
+                return new Vector3(3, 2, 2);
+            case "v21":
+                return new Vector3(4, 3, 2);
+            case "v22":
+                return new Vector3(0, -2, 2);
+            case "v23":
+                return new Vector3(1, -1, 2);
+            case "v24":
+                return new Vector3(2, 0, 2);
+            case "v25":
+                return new Vector3(3, 1, 2);
+            case "v26":
+                return new Vector3(4, 2, 2);
+            case "v27":
+                return new Vector3(5, 3, 2);
+            case "v28":
+                return new Vector3(0, -2, 3);
+            case "v29":
+                return new Vector3(1, -1, 3);
+            case "v30":
+                return new Vector3(2, 0, 3);
+            case "v31":
+                return new Vector3(3, 1, 3);
+            case "v32":
+                return new Vector3(4, 2, 3);
+            case "v33":
+                return new Vector3(5, 3, 3);
+            case "v34":
+                return new Vector3(1, -2, 3);
+            case "v35":
+                return new Vector3(2, -1, 3);
+            case "v36":
+                return new Vector3(3, 0, 3);
+            case "v37":
+                return new Vector3(4, 1, 3);
+            case "v38":
+                return new Vector3(5, 2, 3);
+            case "v39":
+                return new Vector3(1, -2, 4);
+            case "v40":
+                return new Vector3(2, -1, 4);
+            case "v41":
+                return new Vector3(3, 0, 4);
+            case "v42":
+                return new Vector3(4, 1, 4);
+            case "v43":
+                return new Vector3(5, 2, 4);
+            case "v44":
+                return new Vector3(2, -2, 4);
+            case "v45":
+                return new Vector3(3, -1, 4);
+            case "v46":
+                return new Vector3(4, 0, 4);
+            case "v47":
+                return new Vector3(5, 1, 4);
+            case "v48":
+                return new Vector3(2, -2, 5);
+            case "v49":
+                return new Vector3(3, -1, 5);
+            case "v50":
+                return new Vector3(4, 0, 5);
+            case "v51":
+                return new Vector3(5, 1, 5);
+            case "v52":
+                return new Vector3(3, -2, 5);
+            case "v53":
+                return new Vector3(4, -1, 5);
+            case "v54":
+                return new Vector3(5, 0, 5);
+            default:
+                return new Vector3();
+        }
+    }
+
     /**
      * Método que permite haver troca de recursos entre jogadores/clientes
      *
@@ -549,122 +665,6 @@ public class Server {
                 break;
             default:
                 break;
-        }
-    }
-
-    public Vector3 defineVertices(String s) {
-        switch (s) {
-            case "v1":
-                return new Vector3(0,1,0);
-            case "v2":
-                return new Vector3(1,2,0);
-            case "v3":
-                return new Vector3(2,3,0);
-            case "v4":
-                return new Vector3(0,0,0);
-            case "v5":
-                return new Vector3(1,1,0);
-            case "v6":
-                return new Vector3(2,2,0);
-            case "v7":
-                return new Vector3(3,3,0);
-            case "v8":
-                return new Vector3(0,0,1);
-            case "v9":
-                return new Vector3(1,1,1);
-            case "v10":
-                return new Vector3(2,2,1);
-            case "v11":
-                return new Vector3(3,3,1);
-            case "v12":
-                return new Vector3(0,-1,1);
-            case "v13":
-                return new Vector3(1,0,1);
-            case "v14":
-                return new Vector3(2,1,1);
-            case "v15":
-                return new Vector3(3,2,1);
-            case "v16":
-                return new Vector3(4,3,1);
-            case "v17":
-                return new Vector3(0,-1,2);
-            case "v18":
-                return new Vector3(1,0,2);
-            case "v19":
-                return new Vector3(2,1,2);
-            case "v20":
-                return new Vector3(3,2,2);
-            case "v21":
-                return new Vector3(4,3,2);
-            case "v22":
-                return new Vector3(0,-2,2);
-            case "v23":
-                return new Vector3(1,-1,2);
-            case "v24":
-                return new Vector3(2,0,2);
-            case "v25":
-                return new Vector3(3,1,2);
-            case "v26":
-                return new Vector3(4,2,2);
-            case "v27":
-                return new Vector3(5,3,2);
-            case "v28":
-                return new Vector3(0,-2,3);
-            case "v29":
-                return new Vector3(1,-1,3);
-            case "v30":
-                return new Vector3(2,0,3);
-            case "v31":
-                return new Vector3(3,1,3);
-            case "v32":
-                return new Vector3(4,2,3);
-            case "v33":
-                return new Vector3(5,3,3);
-            case "v34":
-                return new Vector3(1,-2,3);
-            case "v35":
-                return new Vector3(2,-1,3);
-            case "v36":
-                return new Vector3(3,0,3);
-            case "v37":
-                return new Vector3(4,1,3);
-            case "v38":
-                return new Vector3(5,2,3);
-            case "v39":
-                return new Vector3(1,-2,4);
-            case "v40":
-                return new Vector3(2,-1,4);
-            case "v41":
-                return new Vector3(3,0,4);
-            case "v42":
-                return new Vector3(4,1,4);
-            case "v43":
-                return new Vector3(5,2,4);
-            case "v44":
-                return new Vector3(2,-2,4);
-            case "v45":
-                return new Vector3(3,-1,4);
-            case "v46":
-                return new Vector3(4,0,4);
-            case "v47":
-                return new Vector3(5,1,4);
-            case "v48":
-                return new Vector3(2,-2,5);
-            case "v49":
-                return new Vector3(3,-1,5);
-            case "v50":
-                return new Vector3(4,0,5);
-            case "v51":
-                return new Vector3(5,1,5);
-            case "v52":
-                return new Vector3(3,-2,5);
-            case "v53":
-                return new Vector3(4,-1,5);
-            case "v54":
-                return new Vector3(5,0,5);
-            default:
-                return new Vector3();
-
         }
     }
 

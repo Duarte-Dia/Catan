@@ -21,7 +21,7 @@ public class City {
         this.position = position;
     }
 
-    public City() {
-
+    public City(Vector3 position) {
+        this.position = position;
     }
 }

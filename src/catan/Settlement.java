@@ -13,8 +13,8 @@ public class Settlement {
 
     private Vector3 position;
 
-    public Settlement() {
-
+    public Settlement(Vector3 position) {
+        this.position = position;
     }
 
     public Vector3 getPosition() {
