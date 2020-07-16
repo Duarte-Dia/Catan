@@ -5,7 +5,7 @@
  */
 package catan;
 
-import common.Le;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -28,7 +28,7 @@ import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
+ * Classe onde o jogo é iniciado, e todas as acções cliente
  * estão definidas
  *
  * @author Bruno Ribeiro
@@ -77,7 +77,8 @@ public class Main extends Application {
 
     /**
      * Método Main, onde o jogo é jogado
-     *
+     * @throws UnknownHostException
+     * @throws Unknown IOException
      */
     public static void main(String[] args) throws UnknownHostException, IOException {
 

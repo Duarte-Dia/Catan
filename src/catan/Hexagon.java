@@ -8,7 +8,7 @@ package catan;
 import java.util.*;
 
 /**
- *
+ *  Classe que define cada hexágono do tabuleiro
  * @author Bruno Ribeiro Criaçao da Classe
  */
 public class Hexagon {
@@ -41,7 +41,11 @@ public class Hexagon {
     public void addVectors(Vector3 v) {
         vectors.add(v);
     }
-
+     /**
+      * Método que recebe o vector3 e indica que as coordenadas seleccionadas são iguais às coordenadas de cada vértice ou aresta do Héxagono
+      * @param selectedVector Parametro que representa o vector seleccionado
+      * @return Retorna verdadeiro quando o vetor seleccionado tem coordenadas iguais ás coordenadas do vértice ou aresta do Hexágono
+      */
     public boolean containVector(Vector3 selectedVector) {
         for (Vector3 v : vectors) {
             if (selectedVector.x == v.x && selectedVector.y == v.y && selectedVector.z == v.z) {

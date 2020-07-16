@@ -492,18 +492,24 @@ public class FXMLDocumentController implements Initializable {
 
         // all
     }
-
+      
     @FXML
     public void endTurnClick(ActionEvent event) {
 
     }
-
+       /**
+        * Método que recebe uma String, inserida na janela de Chat
+        * @return recebe a String de texto inserida na janela de Chat
+        */
     public String getText() {
 
         return inputChatText.getText();
 
     }
-
+        /**
+         * Método que faz com que as mensagens apareçam no Chat, quando pressionada a tecla Enter
+         * @param event parametro referente ao evento de uma tecla ser pressionada
+         */
     @FXML
     public void submitText(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {

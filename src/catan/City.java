@@ -6,9 +6,9 @@
 package catan;
 
 /**
- *
+ *  Classe que representa uma cidade
  * @author José Sampaio
- * Criaçao da Classe
+ * 
  */
 public class City {
     private Vector3 position;

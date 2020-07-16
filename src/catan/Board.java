@@ -8,7 +8,7 @@ package catan;
 import java.util.*;
 
 /**
- *
+ *  Classe onde o tabuleiro é definido
  * @author José Sampaio Criaçao da Classe
  */
 public class Board {

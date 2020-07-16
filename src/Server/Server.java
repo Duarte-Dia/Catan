@@ -18,7 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Classe onde o servidor se encontra implementado e é iniciado
+ * 
  * @author Utilizador
  */
 public class Server {
@@ -186,7 +187,9 @@ public class Server {
         jogo.start();
 
     }
-
+    /**
+     * Método que permite controlar os clientes
+     */
     private static class ClientHandler implements Runnable {
 
         private String name;
@@ -204,7 +207,9 @@ public class Server {
             logged = true;
 
         }
-
+         /**
+          * Método inicializado, quando a thread é iniciada, e manipula as solicitações realizadas pelo cliente
+          */
         @Override
         public void run() {
             String cmd;
