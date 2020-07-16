@@ -462,9 +462,16 @@ public class FXMLDocumentController implements Initializable {
     public static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static MenuItem tj1, tj2, tj3;
-    public static Button endTurn, roadBtn, settleBtn, cityBtn;
+    public static Button endTurn, roadBtn, settleBtn, cityBtn , bankTradeBtn;
     public static Group linesGroup, verticesGroup;
     public static VBox p1group, p2group, p3group, p4group;
+    public static MenuItem exitBtn, contributorsBtn, playerOpt1, playerOpt2, playerOpt3, harborOpt1, harborOpt2;
+    @FXML
+    private MenuItem exitButton;
+    @FXML
+    private MenuItem ruleButton;
+    @FXML
+    private MenuItem contributorsButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -490,6 +497,14 @@ public class FXMLDocumentController implements Initializable {
         p3group = p3resources;
         p4group = p4resources;
 
+        exitBtn =exitButton;
+        contributorsBtn = contributorsButton;
+        playerOpt1 = PlayerOption1;
+        playerOpt2 = playerOption2;
+        playerOpt3 = playerOption3;
+        harborOpt1 = harborOption1;
+        harborOpt2 = harborOption2;
+        bankTradeBtn = bankTradeButton;        
         // all
     }
 
@@ -513,6 +528,10 @@ public class FXMLDocumentController implements Initializable {
         }
         //return inputChatText.getText();
 
+    }
+
+    @FXML
+    private void displayContributors(ActionEvent event) {
     }
 
 }
