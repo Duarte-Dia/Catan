@@ -6,7 +6,7 @@
 package catan;
 
 /**
- *
+ *  Classe que representa um settlement
  * @author José Sampaio Criaçao da Classe
  */
 public class Settlement {
