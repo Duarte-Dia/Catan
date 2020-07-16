@@ -35,7 +35,8 @@ import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
+ * estão definidas
  *
  * @author Bruno Ribeiro
  */
@@ -58,232 +59,23 @@ public class Main extends Application {
     boolean vertices, edges;
 
     /**
-     * Método que inicia todas as componententes necessárias para a interface gráfica
+     * Método que inicia todas as componententes necessárias para a interface
+     * gráfica
      *
      * @param stage Parametro que representa o conteúdo da interface
      * @throws Exception
      */
-    
-
-      
-
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        chat = FXMLDocumentController.chat;
-        inputChat = FXMLDocumentController.inputChat;
 
-        tp1 = FXMLDocumentController.tp1;
-        tp2 = FXMLDocumentController.tp2;
-        tp3 = FXMLDocumentController.tp3;
-        tp4 = FXMLDocumentController.tp4;
-        endTurn = FXMLDocumentController.endTurn;
-        roadButton = FXMLDocumentController.roadBtn;
-        exitBtn = FXMLDocumentController.exitBtn;
-        contributorsBtn = FXMLDocumentController.contributorsBtn;
-        playerOpt1 = FXMLDocumentController.playerOpt1;
-        playerOpt2 = FXMLDocumentController.playerOpt2;
-        playerOpt3 = FXMLDocumentController.playerOpt3;
-        harborOpt1 = FXMLDocumentController.harborOpt1;
-        harborOpt2 = FXMLDocumentController.harborOpt2;
-        bankTradeBtn = FXMLDocumentController.bankTradeBtn;
-        
-        //Popup Contributors
-        Label l1 = new Label("Criado por:");
-        Label l2 = new Label("Tiago Neveda:4481");
-        Label l3 = new Label("Luis Carvalho:19565");
-        Label l4 = new Label("José Sampaio:20734");
-        Label l5 = new Label("João Sousa:20770");
-        Label l6 = new Label("Bruno Ribeiro:21318");
-        Label l7 = new Label("Duarte Dias:21883");
-        Button closePopup1Button = new Button("Close");
-        Button closePopup2Button = new Button("Close");
-        
-        Popup popup1 = new Popup();
-        
-        GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER);
-        grid.setVgap(10);
-        grid.setHgap(10);
-        grid.setStyle(" -fx-background-color: white;");
-        
-        grid.setPadding(new Insets(25, 10, 25, 10));
-        grid.add(l1, 1, 1);
-        grid.add(l2, 1, 2);
-        grid.add(l3, 1, 3);
-        grid.add(l4, 1, 4);
-        grid.add(l5, 1, 5);
-        grid.add(l6, 1, 6);
-        grid.add(l7, 1, 7);
-        grid.add(closePopup1Button, 1, 8);
-        
-        popup1.getContent().add(grid); 
-        
-        //Popup in Players/Harbor/Bank
-        Label empty = new Label(" ");
-        Label r1 = new Label("Wood");
-        Label r2 = new Label("Brick");
-        Label r3 = new Label("Metal");
-        Label r4 = new Label("Wheat");
-        Label r5 = new Label("Wool");
-        Label f0 = new Label("You");
-        Label f1 = new Label("0");
-        Label f2 = new Label("0");
-        Label f3 = new Label("0");
-        Label f4 = new Label("0");
-        Label f5 = new Label("0");
-        Label o0 = new Label("");
-        Label t1 = new Label("0");
-        Label t2 = new Label("0");
-        Label t3 = new Label("0");
-        Label t4 = new Label("0");
-        Label t5 = new Label("0");
-        Button f1btn = new Button("Wood");
-        Button f2btn = new Button("Brick");
-        Button f3btn = new Button("Metal");
-        Button f4btn = new Button("Wheat");
-        Button f5btn = new Button("Wool");
-        Button t1btn = new Button("Wood");
-        Button t2btn = new Button("Brick");
-        Button t3btn = new Button("Metal");
-        Button t4btn = new Button("Wheat");
-        Button t5btn = new Button("Wool");
-        Button sendButton = new Button("Send");
-        
-        Popup popup2 = new Popup();
-        
-        GridPane grid2 = new GridPane();
-        grid2.setAlignment(Pos.CENTER);
-        grid2.setVgap(40);
-        grid2.setHgap(40);
-        grid2.setStyle(" -fx-background-color: white;");
-        
-        grid2.setPadding(new Insets(25, 10, 60, 40));
-        grid2.add(r1, 2, 1);
-        grid2.add(r2, 3, 1);
-        grid2.add(r3, 4, 1);
-        grid2.add(r4, 5, 1);
-        grid2.add(r5, 6, 1);
-        grid2.add(f0, 1, 2);
-        grid2.add(f1, 2, 2);
-        grid2.add(f2, 3, 2);
-        grid2.add(f3, 4, 2);
-        grid2.add(f4, 5, 2);
-        grid2.add(f5, 6, 2);
-        grid2.add(o0, 1, 3);
-        grid2.add(t1, 2, 3);
-        grid2.add(t2, 3, 3);
-        grid2.add(t3, 4, 3);
-        grid2.add(t4, 5, 3);
-        grid2.add(t5, 6, 3);
-        grid2.add(f1btn, 2, 4);
-        grid2.add(f2btn, 3, 4);
-        grid2.add(f3btn, 4, 4);
-        grid2.add(f4btn, 5, 4);
-        grid2.add(f5btn, 6, 4);
-        grid2.add(t1btn, 2, 5);
-        grid2.add(t2btn, 3, 5);
-        grid2.add(t3btn, 4, 5);
-        grid2.add(t4btn, 5, 5);
-        grid2.add(t5btn, 6, 5);
-        grid2.add(sendButton, 5, 6);
-        grid2.add(closePopup2Button, 6, 6);
-        grid2.add(empty, 7, 6);
-        
-        popup2.getContent().add(grid2); 
-        
-        EventHandler<ActionEvent> openContributors =  
-        new EventHandler<ActionEvent>() { 
-   
-            public void handle(ActionEvent e) 
-            { 
-                
-                if (!popup1.isShowing()) 
-                    popup1.show(stage);  
-            } 
-        }; 
-        
-        EventHandler<ActionEvent> openTrades =  
-        new EventHandler<ActionEvent>() { 
-   
-            public void handle(ActionEvent e) 
-            { 
-                o0.setText("Player");
-                if (!popup2.isShowing()) 
-                    if(popup1.isShowing())
-                        popup1.hide();
-                    popup2.show(stage);
-            } 
-        };
-        
-        
-        EventHandler<ActionEvent> close =  
-        new EventHandler<ActionEvent>() { 
-   
-            public void handle(ActionEvent e) 
-            { 
-                if (popup1.isShowing()) 
-                    popup1.hide(); 
-                if(popup2.isShowing())
-                    popup2.hide(); 
-            } 
-        };
-        
-        EventHandler<ActionEvent> openHarbor =  
-        new EventHandler<ActionEvent>() { 
-   
-            public void handle(ActionEvent e) 
-            { 
-                o0.setText("Harbor");
-                if (!popup2.isShowing()) 
-                    if(popup1.isShowing())
-                        popup1.hide();
-                    popup2.show(stage);
-            } 
-        };
-        
-        EventHandler<ActionEvent> openBank =  
-        new EventHandler<ActionEvent>() { 
-   
-            public void handle(ActionEvent e) 
-            { 
-                o0.setText("Bank");
-                if (!popup2.isShowing()) 
-                    if(popup1.isShowing())
-                        popup1.hide();
-                    popup2.show(stage);
-            } 
-        };
-        
-        
-        
-        playerOpt1.setOnAction(openTrades);
-        contributorsBtn.setOnAction(openContributors);
-        harborOpt1.setOnAction(openHarbor);
-        bankTradeBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent m) {
-                {
-                    o0.setText("Bank");
-                    if (!popup2.isShowing()) {
-                        if (popup1.isShowing()) {
-                            popup1.hide();
-                        }
-                    }
-                    popup2.show(stage);
-                }
-            }
-        });
-        closePopup2Button.setOnAction(close);
-        closePopup1Button.setOnAction(close);
-        
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
         stage.show();
 
         connectClient();
-        iniciarElementos();
+        iniciarElementos(stage);
         vertices = true;
         edges = true;
         buyRoad();
@@ -302,7 +94,8 @@ public class Main extends Application {
     }
 
     /**
-     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor para que o jogo seja iniciado
+     * Método que define as funcionalidades necessárias para que haja
+     * comunicação entre o cliente e o servidor para que o jogo seja iniciado
      *
      * @throws IOException
      */
@@ -331,12 +124,11 @@ public class Main extends Application {
                         }
                     }
                 });
-                
-                exitBtn.setOnAction(e ->{
+
+                exitBtn.setOnAction(e -> {
                     e.consume();
                     Platform.exit();
-            });
-                
+                });
 
             }
         });
@@ -488,7 +280,16 @@ public class Main extends Application {
     /**
      * Método que inicia os elementos da interface
      */
-    private void iniciarElementos() {
+    private void iniciarElementos(Stage stage) {
+
+        exitBtn = FXMLDocumentController.exitBtn;
+        contributorsBtn = FXMLDocumentController.contributorsBtn;
+        playerOpt1 = FXMLDocumentController.playerOpt1;
+        playerOpt2 = FXMLDocumentController.playerOpt2;
+        playerOpt3 = FXMLDocumentController.playerOpt3;
+        harborOpt1 = FXMLDocumentController.harborOpt1;
+        harborOpt2 = FXMLDocumentController.harborOpt2;
+        bankTradeBtn = FXMLDocumentController.bankTradeBtn;
 
         chat = FXMLDocumentController.chat;
         inputChat = FXMLDocumentController.inputChat;
@@ -505,6 +306,196 @@ public class Main extends Application {
         tj1 = FXMLDocumentController.tj1;
         tj2 = FXMLDocumentController.tj2;
         tj3 = FXMLDocumentController.tj3;
+
+        //Popup Contributors
+        Label l1 = new Label("Criado por:");
+        Label l2 = new Label("Tiago Neveda:4481");
+        Label l3 = new Label("Luis Carvalho:19565");
+        Label l4 = new Label("José Sampaio:20734");
+        Label l5 = new Label("João Sousa:20770");
+        Label l6 = new Label("Bruno Ribeiro:21318");
+        Label l7 = new Label("Duarte Dias:21883");
+        Button closePopup1Button = new Button("Close");
+        Button closePopup2Button = new Button("Close");
+
+        Popup popup1 = new Popup();
+
+        GridPane grid = new GridPane();
+        grid.setAlignment(Pos.CENTER);
+        grid.setVgap(10);
+        grid.setHgap(10);
+        grid.setStyle(" -fx-background-color: white;");
+
+        grid.setPadding(new Insets(25, 10, 25, 10));
+        grid.add(l1, 1, 1);
+        grid.add(l2, 1, 2);
+        grid.add(l3, 1, 3);
+        grid.add(l4, 1, 4);
+        grid.add(l5, 1, 5);
+        grid.add(l6, 1, 6);
+        grid.add(l7, 1, 7);
+        grid.add(closePopup1Button, 1, 8);
+
+        popup1.getContent().add(grid);
+
+        //Popup in Players/Harbor/Bank
+        Label empty = new Label(" ");
+        Label r1 = new Label("Wood");
+        Label r2 = new Label("Brick");
+        Label r3 = new Label("Metal");
+        Label r4 = new Label("Wheat");
+        Label r5 = new Label("Wool");
+        Label f0 = new Label("You");
+        Label f1 = new Label("0");
+        Label f2 = new Label("0");
+        Label f3 = new Label("0");
+        Label f4 = new Label("0");
+        Label f5 = new Label("0");
+        Label o0 = new Label("");
+        Label t1 = new Label("0");
+        Label t2 = new Label("0");
+        Label t3 = new Label("0");
+        Label t4 = new Label("0");
+        Label t5 = new Label("0");
+        Button f1btn = new Button("Wood");
+        Button f2btn = new Button("Brick");
+        Button f3btn = new Button("Metal");
+        Button f4btn = new Button("Wheat");
+        Button f5btn = new Button("Wool");
+        Button t1btn = new Button("Wood");
+        Button t2btn = new Button("Brick");
+        Button t3btn = new Button("Metal");
+        Button t4btn = new Button("Wheat");
+        Button t5btn = new Button("Wool");
+        Button sendButton = new Button("Send");
+
+        Popup popup2 = new Popup();
+
+        GridPane grid2 = new GridPane();
+        grid2.setAlignment(Pos.CENTER);
+        grid2.setVgap(40);
+        grid2.setHgap(40);
+        grid2.setStyle(" -fx-background-color: white;");
+
+        grid2.setPadding(new Insets(25, 10, 60, 40));
+        grid2.add(r1, 2, 1);
+        grid2.add(r2, 3, 1);
+        grid2.add(r3, 4, 1);
+        grid2.add(r4, 5, 1);
+        grid2.add(r5, 6, 1);
+        grid2.add(f0, 1, 2);
+        grid2.add(f1, 2, 2);
+        grid2.add(f2, 3, 2);
+        grid2.add(f3, 4, 2);
+        grid2.add(f4, 5, 2);
+        grid2.add(f5, 6, 2);
+        grid2.add(o0, 1, 3);
+        grid2.add(t1, 2, 3);
+        grid2.add(t2, 3, 3);
+        grid2.add(t3, 4, 3);
+        grid2.add(t4, 5, 3);
+        grid2.add(t5, 6, 3);
+        grid2.add(f1btn, 2, 4);
+        grid2.add(f2btn, 3, 4);
+        grid2.add(f3btn, 4, 4);
+        grid2.add(f4btn, 5, 4);
+        grid2.add(f5btn, 6, 4);
+        grid2.add(t1btn, 2, 5);
+        grid2.add(t2btn, 3, 5);
+        grid2.add(t3btn, 4, 5);
+        grid2.add(t4btn, 5, 5);
+        grid2.add(t5btn, 6, 5);
+        grid2.add(sendButton, 5, 6);
+        grid2.add(closePopup2Button, 6, 6);
+        grid2.add(empty, 7, 6);
+
+        popup2.getContent().add(grid2);
+
+        EventHandler<ActionEvent> openContributors
+                = new EventHandler<ActionEvent>() {
+
+                    public void handle(ActionEvent e) {
+
+                        if (!popup1.isShowing()) {
+                            popup1.show(stage);
+                        }
+                    }
+                };
+
+        EventHandler<ActionEvent> openTrades
+                = new EventHandler<ActionEvent>() {
+
+                    public void handle(ActionEvent e) {
+                        o0.setText("Player");
+                        if (!popup2.isShowing()) {
+                            if (popup1.isShowing()) {
+                                popup1.hide();
+                            }
+                        }
+                        popup2.show(stage);
+                    }
+                };
+
+        EventHandler<ActionEvent> close
+                = new EventHandler<ActionEvent>() {
+
+                    public void handle(ActionEvent e) {
+                        if (popup1.isShowing()) {
+                            popup1.hide();
+                        }
+                        if (popup2.isShowing()) {
+                            popup2.hide();
+                        }
+                    }
+                };
+
+        EventHandler<ActionEvent> openHarbor
+                = new EventHandler<ActionEvent>() {
+
+                    public void handle(ActionEvent e) {
+                        o0.setText("Harbor");
+                        if (!popup2.isShowing()) {
+                            if (popup1.isShowing()) {
+                                popup1.hide();
+                            }
+                        }
+                        popup2.show(stage);
+                    }
+                };
+
+        EventHandler<ActionEvent> openBank
+                = new EventHandler<ActionEvent>() {
+
+                    public void handle(ActionEvent e) {
+                        o0.setText("Bank");
+                        if (!popup2.isShowing()) {
+                            if (popup1.isShowing()) {
+                                popup1.hide();
+                            }
+                        }
+                        popup2.show(stage);
+                    }
+                };
+
+        playerOpt1.setOnAction(openTrades);
+        contributorsBtn.setOnAction(openContributors);
+        harborOpt1.setOnAction(openHarbor);
+        bankTradeBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent m) {
+                {
+                    o0.setText("Bank");
+                    if (!popup2.isShowing()) {
+                        if (popup1.isShowing()) {
+                            popup1.hide();
+                        }
+                    }
+                    popup2.show(stage);
+                }
+            }
+        });
+        closePopup2Button.setOnAction(close);
+        closePopup1Button.setOnAction(close);
 
         Thread buttonListener = new Thread(() -> {
 
