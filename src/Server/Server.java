@@ -38,7 +38,7 @@ public class Server {
         Thread servidor = new Thread(() -> {
             while (true) {
                 // Servidor fica a espera de um cliente
-                if (nClientes <= 1) {
+                if (nClientes <= 4) {
                     try {
                         System.out.println("[SERVER]Esperando por ligação");
 
