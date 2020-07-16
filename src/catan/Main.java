@@ -193,7 +193,7 @@ public class Main extends Application {
                             }
                         }
                         System.out.println(s);
-                    } // receber comando de servidor para ativar o turno
+                    } // receber comando do servidor para atualizar os tabuleiros dos jogadores
                     else if (msg.startsWith("Line")) {
                         String[] arraysOfString = msg.split("@", 4);
 
@@ -223,6 +223,10 @@ public class Main extends Application {
                                 n.setStyle(arraysOfString[3]);
                             }
                         }
+
+                    }// receber comandos do servidor para iniciar as trocas de recursos
+                    else if (msg.startsWith("Trade")) {
+                        String[] arraysOfString = msg.split("@", 4);
 
                     }// receber comando de servidor para ativar o turno
                     else if (msg.compareTo("Player1 turn") == 0) {
