@@ -247,7 +247,7 @@
                                  <children>
                                     <VBox layoutX="45.0" layoutY="18.41796875" spacing="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
                                        <children>
-                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
+                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -259,36 +259,36 @@
                                              <children>
                                                 <HBox layoutX="45.0" layoutY="81.576171875" spacing="20.0">
                                                    <children>
-                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="35.0">
+                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wool:">
+                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Timber:">
+                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brick:">
+                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wheat:">
+                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox fx:id="p1resources" layoutX="127.0" layoutY="81.576171875" spacing="39.0">
+                                                      <VBox fx:id="p1resources" layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberBrickPlayer1" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -321,36 +321,36 @@
                                                 </HBox>
                                                 <HBox layoutX="208.0" layoutY="81.576171875" spacing="20.0">
                                                    <children>
-                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="35.0">
+                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Army:">
+                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card:">
+                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settlement:">
+                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Road:">
+                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
+                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="39.0">
+                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberArmyPlayer1" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -395,7 +395,7 @@
                                  <children>
                                     <VBox spacing="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
                                        <children>
-                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
+                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -407,36 +407,36 @@
                                              <children>
                                                 <HBox layoutX="45.0" layoutY="81.576171875" spacing="20.0">
                                                    <children>
-                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="35.0">
+                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wool:">
+                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Timber:">
+                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brick:">
+                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wheat:">
+                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox fx:id="p2resources" layoutX="127.0" layoutY="81.576171875" spacing="39.0">
+                                                      <VBox fx:id="p2resources" layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberBrickPlayer2" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -469,36 +469,36 @@
                                                 </HBox>
                                                 <HBox layoutX="208.0" layoutY="81.576171875" spacing="20.0">
                                                    <children>
-                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="35.0">
+                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Army:">
+                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card:">
+                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settlement:">
+                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Road:">
+                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
+                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="39.0">
+                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberArmyPlayer2" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -543,7 +543,7 @@
                                  <children>
                                     <VBox spacing="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
                                        <children>
-                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
+                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -555,36 +555,36 @@
                                              <children>
                                                 <HBox layoutX="45.0" layoutY="81.576171875" spacing="20.0">
                                                    <children>
-                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="35.0">
+                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wool:">
+                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Timber:">
+                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brick:">
+                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wheat:">
+                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox fx:id="p3resources" layoutX="127.0" layoutY="81.576171875" spacing="39.0">
+                                                      <VBox fx:id="p3resources" layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberBrickPlayer3" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -617,36 +617,36 @@
                                                 </HBox>
                                                 <HBox layoutX="208.0" layoutY="81.576171875" spacing="20.0">
                                                    <children>
-                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="35.0">
+                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Army:">
+                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card:">
+                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settlement:">
+                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Road:">
+                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
+                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="39.0">
+                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberArmyPlayer3" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -691,7 +691,7 @@
                                  <children>
                                     <VBox spacing="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
                                        <children>
-                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
+                                          <Text layoutX="143.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recursos">
                                              <font>
                                                 <Font size="20.0" />
                                              </font>
@@ -703,36 +703,36 @@
                                              <children>
                                                 <HBox layoutX="45.0" layoutY="81.576171875" spacing="20.0">
                                                    <children>
-                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="35.0">
+                                                      <VBox layoutX="45.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wool:">
+                                                            <Text layoutX="45.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tijolos:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Timber:">
+                                                            <Text layoutX="45.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brick:">
+                                                            <Text layoutX="45.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trigo:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wheat:">
+                                                            <Text layoutX="45.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Madeira:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Metal:">
+                                                            <Text layoutX="45.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Algodão:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox fx:id="p4resources" layoutX="127.0" layoutY="81.576171875" spacing="39.0">
+                                                      <VBox fx:id="p4resources" layoutX="127.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberBrickPlayer4" layoutX="127.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -765,36 +765,36 @@
                                                 </HBox>
                                                 <HBox layoutX="208.0" layoutY="81.576171875" spacing="20.0">
                                                    <children>
-                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="35.0">
+                                                      <VBox layoutX="208.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
-                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Army:">
+                                                            <Text layoutX="208.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exércitos:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card:">
+                                                            <Text layoutX="208.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartas:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settlement:">
+                                                            <Text layoutX="208.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aldeias:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Road:">
+                                                            <Text layoutX="208.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ruas:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
-                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
+                                                            <Text layoutX="208.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidades:">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Text>
                                                          </children>
                                                       </VBox>
-                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="39.0">
+                                                      <VBox layoutX="303.0" layoutY="81.576171875" spacing="36.0">
                                                          <children>
                                                             <Text fx:id="numberArmyPlayer4" layoutX="303.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
                                                                <font>
@@ -1091,6 +1091,208 @@
                   <Line fx:id="r3l10" endX="-49.0" endY="31.0" layoutX="1127.0" layoutY="391.0" startX="-100.0" strokeWidth="4.0" />
                   <Line fx:id="r3l2" endX="-49.0" endY="31.0" layoutX="728.0" layoutY="390.0" startX="-100.0" strokeWidth="4.0" />
                   <Line fx:id="r3l8" endX="-49.0" endY="31.0" layoutX="1027.0" layoutY="391.0" startX="-100.0" strokeWidth="4.0" />
+         </children>
+      </Group>
+      <Group>
+         <children>
+            <Circle fill="#bc9900" layoutX="678.0" layoutY="362.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="727.0" layoutY="629.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="827.0" layoutY="627.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="1027.0" layoutY="450.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="828.0" layoutY="273.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="778.0" layoutY="539.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="878.0" layoutY="362.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="727.0" layoutY="273.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="929.0" layoutY="273.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="726.0" layoutY="450.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="978.0" layoutY="539.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="977.0" layoutY="362.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="928.0" layoutY="627.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="677.0" layoutY="539.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="627.0" layoutY="450.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="877.0" layoutY="539.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="778.0" layoutY="362.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="928.0" layoutY="449.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="768.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="922.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="864.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="912.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="971.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="922.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="716.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="968.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="817.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="821.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="1011.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="620.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="668.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="719.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="967.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="823.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="864.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="762.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="616.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="721.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="872.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="918.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="769.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="720.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="871.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="772.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="824.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="661.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="916.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="972.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="720.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="713.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="923.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="672.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="1022.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="672.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
          </children>
       </Group>
       <Group fx:id="v">
