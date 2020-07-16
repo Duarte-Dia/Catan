@@ -40,7 +40,7 @@ public class Server {
 
         dadosLancados = false;
         ServerSocket server = new ServerSocket(port);
-
+          // Thread que inicia o servidor
         Thread servidor = new Thread(() -> {
             while (true) {
                 // Servidor fica a espera de um cliente
@@ -142,7 +142,7 @@ public class Server {
         listPlayers.add(p4);
 
         servidor.start();
-
+         //Thread que inicia o jogo
         Thread jogo;
         jogo = new Thread(() -> {
 

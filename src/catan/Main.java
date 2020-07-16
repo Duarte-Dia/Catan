@@ -76,7 +76,7 @@ public class Main extends Application {
     }
 
     /**
-     * Método Main, onde o jogo é jogado
+     * Método Main
      * @throws UnknownHostException
      * @throws Unknown IOException
      */
@@ -98,7 +98,7 @@ public class Main extends Application {
 
         in = new DataInputStream(socket.getInputStream());
         out = new DataOutputStream(socket.getOutputStream());
-
+  // esta thread serve para o cliente enviar mensagens para o servidor
         Thread enviarMensagem = new Thread(() -> {
 
             while (true) {
@@ -304,7 +304,8 @@ public class Main extends Application {
         tj1 = FXMLDocumentController.tj1;
         tj2 = FXMLDocumentController.tj2;
         tj3 = FXMLDocumentController.tj3;
-
+        
+        //Esta thread serve como listener dos botões
         Thread buttonListener = new Thread(() -> {
 
             cityButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -376,7 +377,7 @@ public class Main extends Application {
 
         buttonListener.start();
     }
-
+   //Método para comprar/construir uma City
     public void buyCity() {
         for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
             if (idJogadorLocal == i) {
@@ -402,7 +403,7 @@ public class Main extends Application {
             }
         }
     }
-
+   //Método para comprar/construir um Settlement
     public void buySettle() {
         for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
             if (idJogadorLocal == i) {
@@ -428,7 +429,7 @@ public class Main extends Application {
             }
         }
     }
-
+   //Método para comprar/construir uma Road
     public void buyRoad() {
         for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
             if (idJogadorLocal == i) {

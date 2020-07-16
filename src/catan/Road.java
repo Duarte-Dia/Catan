@@ -6,9 +6,9 @@
 package catan;
 
 /**
- *
+ * Classe que define uma Road
  * @author José Sampaio
- * Criaçao da Classe
+ * 
  */
 public class Road {
     
