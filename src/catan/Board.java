@@ -47,13 +47,13 @@ public class Board {
         Hexagon newHex07 = new Hexagon(6, 10, 1);
         tiles.add(newHex07);
 
-        Hexagon newHex08 = new Hexagon(7, 7, 0);
+        Hexagon newHex08 = new Hexagon(9, 11, 4);
         tiles.add(newHex08);
 
         Hexagon newHex09 = new Hexagon(8, 3, 2);
         tiles.add(newHex09);
 
-        Hexagon newHex10 = new Hexagon(9, 11, 4);
+        Hexagon newHex10 = new Hexagon(7, 7, 0);
         tiles.add(newHex10);
 
         Hexagon newHex11 = new Hexagon(10, 4, 2);
