@@ -40,12 +40,12 @@ public class Main extends Application {
     private static TextField inputChat;
     public static Tab tp1, tp2, tp3, tp4;
     public static MenuItem tj1, tj2, tj3;
-    static boolean gameover, endPlay, startGame;
+    static boolean gameover, endPlay, startGame, secondPlay = false, firstRounds = false;
     public static Button endTurn, roadButton, settleButton, cityButton, devButton;
     static DataInputStream in;
     static DataOutputStream out;
     //NOTA DE DUARTE.... ESTE I SERVE PARA INDICAR O INFERNO 
-    int idJogadorLocal, i = 4;
+    int idJogadorLocal, i = 1, counter = 0;
     String color;
     boolean vertices, edges;
 
@@ -224,47 +224,45 @@ public class Main extends Application {
                     }// receber comando de servidor para ativar o turno
                     else if (msg.compareTo("Player1 turn") == 0) {
                         i = 1;
-                        if (startGame = true) {
-                            buyRoad();
-                            buySettle();
-                        }
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN" + counter + "!!\n");
+                        counter++;
                     } else if (msg.compareTo("Player2 turn") == 0) {
                         i = 2;
-                        if (startGame = true) {
+                        if (startGame == true) {
                             buyRoad();
                             buySettle();
                         }
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN" + counter + "!!\n");
+                        counter++;
                     } else if (msg.compareTo("Player3 turn") == 0) {
                         i = 3;
-                        if (startGame = true) {
+                        if (startGame == true) {
                             buyRoad();
                             buySettle();
                         }
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN" + counter + "!!\n");
+                        counter++;
                     } else if (msg.compareTo("Player4 turn") == 0) {
                         i = 4;
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
-                        chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                        if (startGame == true) {
+                            buyRoad();
+                            buySettle();
+                        }
+                        chat.appendText("PLAYER" + i + " ITS YOUR TURN" + counter + "!!\n");
+                        counter++;
                     } else if (msg.compareTo("First Play") == 0) {
                         buyRoad();
                         buySettle();
                         startGame = true;
 
                     } else if (msg.compareTo("Second Play") == 0) {
+                        i = 4;
                         edges = true;
                         vertices = true;
                         buyRoad();
                         buySettle();
                         startGame = false;
+                        secondPlay = true;
 
                     } else {
                         System.out.println(msg);
@@ -336,18 +334,27 @@ public class Main extends Application {
                         System.out.println("Next player");
                         endPlay = true;
                         try {
-
-                            if (startGame == true) {
-                                if (i == 2) {
-                                    out.writeUTF(5 + " turn");
-                                } else if (i == 1) {
-                                    out.writeUTF(5 + " turn");
+                            if (!firstRounds) {
+                                if (!secondPlay && i == 4) {
+                                    out.writeUTF(4 + " turn");
                                     out.writeUTF("Second start");
-
-                                } else {
-                                    out.writeUTF(i - 1 + " turn");
+                                    secondPlay = true;
                                 }
-                                i--;
+                                if (startGame == false) {
+                                    if (i == 2) {
+                                        out.writeUTF(5 + " turn");
+                                    } else if (i == 1) {
+                                        firstRounds = true;
+                                        out.writeUTF(5 + " turn");
+                                        secondPlay = false;
+                                    } else {
+                                        out.writeUTF(i - 1 + " turn");
+                                    }
+                                    i--;
+                                } else {
+                                    out.writeUTF(i + 1 + " turn");
+                                    i++;
+                                }
                             } else {
                                 out.writeUTF(i + 1 + " turn");
                                 i++;
