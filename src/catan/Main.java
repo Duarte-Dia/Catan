@@ -49,6 +49,7 @@ public class Main extends Application {
     String color;
     boolean vertices, edges;
     String[] resources = {"0", "0", "0", "0", "0"};
+    VBox v = new VBox();
 
     /**
      * Método que inicia todas as componententes necessárias para a interface gráfica
@@ -166,7 +167,7 @@ public class Main extends Application {
                         color = "#00EAFA";
                     } else if (msg.contains("###RESOURCES")) {
                         System.out.println(msg);
-                        VBox v = new VBox();
+                        v = new VBox();
                         switch (idJogadorLocal) {
                             case 1:
                                 v = FXMLDocumentController.p1group;
@@ -385,13 +386,13 @@ public class Main extends Application {
                 n.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent m) {
-                        if (idJogadorLocal == i) {
+                        if (idJogadorLocal == i && Integer.parseInt(resources[3]) >= 2 && Integer.parseInt(resources[4]) >= 3) {
                             //chat.appendText(n.getId());
                             if (!n.getStyle().contains("-fx-stroke-type: outside; -fx-stroke-width: 3") && n.getStyle().contains("-fx-stroke: " + color + "; -fx-fill: " + color + ";") && vertices) {
                                 n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + "; -fx-stroke-type: outside; -fx-stroke-width: 3");
                                 vertices = false;
                             }
-                            // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
+                            // !!!!!!!!!!! player tem recursos - 2 wheat, 3 metal !!!!!!!!!!!!!!!!
                         }
                     }
                 });
@@ -406,10 +407,21 @@ public class Main extends Application {
                 n.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent m) {
-                        if (idJogadorLocal == i) {
+                        if (idJogadorLocal == i && Integer.parseInt(resources[0]) >= 1 && Integer.parseInt(resources[1]) >= 1 && Integer.parseInt(resources[2]) >= 1 && Integer.parseInt(resources[2]) >= 1) {
                             //chat.appendText(n.getId());
                             if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && vertices) {
                                 n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + ";");
+                                resources[0] = Integer.toString(Integer.parseInt(resources[0]) - 1);
+                                resources[1] = Integer.toString(Integer.parseInt(resources[1]) - 1);
+                                resources[2] = Integer.toString(Integer.parseInt(resources[2]) - 1);
+                                resources[3] = Integer.toString(Integer.parseInt(resources[3]) - 1);
+                                int j = 0;
+                                for (Node t : v.getChildren()) {
+                                    if (t instanceof Text) {
+                                        ((Text) t).setText(resources[j]);
+                                        j++;
+                                    }
+                                }
                                 vertices = false;
                                 try {
                                     out.writeUTF("Vertice @" + n.getId() + "@ styled @" + n.getStyle() + "@" + i);
@@ -436,6 +448,15 @@ public class Main extends Application {
                             //chat.appendText(n.getId());
                             if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && edges) {
                                 n.setStyle("-fx-stroke: " + color + ";");
+                                resources[1] = Integer.toString(Integer.parseInt(resources[1]) - 1);
+                                resources[2] = Integer.toString(Integer.parseInt(resources[2]) - 1);
+                                int j = 0;
+                                for (Node t : v.getChildren()) {
+                                    if (t instanceof Text) {
+                                        ((Text) t).setText(resources[j]);
+                                        j++;
+                                    }
+                                }
                                 edges = false;
                                 try {
                                     out.writeUTF("Line @" + n.getId() + "@ styled @" + n.getStyle() + "@" + i);

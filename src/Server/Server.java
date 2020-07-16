@@ -125,10 +125,10 @@ public class Server {
             }
         });
 
-        Player p1 = new Player(0, 1, 0, 2, 2, 0, 0, false, false);
-        Player p2 = new Player(0, 2, 0, 2, 2, 0, 0, false, false);
-        Player p3 = new Player(0, 3, 0, 2, 2, 0, 0, false, false);
-        Player p4 = new Player(0, 4, 0, 2, 2, 0, 0, false, false);
+        Player p1 = new Player(0, 1, 2, 4, 4, 2, 0, false, false);
+        Player p2 = new Player(0, 2, 2, 4, 4, 2, 0, false, false);
+        Player p3 = new Player(0, 3, 2, 4, 4, 2, 0, false, false);
+        Player p4 = new Player(0, 4, 2, 4, 4, 2, 0, false, false);
 
         listPlayers.add(p1);
         listPlayers.add(p2);
@@ -225,34 +225,50 @@ public class Server {
 
                     } else if (cmd.startsWith("Line")) {
 
-                        String[] arraysOfString = cmd.split("@", 5);
+                        String[] arraysOfString = cmd.split("@", 6);
 
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(this.name)) {
                                 client.out.writeUTF("Line @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
                             } else {
-                                listPlayers.get(Integer.parseInt(arraysOfString[4])).addRoad(new Road());
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setTimber(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getTimber() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setBrick(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getBrick() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).addRoad(new Road());
                             }
                         }
 
                     } else if (cmd.startsWith("Vertice")) {
 
-                        String[] arraysOfString = cmd.split("@", 5);
+                        String[] arraysOfString = cmd.split("@", 6);
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(this.name)) {
                                 client.out.writeUTF("Vertice @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
                             } else {
-                                listPlayers.get(Integer.parseInt(arraysOfString[4])).addSettlement(new Settlement());
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setWool(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getWool() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setBrick(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getBrick() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setTimber(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getTimber() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setWheat(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getWheat() - 1);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).addSettlement(new Settlement());
                             }
                         }
                     } else if (cmd.startsWith("City")) {
 
-                        String[] arraysOfString = cmd.split("@", 5);
+                        String[] arraysOfString = cmd.split("@", 6);
                         for (ClientHandler client : Server.listaClientes) {
                             if (!client.name.equals(this.name)) {
                                 client.out.writeUTF("City @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
                             } else {
-                                listPlayers.get(Integer.parseInt(arraysOfString[4])).addCity(new City());
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setWheat(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getWheat() - 2);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).setMetal(
+                                        listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).getMetal() - 3);
+                                listPlayers.get(Integer.parseInt(arraysOfString[4]) - 1).addCity(new City());
                             }
                         }
                     } else if (cmd.compareTo("Second start") == 0) {
