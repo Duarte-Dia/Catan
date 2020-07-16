@@ -6,7 +6,7 @@
 package catan;
 
 /**
- *  Classe onde o dado é definido
+ *  Classe onde o dado é definido e lançado
  * @author José Sampaio
  * Criação da Classe, Novos metodos(throwDice(), diceValue())
  */
