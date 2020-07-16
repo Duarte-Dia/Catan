@@ -536,4 +536,16 @@ public class Server {
         }
     }
 
+    public Vector3 defineVertices(String s) {
+        switch (s) {
+            case "v1":
+                return new Vector3();
+            case "v2":
+                return new Vector3();
+            default:
+                return new Vector3();
+
+        }
+    }
+
 }
