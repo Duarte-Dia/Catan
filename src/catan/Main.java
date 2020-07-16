@@ -5,13 +5,11 @@
  */
 package catan;
 
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -23,15 +21,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Line;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções cliente
- * estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções cliente estão definidas
  *
  * @author Bruno Ribeiro
+ * @author Duarte Dias
  */
 public class Main extends Application {
 
@@ -79,6 +76,7 @@ public class Main extends Application {
 
     /**
      * Método Main, onde o jogo é jogado
+     *
      * @throws UnknownHostException
      * @throws Unknown IOException
      */
@@ -227,10 +225,11 @@ public class Main extends Application {
                         }
 
                     }// receber comandos do servidor para iniciar as trocas de recursos
-                    else if (msg.startsWith("Trade")) {
-                        String[] arraysOfString = msg.split("@", 4);
+                    /*
+                     else if (msg.startsWith("Trade")) {
+                     String[] arraysOfString = msg.split("@", 4);
 
-                    }// receber comando de servidor para ativar o turno
+                     }*/ // receber comando de servidor para ativar o turno
                     else if (msg.compareTo("Player1 turn") == 0) {
                         i = 1;
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN" + counter + "!!\n");

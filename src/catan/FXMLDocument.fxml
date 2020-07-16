@@ -152,7 +152,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <TabPane layoutX="15.0" layoutY="396.0" prefHeight="415.0" prefWidth="387.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane layoutX="15.0" layoutY="396.0" prefHeight="456.0" prefWidth="387.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab fx:id="InformationTab" text="Info">
                            <content>
