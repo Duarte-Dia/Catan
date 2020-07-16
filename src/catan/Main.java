@@ -28,7 +28,8 @@ import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
+ * estão definidas
  *
  * @author Bruno Ribeiro
  */
@@ -52,7 +53,8 @@ public class Main extends Application {
     VBox v = new VBox();
 
     /**
-     * Método que inicia todas as componententes necessárias para a interface gráfica
+     * Método que inicia todas as componententes necessárias para a interface
+     * gráfica
      *
      * @param stage Parametro que representa o conteúdo da interface
      * @throws Exception
@@ -86,7 +88,8 @@ public class Main extends Application {
     }
 
     /**
-     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor para que o jogo seja iniciado
+     * Método que define as funcionalidades necessárias para que haja
+     * comunicação entre o cliente e o servidor para que o jogo seja iniciado
      *
      * @throws IOException
      */
@@ -207,7 +210,7 @@ public class Main extends Application {
                         String[] arraysOfString = msg.split("@", 4);
 
                         for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
-
+                            System.out.println(n.getId());
                             if (n.getId().compareTo(arraysOfString[1]) == 0) {
                                 n.setStyle(arraysOfString[3]);
                             }
