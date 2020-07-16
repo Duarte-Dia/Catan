@@ -22,7 +22,7 @@ public class Server {
     private static Vector<ClientHandler> listaClientes = new Vector<>();
     private static Socket client;
     static int idJogadorLocal = 1, i;
-    static boolean gameover, endPlay = false, sendResources = false, dadosLancados, firstPlay = true, secondPlay = false;
+    static boolean gameover, endPlay = false, sendResources = true, dadosLancados, firstPlay = true, secondPlay = false;
     static Dice dice = new Dice();
     static List<Player> listPlayers = new ArrayList<Player>();
     static DataInputStream in;
@@ -146,7 +146,6 @@ public class Server {
                     if (!dadosLancados) {
                         chosenTile = dice.throwDice(2);
                         System.out.println(chosenTile);
-                        sendResources = true;
 
                         if (chosenTile != 7) {
                             for (Hexagon hex : board.getTiles()) {
