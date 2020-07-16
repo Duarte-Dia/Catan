@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/bruno/Documents/IPVC/LP/Git/Catan/src/catan/City.java</file>
-            <file>file:/C:/Users/bruno/Documents/IPVC/LP/Git/Catan/src/catan/Settlement.java</file>
+            <file>file:/C:/Users/bruno/Documents/IPVC/LP/Git/Catan/src/catan/Hexagon.java</file>
             <file>file:/C:/Users/bruno/Documents/IPVC/LP/Git/Catan/src/catan/Main.java</file>
             <file>file:/C:/Users/bruno/Documents/IPVC/LP/Git/Catan/src/catan/Board.java</file>
+            <file>file:/C:/Users/bruno/Documents/IPVC/LP/Git/Catan/src/catan/Dice.java</file>
             <file>file:/C:/Users/bruno/Documents/IPVC/LP/Git/Catan/src/catan/FXMLDocumentController.java</file>
-            <file>file:/C:/Users/bruno/Documents/IPVC/LP/Git/Catan/src/catan/Player.java</file>
             <file>file:/C:/Users/bruno/Documents/IPVC/LP/Git/Catan/src/Server/Server.java</file>
             <file>file:/C:/Users/bruno/Documents/IPVC/LP/Git/Catan/src/catan/FXMLDocument.fxml</file>
         </group>

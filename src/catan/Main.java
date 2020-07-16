@@ -22,12 +22,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador
- * estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções realizadas pelo utilizador estão definidas
  *
  * @author Bruno Ribeiro
  */
@@ -44,13 +45,12 @@ public class Main extends Application {
     static DataInputStream in;
     static DataOutputStream out;
     //NOTA DE DUARTE.... ESTE I SERVE PARA INDICAR O INFERNO 
-    int idJogadorLocal = 1, i = 1;
+    int idJogadorLocal, i = 1;
     String color;
-    boolean vertices = false, edges = false;
+    boolean vertices, edges;
 
     /**
-     * Método que inicia todas as componententes necessárias para a interface
-     * gráfica
+     * Método que inicia todas as componententes necessárias para a interface gráfica
      *
      * @param stage Parametro que representa o conteúdo da interface
      * @throws Exception
@@ -66,6 +66,10 @@ public class Main extends Application {
 
         connectClient();
         iniciarElementos();
+        vertices = true;
+        edges = true;
+        buyRoad();
+        buySettle();
 
     }
 
@@ -80,8 +84,7 @@ public class Main extends Application {
     }
 
     /**
-     * Método que define as funcionalidades necessárias para que haja
-     * comunicação entre o cliente e o servidor para que o jogo seja iniciado
+     * Método que define as funcionalidades necessárias para que haja comunicação entre o cliente e o servidor para que o jogo seja iniciado
      *
      * @throws IOException
      */
@@ -161,8 +164,34 @@ public class Main extends Application {
                         tj3.setText("Jogador 3");
                         color = "blue";
                     } else if (msg.contains("###RESOURCES")) {
-                        System.out.println("A tua prima sabe bem");
-                    } else if (msg.startsWith("Line")) {
+                        System.out.println(msg);
+                        VBox v = new VBox();
+                        switch (idJogadorLocal) {
+                            case 1:
+                                v = FXMLDocumentController.p1group;
+                                break;
+                            case 2:
+                                v = FXMLDocumentController.p2group;
+                                break;
+                            case 3:
+                                v = FXMLDocumentController.p3group;
+                                break;
+                            case 4:
+                                v = FXMLDocumentController.p4group;
+                                break;
+                        }
+                        String s = msg.split("@", 5)[idJogadorLocal];
+                        int j = 0;
+                        String[] resources = s.split(" ", 5);
+                        for (Node t : v.getChildren()) {
+                            if (t instanceof Text) {
+                                ((Text) t).setText(resources[j]);
+                                j++;
+                            }
+                        }
+                        System.out.println(s);
+                    } // receber comando de servidor para ativar o turno
+                    else if (msg.startsWith("Line")) {
                         String[] arraysOfString = msg.split("@", 4);
 
                         for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
@@ -213,6 +242,12 @@ public class Main extends Application {
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
                         chat.appendText("PLAYER" + i + " ITS YOUR TURN!!\n");
+                    } else if (msg.compareTo("First Play") == 0) {
+                        buyRoad();
+                        buySettle();
+                    } else if (msg.compareTo("Second Play") == 0) {
+                        buyRoad();
+                        buySettle();
                     } else {
                         System.out.println(msg);
                         chat.appendText(msg + "\n");
@@ -256,29 +291,7 @@ public class Main extends Application {
                 @Override
                 public void handle(MouseEvent m) {
                     vertices = true;
-                    for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
-                        if (idJogadorLocal == i) {
-                            //System.out.println(n.getId() + "\n");
-                            n.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                @Override
-                                public void handle(MouseEvent m) {
-                                    if (idJogadorLocal == i) {
-                                        //dchat.appendText(n.getId());
-                                        if (!n.getStyle().contains("-fx-stroke-type: outside; -fx-stroke-width: 3") && n.getStyle().contains("-fx-stroke: " + color + "; -fx-fill: " + color + ";") && vertices) {
-                                            n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + "; -fx-stroke-type: outside; -fx-stroke-width: 3");
-                                            vertices = false;
-                                            try {
-                                                out.writeUTF("City @" + n.getId() + "@ styled @" + n.getStyle());
-                                            } catch (IOException ex) {
-                                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                                            }
-                                        }
-                                        // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
-                                    }
-                                }
-                            });
-                        }
-                    }
+                    buyCity();
                 }
             });
 
@@ -286,29 +299,7 @@ public class Main extends Application {
                 @Override
                 public void handle(MouseEvent m) {
                     vertices = true;
-                    for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
-                        if (idJogadorLocal == i) {
-                            //System.out.println(n.getId() + "\n");
-                            n.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                @Override
-                                public void handle(MouseEvent m) {
-                                    if (idJogadorLocal == i) {
-                                        //chat.appendText(n.getId());
-                                        if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && vertices) {
-                                            n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + ";");
-                                            vertices = false;
-                                            try {
-                                                out.writeUTF("Vertice @" + n.getId() + "@ styled @" + n.getStyle());
-                                            } catch (IOException ex) {
-                                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                                            }
-                                        }
-                                        // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
-                                    }
-                                }
-                            });
-                        }
-                    }
+                    buySettle();
                 }
             });
 
@@ -316,29 +307,7 @@ public class Main extends Application {
                 @Override
                 public void handle(MouseEvent m) {
                     edges = true;
-                    for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
-                        if (idJogadorLocal == i) {
-                            //System.out.println(n.getId() + "\n");
-                            n.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                @Override
-                                public void handle(MouseEvent m) {
-                                    if (idJogadorLocal == i) {
-                                        //chat.appendText(n.getId());
-                                        if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && edges) {
-                                            n.setStyle("-fx-stroke: " + color + ";");
-                                            edges = false;
-                                            try {
-                                                out.writeUTF("Line @" + n.getId() + "@ styled @" + n.getStyle());
-                                            } catch (IOException ex) {
-                                                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                                            }
-                                        }
-                                        // !!!!!!!!!!! player tem recursos - 1 timber, 1 brick !!!!!!!!!!!!!!!!
-                                    }
-                                }
-                            });
-                        }
-                    }
+                    buyRoad();
                 }
             });
 
@@ -361,6 +330,79 @@ public class Main extends Application {
         });
 
         buttonListener.start();
+    }
+
+    public void buyCity() {
+        for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
+            if (idJogadorLocal == i) {
+                //System.out.println(n.getId() + "\n");
+                n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        if (idJogadorLocal == i) {
+                            //chat.appendText(n.getId());
+                            if (!n.getStyle().contains("-fx-stroke-type: outside; -fx-stroke-width: 3") && n.getStyle().contains("-fx-stroke: " + color + "; -fx-fill: " + color + ";") && vertices) {
+                                n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + "; -fx-stroke-type: outside; -fx-stroke-width: 3");
+                                vertices = false;
+                            }
+                            // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    public void buySettle() {
+        for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
+            if (idJogadorLocal == i) {
+                //System.out.println(n.getId() + "\n");
+                n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        if (idJogadorLocal == i) {
+                            //chat.appendText(n.getId());
+                            if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && vertices) {
+                                n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + ";");
+                                vertices = false;
+                                try {
+                                    out.writeUTF("Vertice @" + n.getId() + "@ styled @" + n.getStyle());
+                                } catch (IOException ex) {
+                                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                            // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    public void buyRoad() {
+        for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+            if (idJogadorLocal == i) {
+                //System.out.println(n.getId() + "\n");
+                n.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent m) {
+                        if (idJogadorLocal == i) {
+                            //chat.appendText(n.getId());
+                            if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && edges) {
+                                n.setStyle("-fx-stroke: " + color + ";");
+                                edges = false;
+                                try {
+                                    out.writeUTF("Line @" + n.getId() + "@ styled @" + n.getStyle());
+                                } catch (IOException ex) {
+                                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                            // !!!!!!!!!!! player tem recursos - 1 timber, 1 brick !!!!!!!!!!!!!!!!
+                        }
+                    }
+                });
+            }
+        }
     }
 
 }

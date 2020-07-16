@@ -8,9 +8,7 @@ package Server;
 import catan.Board;
 import catan.City;
 import catan.Dice;
-import catan.FXMLDocumentController;
 import catan.Hexagon;
-import catan.Main;
 import catan.Player;
 import catan.Settlement;
 import java.io.*;
@@ -18,45 +16,24 @@ import java.net.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 /**
  *
  * @author Utilizador
  */
-public class Server extends Application {
+public class Server {
 
     private static int port = 6666, nClientes = 1;
     private static Vector<ClientHandler> listaClientes = new Vector<>();
     private static Socket client;
     static int idJogadorLocal = 1, i;
-    static boolean gameover, endPlay = false, sendResources = false, dadosLancados;
+    static boolean gameover, endPlay = false, sendResources = false, dadosLancados, firstPlay = true, secondPlay = false;
     static Dice dice = new Dice();
     static List<Player> listPlayers = new ArrayList<Player>();
     static DataInputStream in;
     static DataOutputStream out;
     static int chosenTile = 0;
     static Board board = new Board();
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
-
-    }
 
     public static void main(String[] args) throws IOException {
 
@@ -96,29 +73,75 @@ public class Server extends Application {
                     }
                 } else {
 
-                }
-            }
+                    gameover = false;
+                    String resources = "###RESOURCES";
+                    for (Player p : listPlayers) {
+                        resources = resources.concat("@").concat(Integer.toString(p.getWool())).concat(" ");
+                        resources = resources.concat(Integer.toString(p.getTimber())).concat(" ");
+                        resources = resources.concat(Integer.toString(p.getBrick())).concat(" ");
+                        resources = resources.concat(Integer.toString(p.getWheat())).concat(" ");
+                        resources = resources.concat(Integer.toString(p.getMetal()));
+                    }
 
-            // for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
-            // }
-            // fechar ligação
-            /*
-             client.close();
-             System.out.println("[Server]A desligar");
-             server.close();*/
+                    if (sendResources) {
+                        for (ClientHandler client : listaClientes) {
+                            try {
+                                client.out.writeUTF(resources);
+                            } catch (IOException ex) {
+                                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+
+                        sendResources = false;
+                    }
+
+                    if (firstPlay) {
+                        for (ClientHandler client : listaClientes) {
+                            try {
+                                client.out.writeUTF("First Play");
+                            } catch (IOException ex) {
+                                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+
+                        secondPlay = true;
+                        firstPlay = false;
+                    }
+
+                    if (secondPlay) {
+                        for (ClientHandler client : listaClientes) {
+                            try {
+                                client.out.writeUTF("Second Play");
+                            } catch (IOException ex) {
+                                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+
+                        secondPlay = false;
+                    }
+                }
+
+                // for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
+                // }
+                // fechar ligação
+                /*
+                 client.close();
+                 System.out.println("[Server]A desligar");
+                 server.close();*/
+            }
         });
 
-        servidor.start();
-
-        Player p1 = new Player(0, 1, 0, 0, 0, 0, 0, false, false);
-        Player p2 = new Player(0, 2, 0, 0, 0, 0, 0, false, false);
-        Player p3 = new Player(0, 3, 0, 0, 0, 0, 0, false, false);
+        Player p1 = new Player(0, 1, 0, 2, 1, 4, 3, false, false);
+        Player p2 = new Player(0, 2, 1, 2, 3, 4, 5, false, false);
+        Player p3 = new Player(0, 3, 11, 3, 55, 2, 3, false, false);
+        Player p4 = new Player(0, 4, 41, 1, 1, 1, 1, false, false);
 
         listPlayers.add(p1);
         listPlayers.add(p2);
         listPlayers.add(p3);
+        listPlayers.add(p4);
 
-        gameover = false;
+        servidor.start();
 
         Thread jogo;
         jogo = new Thread(() -> {
@@ -134,8 +157,8 @@ public class Server extends Application {
                         if (chosenTile != 7) {
                             for (Hexagon hex : board.getTiles()) {
                                 if (chosenTile == hex.getNum()) {
-                                    //givePlayersResources(hex.getResourceID(), hex);
-                                    //sendResources = true;
+                                    givePlayersResources(hex.getResourceID(), hex);
+
                                 }
                             }
                         } else {
@@ -145,8 +168,6 @@ public class Server extends Application {
                         dadosLancados = true;
                     }
                     if (endPlay) {
-                        givePlayersResources(1);
-                        sendResources = true;
                         dadosLancados = false;
                         i++;
                         endPlay = false;
@@ -188,23 +209,10 @@ public class Server extends Application {
         @Override
         public void run() {
             String cmd;
-            String resources = "###RESOURCES";
-            for (Player p : listPlayers) {
-                resources = resources.concat(Integer.toString(p.getWool())).concat(" ");
-                resources = resources.concat(Integer.toString(p.getTimber())).concat(" ");
-                resources = resources.concat(Integer.toString(p.getBrick())).concat(" ");
-                resources = resources.concat(Integer.toString(p.getWheat())).concat(" ");
-                resources = resources.concat(Integer.toString(p.getMetal())).concat(" ");
-            }
 
             while (true) {
 
                 try {
-
-                    if (sendResources) {
-                        out.writeUTF(resources);
-                        sendResources = false;
-                    }
 
                     cmd = in.readUTF();
                     System.out.println(cmd);
@@ -248,40 +256,41 @@ public class Server extends Application {
                                 client.out.writeUTF("City @" + arraysOfString[1] + "@ styled @" + arraysOfString[3]);
                             }
                         }
-                    }
-
-                    StringTokenizer st = new StringTokenizer(cmd, "#");
-                    String receivingClient = null;
-                    try {
-                        receivingClient = st.nextToken();
-                    } catch (Exception e) {
-                    };
-                    String msg = null;
-                    try {
-                        msg = st.nextToken();
-                    } catch (Exception e) {
-                    };
-
-                    if (msg != null) {
-
-                        for (ClientHandler client : Server.listaClientes) {
-                            if (client.name.equals(receivingClient) && client.logged) {
-                                client.out.writeUTF("Whisper from " + name + ": " + msg);
-                            }
-                        }
-                        // Comando para trocar o turno para o  jogador seguinte
                     } else {
 
-                        for (ClientHandler client : Server.listaClientes) {
-                            if (!client.name.equals(name) && client.logged) {
-                                client.out.writeUTF(name + ": " + receivingClient);
+                        StringTokenizer st = new StringTokenizer(cmd, "#");
+                        String receivingClient = null;
+                        try {
+                            receivingClient = st.nextToken();
+                        } catch (Exception e) {
+                        };
+                        String msg = null;
+                        try {
+                            msg = st.nextToken();
+                        } catch (Exception e) {
+                        };
+
+                        if (msg != null) {
+
+                            for (ClientHandler client : Server.listaClientes) {
+                                if (client.name.equals(receivingClient) && client.logged) {
+                                    client.out.writeUTF("Whisper from " + name + ": " + msg);
+                                }
                             }
+                            // Comando para trocar o turno para o  jogador seguinte
+                        } else {
 
+                            for (ClientHandler client : Server.listaClientes) {
+                                if (!client.name.equals(name) && client.logged) {
+                                    client.out.writeUTF(name + ":teste " + receivingClient);
+                                }
+
+                            }
                         }
-                    }
 
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -295,74 +304,73 @@ public class Server extends Application {
      * @param resource Parametro que representa os recursos
      * @param hex Parametro que representa uma casa de jogo
      */
-    private static void givePlayersResources(int resource/*, Hexagon hex*/) {
+    private static void givePlayersResources(int resource, Hexagon hex) {
         int current;
         for (Player p : listPlayers) {
-            //for (City c : p.getListCities()) {
-            //if (hex.containVector(c.getPosition())) {
-            switch (resource) {
-                case 1: // wool
-                    current = p.getWool();
-                    p.setWool(current += 2);
-                    break;
-                case 2: // timber
-                    current = p.getTimber();
-                    p.setTimber(current += 2);
-                    break;
-                case 3: // brick
-                    current = p.getBrick();
-                    p.setBrick(current += 2);
-                    break;
-                case 4: // wheat
-                    current = p.getWheat();
-                    p.setWheat(current += 2);
-                    break;
-                case 5: // metal
-                    current = p.getMetal();
-                    p.setMetal(current += 2);
-                    break;
-                default:
-                    break;
+            for (City c : p.getListCities()) {
+                if (hex.containVector(c.getPosition())) {
+                    switch (resource) {
+                        case 1: // wool
+                            current = p.getWool();
+                            p.setWool(current += 2);
+                            break;
+                        case 2: // timber
+                            current = p.getTimber();
+                            p.setTimber(current += 2);
+                            break;
+                        case 3: // brick
+                            current = p.getBrick();
+                            p.setBrick(current += 2);
+                            break;
+                        case 4: // wheat
+                            current = p.getWheat();
+                            p.setWheat(current += 2);
+                            break;
+                        case 5: // metal
+                            current = p.getMetal();
+                            p.setMetal(current += 2);
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
-            //}
-            //}
 
-            //for (Settlement s : p.getListSettlements()) {
-            //if (hex.containVector(s.getPosition())) {
-            switch (resource) {
-                case 1: // wool
-                    current = p.getWool();
-                    p.setWool(current++);
-                    break;
-                case 2: // timber
-                    current = p.getTimber();
-                    p.setTimber(current++);
-                    break;
-                case 3: // brick
-                    current = p.getBrick();
-                    p.setBrick(current++);
-                    break;
-                case 4: // wheat
-                    current = p.getWheat();
-                    p.setWheat(current++);
-                    break;
-                case 5: // metal
-                    current = p.getMetal();
-                    p.setMetal(current++);
-                    break;
-                default:
-                    break;
+            for (Settlement s : p.getListSettlements()) {
+                if (hex.containVector(s.getPosition())) {
+                    switch (resource) {
+                        case 1: // wool
+                            current = p.getWool();
+                            p.setWool(current++);
+                            break;
+                        case 2: // timber
+                            current = p.getTimber();
+                            p.setTimber(current++);
+                            break;
+                        case 3: // brick
+                            current = p.getBrick();
+                            p.setBrick(current++);
+                            break;
+                        case 4: // wheat
+                            current = p.getWheat();
+                            p.setWheat(current++);
+                            break;
+                        case 5: // metal
+                            current = p.getMetal();
+                            p.setMetal(current++);
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
-            //}
-            //}
         }
     }
 
     /**
      * Método que verifica se um jogo termina
      *
-     * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha
-     * terminado, retorna falso.
+     * @return retorna verdadeiro, no caso do jogo ter terminado. Caso não tenha terminado, retorna falso.
      *
      */
     private static boolean isGameOver() {
@@ -390,10 +398,7 @@ public class Server extends Application {
     }
 
     /**
-     * Método que indica se alguém (e quem) atingiu a estrada mais longa Alguém
-     * só atinge a estrada mais longa, quem tem pelo menos 5 estradas, ou, no
-     * caso de haver mais que um jogador com 5 estradas, mostra qual o jogador
-     * com mais estradas
+     * Método que indica se alguém (e quem) atingiu a estrada mais longa Alguém só atinge a estrada mais longa, quem tem pelo menos 5 estradas, ou, no caso de haver mais que um jogador com 5 estradas, mostra qual o jogador com mais estradas
      */
     private static void longestRoad() {
         List<Integer> listRoadSizes = new ArrayList<Integer>();
@@ -447,18 +452,12 @@ public class Server extends Application {
     /**
      * Método que permite haver troca de recursos entre jogadores/clientes
      *
-     * @param p1 Parametro que representa o jogador que pretende efetuar a
-     * troca.
-     * @param p2 Parametro que representa o jogador que recebe o pedido de
-     * troca.
-     * @param resource1 Parametro que representa os recursos que o jogador
-     * pretende receber
-     * @param resource2 Parametro que representa os recursos , que o jogador
-     * oferece em troca
-     * @param quantity1 Parametro que representa as quantidades de cada recurso,
-     * que o jogador pretende receber
-     * @param quantity2 Parametro que representa as quantidades de cada recurso,
-     * que o jogador oferece em troca.
+     * @param p1 Parametro que representa o jogador que pretende efetuar a troca.
+     * @param p2 Parametro que representa o jogador que recebe o pedido de troca.
+     * @param resource1 Parametro que representa os recursos que o jogador pretende receber
+     * @param resource2 Parametro que representa os recursos , que o jogador oferece em troca
+     * @param quantity1 Parametro que representa as quantidades de cada recurso, que o jogador pretende receber
+     * @param quantity2 Parametro que representa as quantidades de cada recurso, que o jogador oferece em troca.
      *
      */
     private void tradeResources(Player p1, Player p2, int resource1, int resource2, int quantity1, int quantity2) {
