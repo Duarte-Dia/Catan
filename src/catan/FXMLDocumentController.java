@@ -78,8 +78,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button cityButton;
     @FXML
-    private Button developmentCardButton;
-    @FXML
     private Tab Player1Tab;
     @FXML
     private Text numberBrickPlayer1;

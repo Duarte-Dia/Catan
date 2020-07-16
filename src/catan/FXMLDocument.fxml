@@ -32,10 +32,13 @@
          <children>
             <VBox layoutX="14.0" layoutY="15.0">
                <children>
-                  <Rectangle fx:id="rchat" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="181.0" layoutX="14.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+                  <Rectangle fx:id="rchat" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="239.0" layoutX="14.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
                   <Rectangle fx:id="rtrades" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="201.0" layoutX="14.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="415.0" layoutX="14.0" layoutY="395.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="14.0" layoutY="809.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="356.0" layoutX="14.0" layoutY="395.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="83.0" layoutX="14.0" layoutY="809.0" stroke="BLACK" strokeType="INSIDE" width="389.0">
+                     <VBox.margin>
+                        <Insets top="-8.0" />
+                     </VBox.margin></Rectangle>
                </children>
             </VBox>
             <VBox layoutX="402.0" layoutY="15.0">
@@ -56,7 +59,7 @@
          <children>
             <VBox layoutX="15.0" layoutY="20.0" spacing="12.0">
                <children>
-                  <VBox layoutX="9.0" layoutY="20.41796875" spacing="2.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="20.0">
+                  <VBox layoutX="9.0" layoutY="20.41796875" prefHeight="292.0" prefWidth="387.0" spacing="2.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="20.0">
                      <children>
                         <Text fx:id="chatTitle" layoutX="156.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat/Log">
                            <font>
@@ -68,8 +71,8 @@
                         </Text>
                         <VBox layoutX="9.0" layoutY="90.0">
                            <children>
-                              <TextArea fx:id="outputChatText" editable="false" layoutX="9.0" layoutY="90.0" prefHeight="108.0" prefWidth="332.0" />
-                              <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" onKeyPressed="#submitText" prefHeight="35.0" prefWidth="384.0" promptText="Type to use the chat" />
+                              <TextArea fx:id="outputChatText" editable="false" layoutX="9.0" layoutY="90.0" prefHeight="459.0" prefWidth="387.0" />
+                              <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" onKeyPressed="#submitText" prefHeight="55.0" prefWidth="387.0" promptText="Type to use the chat" />
                            </children>
                            <padding>
                               <Insets top="5.0" />
@@ -84,7 +87,7 @@
                               <Font size="20.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="160.0" top="10.0" />
+                              <Insets left="160.0" top="-12.0" />
                            </VBox.margin>
                         </Text>
                         <HBox layoutX="40.0" layoutY="245.0" spacing="50.0">
@@ -222,19 +225,7 @@
                                                 <Insets bottom="45.0" left="10.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox layoutX="24.0" layoutY="328.0">
-                                             <children>
-                                                <Text layoutX="24.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Development Card - ? VP">
-                                                   <font>
-                                                      <Font size="18.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" right="88.0" />
-                                                   </HBox.margin>
-                                                </Text>
-                                                <Button fx:id="developmentCardButton" layoutX="291.0" layoutY="328.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="60.0" text="Buy" />
-                                             </children>
-                                          </HBox>
+                                          <HBox layoutX="24.0" layoutY="328.0" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -833,14 +824,48 @@
                               </AnchorPane>
                            </content>
                         </Tab>
+                        <Tab text="Cost">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <AnchorPane layoutX="-6.0" layoutY="-1.0" prefHeight="377.0" prefWidth="400.0">
+                                       <children>
+                                          <VBox layoutX="14.0" layoutY="63.0" spacing="50.0">
+                                             <children>
+                                                <Label layoutX="67.0" layoutY="44.0" text="Road:Timber+Brick">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="67.0" layoutY="113.0" text="Settlement:Timber+Brick+Wool+Wheat">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="67.0" layoutY="178.0" text="City: 2*Wheat + 3*Metal">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
                     </tabs>
+                     <VBox.margin>
+                        <Insets bottom="-20.0" />
+                     </VBox.margin>
                   </TabPane>
-                  <Button fx:id="endTurnButton" layoutX="117.0" layoutY="827.0" mnemonicParsing="false" onAction="#endTurnClick" prefHeight="44.0" prefWidth="163.0" text="Next Turn">
+                  <Button fx:id="endTurnButton" layoutX="117.0" layoutY="827.0" mnemonicParsing="false" onAction="#endTurnClick" prefHeight="44.0" prefWidth="163.0" text="Next Turn" VBox.vgrow="NEVER">
                      <font>
                         <Font size="20.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="110.0" top="5.0" />
+                        <Insets bottom="19.0" left="110.0" />
                      </VBox.margin>
                   </Button>
                </children>
