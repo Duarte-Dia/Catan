@@ -8,7 +8,7 @@ package catan;
 /**
  *  Classe onde o dado é definido e lançado
  * @author José Sampaio
- * Criação da Classe, Novos metodos(throwDice(), diceValue())
+ * 
  */
 public class Dice {
     
@@ -20,8 +20,10 @@ public class Dice {
      */
     public int throwDice(int n){
         
-        while(n > 0){
-            total += ((int)Math.random()*5)+1;
+       
+        while (n > 0) {
+            total += (int) (Math.random() * 5) + 1;
+
             n--;
         }
         
