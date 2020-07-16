@@ -978,41 +978,41 @@
          <children>
             <HBox layoutX="640.0" layoutY="209.0">
                <children>
-                  <Polygon id="forest_11" fill="#b0b0b0" layoutX="690.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="pasture_12" fill="WHITE" layoutX="789.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="forest_11" fill="#006b0d" layoutX="690.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="pasture_12" fill="#56ff21" layoutX="789.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
                   <Polygon id="field_9" fill="#875032" layoutX="888.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </HBox>
             <HBox layoutX="540.0" layoutY="387.0">
                <children>
-                  <Polygon id="desert" fill="#ffdb00" layoutX="590.0" layoutY="447.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="forest_3" fill="#875032" layoutX="690.0" layoutY="447.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="field_11" fill="#ecde8c" layoutX="790.0" layoutY="447.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="forest_4" fill="#875032" layoutX="890.0" layoutY="447.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="field_8" fill="#b0b0b0" layoutX="990.0" layoutY="447.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="desert" fill="#875032" layoutX="590.0" layoutY="447.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="forest_3" fill="#006b0d" layoutX="690.0" layoutY="447.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="field_11" fill="#fbff29" layoutX="790.0" layoutY="447.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="forest_4" fill="#006b0d" layoutX="890.0" layoutY="447.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="field_8" fill="#875032" layoutX="990.0" layoutY="447.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </HBox>
             <HBox layoutX="640.0" layoutY="565.0">
                <children>
-                  <Polygon id="mountain_5" fill="#fb8d04" layoutX="690.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="field_2" fill="#ffdb00" layoutX="789.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="forest_6" fill="WHITE" layoutX="888.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="mountain_5" fill="#9d9d9d" layoutX="690.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="field_2" fill="#875032" layoutX="789.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="forest_6" fill="#006b0d" layoutX="888.0" layoutY="269.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </HBox>
             <HBox layoutX="590.0" layoutY="298.0">
                <children>
-                  <Polygon id="hills_4" fill="#ffdb00" layoutX="640.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="mountain_6" fill="#fb8d04" layoutX="740.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="hills_5" fill="WHITE" layoutX="840.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="pasture_10" fill="#fb8d04" layoutX="940.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="hills_4" fill="#bc2600" layoutX="640.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="mountain_6" fill="#9d9d9d" layoutX="740.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="hills_5" fill="#bc2600" layoutX="840.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="pasture_10" fill="#56ff21" layoutX="940.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </HBox>
             <HBox layoutX="590.0" layoutY="476.0">
                <children>
-                  <Polygon id="hills_8" fill="#875032" layoutX="640.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="pasture_10" fill="#b0b0b0" layoutX="740.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="pasture_9" fill="#ffdb00" layoutX="840.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Polygon id="mountain_3" fill="WHITE" layoutX="940.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="hills_8" fill="#bc2600" layoutX="640.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="pasture_10" fill="#56ff21" layoutX="740.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="pasture_9" fill="#56ff21" layoutX="840.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Polygon id="mountain_3" fill="#9d9d9d" layoutX="940.0" layoutY="358.0" points="-50.0, 30.0, 0.0, 60.0, 50.0, 30.0, 50.0, -30.0, 0.0, -60.0, -50.0, -30.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </HBox>
          </children>
@@ -1149,6 +1149,204 @@
             <Circle fx:id="v52" layoutX="727.0" layoutY="686.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="v53" layoutX="828.0" layoutY="686.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fx:id="v54" layoutX="926.0" layoutY="686.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#bc9900" layoutX="727.0" layoutY="273.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="716.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="720.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="627.0" layoutY="450.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="620.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="616.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="828.0" layoutY="273.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="817.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="824.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="929.0" layoutY="273.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="916.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="923.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="877.0" layoutY="539.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="871.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="864.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="678.0" layoutY="362.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="668.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="672.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="928.0" layoutY="449.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="922.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="918.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="778.0" layoutY="362.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text fill="#c60000" layoutX="772.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="762.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="928.0" layoutY="627.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text fill="#c60000" layoutX="912.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="922.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="878.0" layoutY="362.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="872.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="864.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="727.0" layoutY="629.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="713.0" layoutY="642.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="721.0" layoutY="626.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="977.0" layoutY="362.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="968.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="967.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="778.0" layoutY="539.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="768.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="769.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="726.0" layoutY="450.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="720.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="719.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="978.0" layoutY="539.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="971.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="..">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text layoutX="972.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="827.0" layoutY="627.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="821.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="823.0" layoutY="640.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="1027.0" layoutY="450.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text fill="#c60000" layoutX="1011.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="1022.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Circle fill="#bc9900" layoutX="677.0" layoutY="539.0" radius="26.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text fill="#c60000" layoutX="672.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#c60000" layoutX="661.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".....">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
          </children>
       </Group>
     </children>
