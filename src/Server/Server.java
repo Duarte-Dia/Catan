@@ -125,7 +125,7 @@ public class Server {
             }
         });
 
-        Player p1 = new Player(0, 1, 20, 40, 40, 20, 0, false, false);
+        Player p1 = new Player(0, 1, 2, 4, 4, 2, 0, false, false);
         Player p2 = new Player(0, 2, 2, 4, 4, 2, 0, false, false);
         Player p3 = new Player(0, 3, 2, 4, 4, 2, 0, false, false);
         Player p4 = new Player(0, 4, 2, 4, 4, 2, 0, false, false);
