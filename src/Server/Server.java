@@ -125,10 +125,10 @@ public class Server {
             }
         });
 
-        Player p1 = new Player(0, 1, 0, 2, 1, 4, 3, false, false);
-        Player p2 = new Player(0, 2, 1, 2, 3, 4, 5, false, false);
-        Player p3 = new Player(0, 3, 11, 3, 55, 2, 3, false, false);
-        Player p4 = new Player(0, 4, 41, 1, 1, 1, 1, false, false);
+        Player p1 = new Player(0, 1, 0, 2, 2, 0, 0, false, false);
+        Player p2 = new Player(0, 2, 0, 2, 2, 0, 0, false, false);
+        Player p3 = new Player(0, 3, 0, 2, 2, 0, 0, false, false);
+        Player p4 = new Player(0, 4, 0, 2, 2, 0, 0, false, false);
 
         listPlayers.add(p1);
         listPlayers.add(p2);

@@ -48,6 +48,7 @@ public class Main extends Application {
     int idJogadorLocal, i = 1, counter = 0;
     String color;
     boolean vertices, edges;
+    String[] resources = {"0", "0", "0", "0", "0"};
 
     /**
      * Método que inicia todas as componententes necessárias para a interface gráfica
@@ -182,7 +183,7 @@ public class Main extends Application {
                         }
                         String s = msg.split("@", 5)[idJogadorLocal];
                         int j = 0;
-                        String[] resources = s.split(" ", 5);
+                        resources = s.split(" ", 5);
                         for (Node t : v.getChildren()) {
                             if (t instanceof Text) {
                                 ((Text) t).setText(resources[j]);
@@ -431,7 +432,7 @@ public class Main extends Application {
                 n.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent m) {
-                        if (idJogadorLocal == i) {
+                        if (idJogadorLocal == i && Integer.parseInt(resources[1]) >= 1 && Integer.parseInt(resources[2]) >= 1) {
                             //chat.appendText(n.getId());
                             if ((!n.getStyle().contains("-fx-stroke:") || n.getStyle().contains("-fx-stroke: black")) && edges) {
                                 n.setStyle("-fx-stroke: " + color + ";");
