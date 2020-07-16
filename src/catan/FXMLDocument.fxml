@@ -49,8 +49,8 @@
                      <children>
                         <VBox layoutX="14.0" layoutY="15.0">
                            <children>
-                              <Rectangle fx:id="rchat" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="181.0" layoutX="14.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
-                              <Rectangle fx:id="rtrades" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="201.0" layoutX="14.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+                              <Rectangle fx:id="rchat" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="239.0" layoutX="14.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
+                              <Rectangle fx:id="rtrades" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="142.0" layoutX="14.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="415.0" layoutX="14.0" layoutY="395.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="14.0" layoutY="809.0" stroke="BLACK" strokeType="INSIDE" width="389.0" />
                            </children>
@@ -83,9 +83,9 @@
                                           <Insets left="150.0" />
                                        </VBox.margin>
                                     </Text>
-                                    <VBox layoutX="9.0" layoutY="90.0" prefHeight="148.0" prefWidth="374.0">
+                                    <VBox layoutX="9.0" layoutY="90.0" prefHeight="209.0" prefWidth="393.0">
                                        <children>
-                                          <TextArea fx:id="outputChatText" editable="false" layoutX="9.0" layoutY="90.0" prefHeight="108.0" prefWidth="373.0" />
+                                          <TextArea fx:id="outputChatText" editable="false" layoutX="9.0" layoutY="90.0" prefHeight="165.0" prefWidth="388.0" />
                                           <TextField fx:id="inputChatText" layoutX="15.0" layoutY="160.0" onKeyPressed="#submitText" prefHeight="35.0" prefWidth="384.0" promptText="Type to use the chat" />
                                        </children>
                                        <padding>
@@ -97,19 +97,19 @@
                                     <Insets left="-5.0" />
                                  </VBox.margin>
                               </VBox>
-                              <VBox layoutX="40.0" layoutY="205.41796875" spacing="5.0">
+                              <VBox layoutX="40.0" layoutY="205.41796875" prefHeight="165.0" prefWidth="388.0" spacing="5.0">
                                  <children>
                                     <Text fx:id="tradesTitle" layoutX="168.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trades">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets left="160.0" top="10.0" />
+                                          <Insets left="160.0" top="60.0" />
                                        </VBox.margin>
                                     </Text>
                                     <HBox layoutX="40.0" layoutY="245.0" spacing="50.0">
                                        <children>
-                                          <VBox layoutX="40.0" layoutY="249.0" spacing="35.0">
+                                          <VBox layoutX="40.0" layoutY="249.0" spacing="15.0">
                                              <children>
                                                 <Text fx:id="bankText" layoutX="46.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank">
                                                    <font>
@@ -131,32 +131,11 @@
                                                 <Insets left="68.0" />
                                              </HBox.margin>
                                           </VBox>
-                                          <VBox layoutX="114.0" layoutY="299.0" spacing="25.0">
+                                          <VBox layoutX="114.0" layoutY="299.0" spacing="15.0">
                                              <children>
-                                                <Button fx:id="bankTradeButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="130.0" text="Trade">
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </Button>
-                                                <MenuButton fx:id="playerMenu1" layoutX="114.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="130.0" text="Select Player">
-                                                   <items>
-                                                      <MenuItem fx:id="PlayerOption1" mnemonicParsing="false" text="Jogador1" />
-                                                      <MenuItem fx:id="playerOption2" mnemonicParsing="false" text="Jogador2" />
-                                                      <MenuItem fx:id="playerOption3" mnemonicParsing="false" text="Jogador3" />
-                                                   </items>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </MenuButton>
-                                                <MenuButton fx:id="harborMenu" layoutX="126.0" mnemonicParsing="false" text="Select Harbor">
-                                                  <items>
-                                                    <MenuItem fx:id="harborOption1" mnemonicParsing="false" text="Porto1" />
-                                                    <MenuItem fx:id="harborOption2" mnemonicParsing="false" text="Porto2" />
-                                                  </items>
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </MenuButton>
+                                                <Label text="Label" />
+                                                <Label text="Label" />
+                                                <Label text="Label" />
                                              </children>
                                              <HBox.margin>
                                                 <Insets left="50.0" />
@@ -169,7 +148,7 @@
                                     </HBox>
                                  </children>
                                  <VBox.margin>
-                                    <Insets top="-9.0" />
+                                    <Insets top="-70.0" />
                                  </VBox.margin>
                               </VBox>
                               <TabPane layoutX="15.0" layoutY="396.0" prefHeight="415.0" prefWidth="387.0" tabClosingPolicy="UNAVAILABLE">
