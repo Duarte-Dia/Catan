@@ -388,6 +388,11 @@ public class Main extends Application {
                             if (!n.getStyle().contains("-fx-stroke-type: outside; -fx-stroke-width: 3") && n.getStyle().contains("-fx-stroke: " + color + "; -fx-fill: " + color + ";") && vertices) {
                                 n.setStyle("-fx-stroke: " + color + "; -fx-fill: " + color + "; -fx-stroke-type: outside; -fx-stroke-width: 3");
                                 vertices = false;
+                                try {
+                                    out.writeUTF("City @" + n.getId() + "@ styled @" + n.getStyle());
+                                } catch (IOException ex) {
+                                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                                }
                             }
                             // !!!!!!!!!!! player tem recursos - 1 wool, 1 wheat, 1 timber, 1 brick !!!!!!!!!!!!!!!!
                         }
