@@ -25,7 +25,7 @@ import javafx.scene.text.*;
 import javafx.stage.Stage;
 
 /**
- * Classe onde o jogo é iniciado, e todas as acções cliente estão definidas
+ * Classe onde o jogo é iniciado, e todas as acções do cliente estão definidas
  *
  * @author Bruno Ribeiro
  * @author Duarte Dias
@@ -75,10 +75,10 @@ public class Main extends Application {
     }
 
     /**
-     * Método Main, onde o jogo é jogado
+     * Método Main
      *
      * @throws UnknownHostException
-     * @throws Unknown IOException
+     * @throws IOException
      */
     public static void main(String[] args) throws UnknownHostException, IOException {
 
@@ -98,11 +98,12 @@ public class Main extends Application {
 
         in = new DataInputStream(socket.getInputStream());
         out = new DataOutputStream(socket.getOutputStream());
-
+  // Thread que serve para o cliente envia mensagens para o servidor
         Thread enviarMensagem = new Thread(() -> {
 
             while (true) {
-
+                  // quando o jogador pressiona em Enter, após adicionar uma mensagem na caixa de texto
+                  // esta é enviada para a caixa de chat
                 inputChat.setOnKeyPressed(new EventHandler<KeyEvent>() {
                     @Override
                     public void handle(KeyEvent k) {
@@ -380,7 +381,9 @@ public class Main extends Application {
 
         buttonListener.start();
     }
-
+   /**
+    * Método que permite que um jogador compre uma City
+    */
     public void buyCity() {
         for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
             if (idJogadorLocal == i) {
@@ -406,7 +409,9 @@ public class Main extends Application {
             }
         }
     }
-
+    /**
+    * Método que permite que um jogador compre um Settlement
+    */
     public void buySettle() {
         for (Node n : FXMLDocumentController.verticesGroup.getChildren()) {
             if (idJogadorLocal == i) {
@@ -443,7 +448,9 @@ public class Main extends Application {
             }
         }
     }
-
+   /**
+    * Método que permite que um jogador compre uma Road
+    */
     public void buyRoad() {
         for (Node n : FXMLDocumentController.linesGroup.getChildren()) {
             if (idJogadorLocal == i) {

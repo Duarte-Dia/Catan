@@ -6,9 +6,9 @@
 package catan;
 
 /**
- *
+ *  Classe que representa o Ladrão
  * @author José Sampaio
- * Criaçao da Classe
+ * 
  */
 public class Robber {
     

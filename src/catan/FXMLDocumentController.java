@@ -5,12 +5,11 @@
  */
 package catan;
 
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -22,7 +21,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
@@ -30,7 +28,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 /**
- *
+ * Classe com os controladores da Interface gráfica
  * @author José Sampaio
  */
 public class FXMLDocumentController implements Initializable {
@@ -463,7 +461,11 @@ public class FXMLDocumentController implements Initializable {
     public static Button endTurn, roadBtn, settleBtn, cityBtn;
     public static Group linesGroup, verticesGroup;
     public static VBox p1group, p2group, p3group, p4group;
-
+    /**
+     * Método que  inicia as tabs, opções de jogadores, chat, grupos de vértices e botões 
+     * @param url representa o url do fxml
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -518,7 +520,9 @@ public class FXMLDocumentController implements Initializable {
         //return inputChatText.getText();
 
     }
-    
+      /**
+       * Método que adiciona um Background a cada Hexágono
+       */
     public void addBackground(){
         for(int i = 0; i < 19; i++){
             v.getChildren();

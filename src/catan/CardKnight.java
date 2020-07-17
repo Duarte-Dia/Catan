@@ -6,9 +6,9 @@
 package catan;
 
 /**
- *
+ * Classe que representa as cartas Knight
  * @author José Sampaio
- * Criaçao da Classe
+ * 
  */
 public class CardKnight extends Card{
     

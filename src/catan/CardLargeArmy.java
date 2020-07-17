@@ -6,9 +6,9 @@
 package catan;
 
 /**
- *
+ * Classe que representa a carta Large Army
  * @author José Sampaio
- * Criaçao da Classe
+ * 
  */
 public class CardLargeArmy {
     

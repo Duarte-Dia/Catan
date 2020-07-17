@@ -6,9 +6,9 @@
 package catan;
 
 /**
- *
+ * Classe que representa a carta Long Road
  * @author José Sampaio
- * Criaçao da Classe
+ * 
  */
 public class CardLongRoad {
     

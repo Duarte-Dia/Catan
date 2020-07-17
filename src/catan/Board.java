@@ -6,7 +6,6 @@
 package catan;
 
 import java.io.*;
-import java.net.URL;
 import java.util.*;
 import org.json.simple.*;
 import org.json.simple.parser.*;
@@ -93,7 +92,9 @@ public class Board {
     public void setTiles(List<Hexagon> tiles) {
         this.tiles = tiles;
     }
-
+    /**
+     * Método que define os Vetores dos Hexagonos
+     */
     public void defineHexagonVectors() {
         JSONParser parser = new JSONParser();
 

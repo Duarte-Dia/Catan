@@ -6,9 +6,9 @@
 package catan;
 
 /**
- *
+ * Classe que representa a Carta VictoryP
  * @author José Sampaio
- * Criaçao da Classe
+ * 
  */
 public class CardVictoryP extends Card{
     

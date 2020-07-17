@@ -6,9 +6,9 @@
 package catan;
 
 /**
- *
+ * Classe que representa a carta Progress
  * @author José Sampaio
- * Criaçao da Classe
+ * 
  */
 public class CardProgress extends Card{
     

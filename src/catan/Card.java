@@ -6,9 +6,9 @@
 package catan;
 
 /**
- *
+ * Classe que representa as Cartas
  * @author José Sampaio
- * Criaçao da Classe
+ * 
  */
 public class Card {
     

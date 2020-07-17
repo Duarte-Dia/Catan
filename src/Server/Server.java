@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Classe onde o servidor se encontra implementado e é iniciado
+ * Classe onde o servidor se encontra implementado e é iniciado, e o que ocorre numa sessão de jogo
  *
  * @author Duarte Dias
  */
@@ -35,10 +35,11 @@ public class Server {
 
         dadosLancados = false;
         ServerSocket server = new ServerSocket(port);
-
+         // thread que inicia o servidor 
         Thread servidor = new Thread(() -> {
             while (true) {
-                // Servidor fica a espera de um cliente
+                // Servidor fica a espera de um cliente, .
+                
                 if (nClientes <= 4) {
                     try {
                         System.out.println("[SERVER]Esperando por ligação");
@@ -52,14 +53,14 @@ public class Server {
 
                         ClientHandler ch = new ClientHandler("Cliente " + nClientes, in, out, client);
                         Thread t = new Thread(ch);
-
+                        //Os clientes são adicionados ao servidor
                         System.out.println("[SERVER]Cliente " + nClientes + " adicionado ");
                         listaClientes.add(ch);
 
                         out.writeUTF("Sucesso a Conectar o Cliente " + nClientes + " \n");
                         // define a posição do jogador
                         out.writeUTF("#SetPlayer" + nClientes);
-
+                      
                         t.start();
 
                         nClientes++;
@@ -68,7 +69,7 @@ public class Server {
                         Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
-
+                     //Atingiu o número de 4 clientes e por isso o jogo é iniciado
                     gameover = false;
                     String resources = "###RESOURCES";
                     for (Player p : listPlayers) {
@@ -125,24 +126,24 @@ public class Server {
                  server.close();*/
             }
         });
-
+         //os jogadores são inicializados, com o mesmo numero de recursos)
         Player p1 = new Player(0, 1, 2, 4, 4, 2, 0, false, false);
         Player p2 = new Player(0, 2, 2, 4, 4, 2, 0, false, false);
         Player p3 = new Player(0, 3, 2, 4, 4, 2, 0, false, false);
         Player p4 = new Player(0, 4, 2, 4, 4, 2, 0, false, false);
-
+        //Jogadores são adicionados à lista de jogadores
         listPlayers.add(p1);
         listPlayers.add(p2);
         listPlayers.add(p3);
         listPlayers.add(p4);
-
+   
         servidor.start();
-
+        // Thread que inicia o jogo
         Thread jogo;
         jogo = new Thread(() -> {
 
             while (!gameover) {
-
+                     // Os dados são lançados. sempre que inicia a ronda de um dos 4 jogadores
                 for (i = 1; i <= listPlayers.size();) {
                     if (!dadosLancados) {
                         chosenTile = dice.throwDice(2);
@@ -154,7 +155,8 @@ public class Server {
                             }
                         }
                         System.out.println(chosenTile);
-
+                        // são atribuidos recursos aos jogadores que tenham settlements/cities no Hexagono
+                        // com o valor dado pelos dados, a não ser que calhe no deserto (7)
                         if (chosenTile != 7) {
                             for (Hexagon hex : board.getTiles()) {
                                 if (chosenTile == hex.getNum()) {
@@ -178,6 +180,7 @@ public class Server {
                     biggestArmy();
 
                 }
+                // fim do jogo
                 if (isGameOver()) {
                     gameover = true;
                 }
@@ -306,7 +309,7 @@ public class Server {
                         };
 
                         if (msg != null) {
-
+                                // È enviado um Whisper (mensagem) a um jogador especifico
                             for (ClientHandler client : Server.listaClientes) {
                                 if (client.name.equals(receivingClient) && client.logged) {
                                     client.out.writeUTF("Whisper from " + name + ": " + msg);
@@ -413,8 +416,10 @@ public class Server {
     private static boolean isGameOver() {
 
         for (Player p : listPlayers) {
+            // adiciona pontuação por cada Settlement
             p.addScore(p.getListSettlements().size());
             System.out.println(p.getId());
+            // adiciona pontuação por cada City
             p.addScore(p.getListCities().size() * 2);
 
             /*
@@ -428,6 +433,8 @@ public class Server {
 
              p.addScore(p.devCardsPoints());
              */
+            // Determina que se algum jogador atinge 10 pontos, o jogo termina e esse jogador
+            // é declarado vencedor.
             if (p.getScore() >= 10) {
                 System.out.println("VENCEDOR É" + p.getId());
                 System.out.println("Com ESTES PONTOS" + p.getScore());
@@ -493,7 +500,11 @@ public class Server {
             }
         }
     }
-
+        /**
+         * Método que define as coordenadas de um vértice
+         * @param s Parametro que representa a string de um vetor (v1, v2... até v54
+         * @return retorna um dos vértices
+         */
     public static Vector3 defineVertices(String s) {
         switch (s) {
             case "v1":
